@@ -23,6 +23,11 @@ description: "Terminos clave del toolkit: mercado, finanzas, legal MX y metodolo
 - **Punto de equilibrio:** unidades o ingresos donde utilidad = 0.
 - **EBITDA / flujo de caja:** utilidad operativa antes de intereses/impuestos/depreciacion; efectivo real generado.
 - **Sensibilidad:** como cambian VAN/TIR si varian precio, costo o volumen.
+- **Markup:** % que sumas sobre el costo. 50% de markup es 33.3% de margen.
+- **Margen:** % del precio que apartas como utilidad. No es lo mismo que markup.
+- **Prorrateo:** repartir un costo fijo del mes (renta, luz) entre tus unidades u horas. Si lo pagas vendas o no, se prorratea.
+- **Merma:** lo que se pierde o sale mal en cocina o fabricacion. Va en % del subtotal de insumos.
+- **CETES:** Certificados de la Tesoreria; la inversion mas segura en MX y la tasa base para descontar tu flujo en el paso 6.
 
 ## Legal MX (detalle en `05-marco-legal-MX.md`)
 
@@ -38,6 +43,8 @@ description: "Terminos clave del toolkit: mercado, finanzas, legal MX y metodolo
 - **Cap table:** tabla de capitalizacion (quien posee que %).
 - **LOI / term sheet:** carta de intencion / hoja de terminos de inversion.
 - **LGSM, CFF, LSS, LFMN, LFPI, LFT:** leyes mexicanas aplicables (sociedades, fiscal, seguro social, metrologia, propiedad industrial, trabajo).
+- **RESICO:** Regimen Simplificado de Confianza; paga ISR con tasa oficial baja (1% a 2.5%) sobre lo cobrado sin IVA, no sobre la utilidad.
+- **ISR:** impuesto sobre la renta. En actividad empresarial va sobre la utilidad, nunca sobre el ingreso.
 
 ## Metodologia
 
@@ -46,3 +53,4 @@ description: "Terminos clave del toolkit: mercado, finanzas, legal MX y metodolo
 - **Go/No-Go:** decision documentada de ejecutar, ajustar o descartar.
 - **Due diligence:** verificacion de documentos antes de invertir o comprar.
 - **SCIAN:** clasificador de actividades en MX (equivale al CIIU colombiano citado en las guias base).
+- **Ficha de idea:** tu idea en 5 lineas (problema, cliente, que vendes). Se valida con 5 a 10 clientes antes del estudio completo.
