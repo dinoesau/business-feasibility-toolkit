@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  lang="es"
+  title="Paso 1: escribe tu idea en una ficha — Business Feasibility Toolkit"
+  description="Convierte tu idea en una ficha de 5 lineas con ejemplo de vending de impresiones. Luego habla con 5 a 10 posibles clientes."
+>
+  <CalcPage
+    lang="es"
+    step={1}
+    stepName="Escribe tu idea"
+    lede="Convierte tu corazonada en una ficha de 5 lineas que puedas validar esta semana."
+    prevHref={`${base}es/`}
+    prevLabel="Mi ruta"
+    nextHref={`${base}es/calculadoras/tam-sam-som/`}
+    nextLabel="Paso 2: tu mercado"
+  >
+    <div class="rts-panel">
+      <h2>Tu ficha en 5 lineas</h2>
+      <p>Copia estas 5 frases y completalas con tus palabras. Si alguna te cuesta, ahi esta tu primer hueco.</p>
+      <ol>
+        <li><strong>Problema:</strong> ¿quien sufre que, cuando y donde?</li>
+        <li><strong>Cliente:</strong> ¿quien paga? Nombra lugar y momento, no "todo el mundo".</li>
+        <li><strong>Que vendes:</strong> ¿que entregas y a que precio por pieza?</li>
+        <li><strong>Como lo resuelven hoy:</strong> ¿donde van ahora y cuanto pagan?</li>
+        <li><strong>Tu diferencia:</strong> ¿por que te elegirian a ti?</li>
+      </ol>
+    </div>
+
+    <div class="rts-result">
+      <h2>Ejemplo lleno: vending de impresiones</h2>
+      <p>Con tu idea, asi se ve una ficha lista para validar.</p>
+      <div class="rts-row"><span>Problema</span><strong style="font-size:1rem">Estudiantes y familiares necesitan imprimir en B/N fuera de horario. Papelerias cerradas o con fila.</strong></div>
+      <div class="rts-row"><span>Cliente</span><strong style="font-size:1rem">Estudiantes de la escuela y personal y visitas del hospital de al lado.</strong></div>
+      <div class="rts-row"><span>Que vendes</span><strong style="font-size:1rem">Hoja monocarta B/N en vending 24/7, al lado de la entrada.</strong></div>
+      <div class="rts-row"><span>Hoy van a</span><strong style="font-size:1rem">Papeleria de la esquina y ciber de enfrente. Pagan por hoja y por tiempo.</strong></div>
+      <div class="rts-row"><span>Diferencia</span><strong style="font-size:1rem">Al lado, abierta 24h, sin fila, precio por hoja a la vista.</strong></div>
+      <p style="margin-top:1rem">Ahora haz lo mismo con la tuya. Una frase por linea basta.</p>
+    </div>
+
+    <div class="rts-panel">
+      <h2>Valida con 5 a 10 personas</h2>
+      <p>No preguntes "¿te gusta?". Pregunta esto afuera de la escuela y del hospital:</p>
+      <ol>
+        <li>¿Donde imprimiste la ultima vez y cuanto pagaste?</li>
+        <li>¿Que te molesto: horario, fila, precio o distancia?</li>
+        <li>Si hubiera una maquina aqui 24h a este precio, ¿la usarias esta semana?</li>
+      </ol>
+      <p>Anota las 3 objeciones que mas se repitan. Esas mandan en el paso 4 de precio.</p>
+    </div>
+
+    <div class="rts-panel">
+      <h2>Lista para marcar listo</h2>
+      <p>Marca el paso 1 cuando tengas:</p>
+      <ul>
+        <li>Ficha de 5 lineas escrita con tu idea.</li>
+        <li>5 a 10 platicas anotadas con lugar y precio que pagan hoy.</li>
+        <li>Top 3 objeciones por escrito.</li>
+      </ul>
+      <p class="rts-papel"><strong>Papel que llena:</strong> ficha de idea. La usaras en el estudio de mercado del paso 2.</p>
+    </div>
+  </CalcPage>
+</BaseLayout>

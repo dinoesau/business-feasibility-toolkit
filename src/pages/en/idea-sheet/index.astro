@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  lang="en"
+  title="Step 1: write your idea on one sheet — Business Feasibility Toolkit"
+  description="Turn your idea into a 5-line sheet with a print-vending example. Then talk to 5 to 10 possible customers."
+>
+  <CalcPage
+    lang="en"
+    step={1}
+    stepName="Write your idea"
+    lede="Turn your hunch into a 5-line sheet you can test this week."
+    prevHref={`${base}en/`}
+    prevLabel="My route"
+    nextHref={`${base}en/calculators/tam-sam-som/`}
+    nextLabel="Step 2: your market"
+  >
+    <div class="rts-panel">
+      <h2>Your sheet in 5 lines</h2>
+      <p>Copy these 5 lines and finish them in your words. If one is hard, that is your first gap.</p>
+      <ol>
+        <li><strong>Problem:</strong> who suffers what, when, where?</li>
+        <li><strong>Customer:</strong> who pays? Name place and moment, not "everyone".</li>
+        <li><strong>What you sell:</strong> what you deliver and at what price per unit?</li>
+        <li><strong>How they solve it today:</strong> where do they go now and what do they pay?</li>
+        <li><strong>Your edge:</strong> why would they pick you?</li>
+      </ol>
+    </div>
+
+    <div class="rts-result">
+      <h2>Filled example: print vending</h2>
+      <p>With a print-vending idea next to a school and a hospital, a ready sheet looks like this.</p>
+      <div class="rts-row"><span>Problem</span><strong style="font-size:1rem">Students and visitors need B/W prints off-hours. Copy shops closed or with lines.</strong></div>
+      <div class="rts-row"><span>Customer</span><strong style="font-size:1rem">Students of the school plus hospital staff and visitors next door.</strong></div>
+      <div class="rts-row"><span>What you sell</span><strong style="font-size:1rem">B/W letter page in a 24/7 vending machine by the entrance.</strong></div>
+      <div class="rts-row"><span>Today they go to</span><strong style="font-size:1rem">Corner copy shop and cyber across the street. They pay per page and time.</strong></div>
+      <div class="rts-row"><span>Edge</span><strong style="font-size:1rem">Next door, open 24h, no line, price per page on display.</strong></div>
+      <p style="margin-top:1rem">Now do the same with yours. One line each is enough.</p>
+    </div>
+
+    <div class="rts-panel">
+      <h2>Test with 5 to 10 people</h2>
+      <p>Do not ask "do you like it?". Ask this outside the school and the hospital:</p>
+      <ol>
+        <li>Where did you print last time and what did you pay?</li>
+        <li>What hurt: hours, line, price or distance?</li>
+        <li>If a machine were here 24h at this price, would you use it this week?</li>
+      </ol>
+      <p>Write the 3 objections you hear most. They drive step 4 pricing.</p>
+    </div>
+
+    <div class="rts-panel">
+      <h2>Ready to mark done</h2>
+      <p>Mark step 1 when you have:</p>
+      <ul>
+        <li>5-line sheet written with your idea.</li>
+        <li>5 to 10 talks noted with place and price they pay today.</li>
+        <li>Top 3 objections written down.</li>
+      </ul>
+      <p class="rts-papel"><strong>Fills:</strong> idea sheet. You will use it in the step 2 market study.</p>
+    </div>
+  </CalcPage>
+</BaseLayout>
