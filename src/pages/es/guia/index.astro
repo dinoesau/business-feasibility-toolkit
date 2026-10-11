@@ -1,7 +1,39 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import type { MarkdownInstance } from "astro";
 
-const base = import.meta.env.BASE_URL;
+interface GuiaPasoFrontmatter {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+type GuiaPaso = MarkdownInstance<GuiaPasoFrontmatter>;
+
+interface EntradaPaso {
+  slug: string;
+  titulo: string;
+  descripcion: string;
+}
+
+function slugDeRuta(ruta: string): string {
+  const partes: string[] = ruta.split("/");
+  const archivo: string = partes[partes.length - 1] ?? "";
+  return archivo.replace(/\.md$/, "");
+}
+
+function esGuiaPaso(slug: string): boolean {
+  return /^(paso|step)-\d+-.+$/.test(slug);
+}
+
+function numeroPaso(slug: string): number {
+  const coincidencia: RegExpExecArray | null = /(\d+)/.exec(slug);
+  const digitos: string | undefined = coincidencia?.[1];
+  if (digitos === undefined) return Number.POSITIVE_INFINITY;
+  return Number.parseInt(digitos, 10);
+}
+
+const base: string = import.meta.env.BASE_URL;
 const docs = [
   { slug: "conceptos-viabilidad-vs-factibilidad", name: "01 · Viabilidad vs. factibilidad", desc: "Definiciones, los 6 tipos y cuando usar cada documento." },
   { slug: "metodologia-6-estudios", name: "02 · Metodologia de los 6 estudios", desc: "Mercado, tecnico, organizacional, legal, financiero y ambiental." },
@@ -9,6 +41,27 @@ const docs = [
   { slug: "glosario", name: "04 · Glosario", desc: "Terminos de mercado, finanzas, legal MX y metodologia." },
   { slug: "marco-legal-mx", name: "05 · Marco legal MX", desc: "SAS, RFC, IMSS, licencias, NOMs, IMPI, REPSE y pacto de socios." },
 ];
+
+// HU1: Ruta paso a paso. Descubrimiento dinamico: lista solo las guias
+// que ya existen (el build pasa con cero, algunas o todas creadas).
+const guias: Record<string, GuiaPaso> = import.meta.glob<GuiaPaso>(
+  "../../../content/guias-paso/*.md",
+  { eager: true },
+);
+const pasos: EntradaPaso[] = Object.keys(guias)
+  .map((ruta: string): EntradaPaso | undefined => {
+    const modulo: GuiaPaso | undefined = guias[ruta];
+    if (modulo === undefined) return undefined;
+    const slug: string = slugDeRuta(ruta);
+    if (!esGuiaPaso(slug)) return undefined;
+    return {
+      slug,
+      titulo: modulo.frontmatter.title ?? slug,
+      descripcion: modulo.frontmatter.description ?? "",
+    };
+  })
+  .filter((entrada: EntradaPaso | undefined): entrada is EntradaPaso => entrada !== undefined)
+  .sort((a: EntradaPaso, b: EntradaPaso): number => numeroPaso(a.slug) - numeroPaso(b.slug));
 ---
 
 <BaseLayout title="Guia — Business Feasibility Toolkit" description="Indice de la guia en español: conceptos, metodologia, uso rapido, glosario y marco legal MX." lang="es">
@@ -19,5 +72,16 @@ const docs = [
       <li><a href={`${base}es/guia/${d.slug}/`}><strong>{d.name}</strong></a> — {d.desc}</li>
     ))}
   </ul>
+  <h2>Ruta paso a paso</h2>
+  <p>De tu ficha a tu decision en 10 guias, cada una con su calculadora.</p>
+  {pasos.length === 0 ? (
+    <p>Las guias paso a paso estan en camino: vuelve pronto.</p>
+  ) : (
+    <ol>
+      {pasos.map((p) => (
+        <li><a href={`${base}es/guia/paso/${p.slug}/`}><strong>{p.titulo}</strong></a>{p.descripcion === "" ? null : ` — ${p.descripcion}`}</li>
+      ))}
+    </ol>
+  )}
   <p class="legal-note">Validez legal solo Mexico. Esto no es asesoria legal.</p>
 </BaseLayout>

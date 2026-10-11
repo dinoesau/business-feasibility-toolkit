@@ -2,6 +2,21 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const base = import.meta.env.BASE_URL;
+
+// HU1: single table of step-guide slugs (contract with HU4-HU13).
+// Cards reference it by index; no repeated magic strings.
+const GUIDES_STEP = [
+  "step-1-sheet",
+  "step-2-market",
+  "step-3-cost",
+  "step-4-pricing",
+  "step-5-breakeven",
+  "step-6-cash",
+  "step-7-customers",
+  "step-8-risk",
+  "step-9-legal",
+  "step-10-decision",
+] as const;
 ---
 
 <BaseLayout
@@ -40,16 +55,16 @@ const base = import.meta.env.BASE_URL;
     <h2 class="rts-section-h">The 10 steps, in order</h2>
     <p class="rts-sub">Do them in order. Each one fills part of your documents. There are two points where you can stop and save if numbers do not close.</p>
     <ol class="rts-steps" id="steps">
-      <li data-step="1"><div class="rts-step-card"><p class="rts-step-n">Step 1</p><h3>Write your idea</h3><p>Turn it into a 5-line sheet. See a vending example and what to ask.</p><p class="rts-papel"><strong>Fills:</strong> idea sheet.</p><p class="rts-links"><a href={`${base}en/idea-sheet/`}>Fill my sheet →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="2"><div class="rts-step-card"><p class="rts-step-n">Step 2</p><h3>Size your market</h3><p>Calculate TAM, SAM and SOM with a vending example. Free data sources included.</p><p class="rts-papel"><strong>Fills:</strong> market study.</p><p class="rts-links"><a href={`${base}en/calculators/tam-sam-som/`}>Calculator →</a> <a href={`${base}en/guide/six-studies-methodology/`}>Step 2 guide →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="3"><div class="rts-step-card"><p class="rts-step-n">Step 3</p><h3>Find your cost</h3><p>What each unit truly costs. Get 3 supplier quotes.</p><p class="rts-papel"><strong>Fills:</strong> technical study and costs.</p><p class="rts-links"><a href={`${base}en/calculators/product-cost/`}>Calculator →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="4"><div class="rts-step-card"><p class="rts-step-n">Step 4</p><h3>Set your price</h3><p>Covers costs, leaves profit, people pay it. Check 5 to 10 rivals.</p><p class="rts-papel"><strong>Fills:</strong> sales plan.</p><p class="rts-links"><a href={`${base}en/calculators/pricing/`}>Calculator →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="5"><div class="rts-step-card"><p class="rts-step-n">Step 5 · Early exit</p><h3>Break-even</h3><p>Units a month to stop losing.</p><p class="rts-exit">Compare with your market from step 2. If it needs more buyers than exist, it fails. Stop here.</p><p class="rts-papel"><strong>Fills:</strong> operations and finance.</p><p class="rts-links"><a href={`${base}en/calculators/break-even/`}>Do it now →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="6"><div class="rts-step-card"><p class="rts-step-n">Step 6</p><h3>Your cash</h3><p>What you need to start and whether it pays back.</p><p class="rts-papel"><strong>Fills:</strong> financial study.</p><p class="rts-links"><a href={`${base}en/calculators/cash-flow/`}>Cash flow →</a> <a href={`${base}en/calculators/npv-irr/`}>NPV/IRR →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="7"><div class="rts-step-card"><p class="rts-step-n">Step 7</p><h3>Each customer</h3><p>Each one should bring at least 3 times what they cost.</p><p class="rts-papel"><strong>Fills:</strong> sales and scenarios.</p><p class="rts-links"><a href={`${base}en/calculators/cac-ltv/`}>Calculator →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="8"><div class="rts-step-card"><p class="rts-step-n">Step 8 · Early exit</p><h3>Move the numbers</h3><p>Costs up 20% or fewer sales.</p><p class="rts-exit">If the plan cannot survive a 20% bad case, do not go on. Adjust or stop here.</p><p class="rts-papel"><strong>Fills:</strong> risks.</p><p class="rts-links"><a href={`${base}en/calculators/sensitivity/`}>Calculator →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="9"><div class="rts-step-card"><p class="rts-step-n">Step 9</p><h3>Legal check</h3><p>Taxes, trademark, permits. One session with an accountant.</p><p class="rts-papel"><strong>Fills:</strong> legal study and partners.</p><p class="rts-links"><a href={`${base}en/guide/`}>Guide →</a></p><button type="button">Mark done</button></div></li>
-      <li data-step="10"><div class="rts-step-card"><p class="rts-step-n">Step 10</p><h3>Decide: go or no</h3><p>With written numbers, not excitement. If go, write your papers.</p><p class="rts-papel"><strong>Fills:</strong> Go / No-Go decision.</p><p class="rts-links"><a href={`${base}en/templates/`}>Templates →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="1"><div class="rts-step-card"><p class="rts-step-n">Step 1</p><h3>Write your idea</h3><p>Turn it into a 5-line sheet. See a vending example and what to ask.</p><p class="rts-papel"><strong>Fills:</strong> idea sheet.</p><p class="rts-links"><a href={`${base}en/idea-sheet/`}>Fill my sheet →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[0]}/`}>Step 1 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="2"><div class="rts-step-card"><p class="rts-step-n">Step 2</p><h3>Size your market</h3><p>Calculate TAM, SAM and SOM with a vending example. Free data sources included.</p><p class="rts-papel"><strong>Fills:</strong> market study.</p><p class="rts-links"><a href={`${base}en/calculators/tam-sam-som/`}>Calculator →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[1]}/`}>Step 2 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="3"><div class="rts-step-card"><p class="rts-step-n">Step 3</p><h3>Find your cost</h3><p>Per unit, per hour or per recipe. Pick your method and find your number.</p><p class="rts-papel"><strong>Fills:</strong> technical study and costs.</p><p class="rts-links"><a href={`${base}en/calculators/product-cost/`}>Calculator →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[2]}/`}>Step 3 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="4"><div class="rts-step-card"><p class="rts-step-n">Step 4</p><h3>Set your price</h3><p>Covers costs, leaves profit, people pay it. Check 5 to 10 rivals.</p><p class="rts-papel"><strong>Fills:</strong> sales plan.</p><p class="rts-links"><a href={`${base}en/calculators/pricing/`}>Calculator →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[3]}/`}>Step 4 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="5"><div class="rts-step-card"><p class="rts-step-n">Step 5 · Early exit</p><h3>Break-even</h3><p>Units a month to stop losing.</p><p class="rts-exit">Compare with your market from step 2. If it needs more buyers than exist, it fails. Stop here.</p><p class="rts-papel"><strong>Fills:</strong> operations and finance.</p><p class="rts-links"><a href={`${base}en/calculators/break-even/`}>Do it now →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[4]}/`}>Step 5 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="6"><div class="rts-step-card"><p class="rts-step-n">Step 6</p><h3>Your cash</h3><p>What you need to start and whether it pays back.</p><p class="rts-papel"><strong>Fills:</strong> financial study.</p><p class="rts-links"><a href={`${base}en/calculators/cash-flow/`}>Cash flow →</a> <a href={`${base}en/calculators/npv-irr/`}>NPV/IRR →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[5]}/`}>Step 6 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="7"><div class="rts-step-card"><p class="rts-step-n">Step 7</p><h3>Each customer</h3><p>Each one should bring at least 3 times what they cost.</p><p class="rts-papel"><strong>Fills:</strong> sales and scenarios.</p><p class="rts-links"><a href={`${base}en/calculators/cac-ltv/`}>Calculator →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[6]}/`}>Step 7 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="8"><div class="rts-step-card"><p class="rts-step-n">Step 8 · Early exit</p><h3>Move the numbers</h3><p>Costs up 20% or fewer sales.</p><p class="rts-exit">If the plan cannot survive a 20% bad case, do not go on. Adjust or stop here.</p><p class="rts-papel"><strong>Fills:</strong> risks.</p><p class="rts-links"><a href={`${base}en/calculators/sensitivity/`}>Calculator →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[7]}/`}>Step 8 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="9"><div class="rts-step-card"><p class="rts-step-n">Step 9</p><h3>Legal check</h3><p>Taxes, trademark, permits. One session with an accountant.</p><p class="rts-papel"><strong>Fills:</strong> legal study and partners.</p><p class="rts-links"><a href={`${base}en/guide/step/${GUIDES_STEP[8]}/`}>Step 9 guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="10"><div class="rts-step-card"><p class="rts-step-n">Step 10</p><h3>Decide: go or no</h3><p>With written numbers, not excitement. If go, write your papers.</p><p class="rts-papel"><strong>Fills:</strong> Go / No-Go decision.</p><p class="rts-links"><a href={`${base}en/templates/`}>Templates →</a> <a href={`${base}en/guide/step/${GUIDES_STEP[9]}/`}>Step 10 guide →</a></p><button type="button">Mark done</button></div></li>
     </ol>
   </section>
 

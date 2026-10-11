@@ -1,7 +1,39 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import type { MarkdownInstance } from "astro";
 
-const base = import.meta.env.BASE_URL;
+interface GuideStepFrontmatter {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+type GuideStep = MarkdownInstance<GuideStepFrontmatter>;
+
+interface StepEntry {
+  slug: string;
+  title: string;
+  description: string;
+}
+
+function slugFromPath(path: string): string {
+  const parts: string[] = path.split("/");
+  const file: string = parts[parts.length - 1] ?? "";
+  return file.replace(/\.md$/, "");
+}
+
+function isGuideStep(slug: string): boolean {
+  return /^(paso|step)-\d+-.+$/.test(slug);
+}
+
+function stepNumber(slug: string): number {
+  const match: RegExpExecArray | null = /(\d+)/.exec(slug);
+  const digits: string | undefined = match?.[1];
+  if (digits === undefined) return Number.POSITIVE_INFINITY;
+  return Number.parseInt(digits, 10);
+}
+
+const base: string = import.meta.env.BASE_URL;
 const docs = [
   { slug: "concepts-viability-vs-feasibility", name: "01 · Viability vs. feasibility", desc: "Definitions, the six types, and when to use each document." },
   { slug: "six-studies-methodology", name: "02 · Six-studies methodology", desc: "Market, technical, organizational, legal, financial, environmental." },
@@ -9,6 +41,27 @@ const docs = [
   { slug: "glossary", name: "04 · Glossary", desc: "Market, finance, MX legal, and methodology terms." },
   { slug: "legal-framework-mx", name: "05 · Legal framework MX", desc: "SAS, RFC, IMSS, licenses, NOMs, IMPI, REPSE, founders' agreement." },
 ];
+
+// HU1: Step-by-step path. Dynamic discovery: lists only the guides that
+// already exist (the build passes with zero, some, or all of them created).
+const guides: Record<string, GuideStep> = import.meta.glob<GuideStep>(
+  "../../../content/guides-step/*.md",
+  { eager: true },
+);
+const steps: StepEntry[] = Object.keys(guides)
+  .map((path: string): StepEntry | undefined => {
+    const module: GuideStep | undefined = guides[path];
+    if (module === undefined) return undefined;
+    const slug: string = slugFromPath(path);
+    if (!isGuideStep(slug)) return undefined;
+    return {
+      slug,
+      title: module.frontmatter.title ?? slug,
+      description: module.frontmatter.description ?? "",
+    };
+  })
+  .filter((entry: StepEntry | undefined): entry is StepEntry => entry !== undefined)
+  .sort((a: StepEntry, b: StepEntry): number => stepNumber(a.slug) - stepNumber(b.slug));
 ---
 
 <BaseLayout title="Guide — Business Feasibility Toolkit" description="English guide index: concepts, methodology, quickstart, glossary, and MX legal framework." lang="en">
@@ -19,5 +72,16 @@ const docs = [
       <li><a href={`${base}en/guide/${d.slug}/`}><strong>{d.name}</strong></a> — {d.desc}</li>
     ))}
   </ul>
+  <h2>Step-by-step path</h2>
+  <p>From your sheet to your decision in 10 guides, each with its calculator.</p>
+  {steps.length === 0 ? (
+    <p>The step-by-step guides are on their way: check back soon.</p>
+  ) : (
+    <ol>
+      {steps.map((s) => (
+        <li><a href={`${base}en/guide/step/${s.slug}/`}><strong>{s.title}</strong></a>{s.description === "" ? null : ` — ${s.description}`}</li>
+      ))}
+    </ol>
+  )}
   <p class="legal-note">Legal validity: Mexico only. This is not legal advice.</p>
 </BaseLayout>

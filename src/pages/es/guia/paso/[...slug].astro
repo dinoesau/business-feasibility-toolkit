@@ -1,0 +1,93 @@
+---
+import BaseLayout from "../../../../layouts/BaseLayout.astro";
+import type { MarkdownInstance } from "astro";
+
+// HU1 (Epica 1): cableado de las 10 guias paso a paso (ES).
+// Descubrimiento dinamico con import.meta.glob, sucesor documentado de
+// Astro.glob (removido en Astro v6): el build pasa con cero, algunas o
+// todas las guias creadas. Sin mapas hardcodeados de slugs.
+// PLANTILLA.md se excluye con el filtro esGuiaPaso.
+
+interface GuiaPasoFrontmatter {
+  title?: string;
+  description?: string;
+  lang?: string;
+}
+
+type GuiaPaso = MarkdownInstance<GuiaPasoFrontmatter>;
+
+function slugDeRuta(ruta: string): string {
+  const partes: string[] = ruta.split("/");
+  const archivo: string = partes[partes.length - 1] ?? "";
+  return archivo.replace(/\.md$/, "");
+}
+
+function esGuiaPaso(slug: string): boolean {
+  return /^(paso|step)-\d+-.+$/.test(slug);
+}
+
+function numeroPaso(slug: string): number {
+  const coincidencia: RegExpExecArray | null = /(\d+)/.exec(slug);
+  const digitos: string | undefined = coincidencia?.[1];
+  if (digitos === undefined) return Number.POSITIVE_INFINITY;
+  return Number.parseInt(digitos, 10);
+}
+
+export function getStaticPaths(): { params: { slug: string } }[] {
+  // Autocontenido a proposito: Astro extrae getStaticPaths a otro modulo
+  // en el build, asi que no puede referenciar helpers del frontmatter.
+  const modulos: Record<string, unknown> = import.meta.glob(
+    "../../../../content/guias-paso/*.md",
+  );
+  const slugs: string[] = [];
+  for (const ruta of Object.keys(modulos)) {
+    const partes: string[] = ruta.split("/");
+    const archivo: string = partes[partes.length - 1] ?? "";
+    const slug: string = archivo.replace(/\.md$/, "");
+    if (/^(paso|step)-\d+-.+$/.test(slug)) slugs.push(slug);
+  }
+  return slugs.map((slug: string) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const guias: Record<string, GuiaPaso> = import.meta.glob<GuiaPaso>(
+  "../../../../content/guias-paso/*.md",
+  { eager: true },
+);
+const hallada: [string, GuiaPaso] | undefined = Object.entries(guias).find(
+  ([ruta]: [string, GuiaPaso]) => slugDeRuta(ruta) === slug,
+);
+if (hallada === undefined) throw new Error(`Guia paso ES no encontrada: ${slug}`);
+const guia: GuiaPaso = hallada[1];
+const { Content } = guia;
+const titulo: string = guia.frontmatter.title ?? slug ?? "Guia paso a paso";
+const descripcion: string = guia.frontmatter.description ?? titulo;
+
+// Contraparte EN por numero de paso, sin tabla hardcodeada.
+// Si la contraparte aun no existe, se omite el enlace (antifragil).
+const guiasEn: Record<string, GuiaPaso> = import.meta.glob<GuiaPaso>(
+  "../../../../content/guides-step/*.md",
+  { eager: true },
+);
+const pasoActual: number =
+  slug === undefined ? Number.POSITIVE_INFINITY : numeroPaso(slug);
+let slugEn: string | undefined;
+if (Number.isFinite(pasoActual)) {
+  for (const ruta of Object.keys(guiasEn)) {
+    const candidato: string = slugDeRuta(ruta);
+    if (esGuiaPaso(candidato) && numeroPaso(candidato) === pasoActual) {
+      slugEn = candidato;
+      break;
+    }
+  }
+}
+const base: string = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={`${titulo} — Business Feasibility Toolkit`} description={descripcion} lang="es">
+  <p><a href={`${base}es/guia/`}>← Guia</a>{slugEn === undefined ? null : <span> · <a href={`${base}en/guide/step/${slugEn}/`}>English version →</a></span>}</p>
+  <article class="doc">
+    <Content />
+  </article>
+  <p class="legal-note">Validez legal solo Mexico. Esto no es asesoria legal.</p>
+</BaseLayout>
