@@ -9,18 +9,61 @@ const base = import.meta.env.BASE_URL;
 <BaseLayout
   lang="es"
   title="Paso 2: mide tu mercado — Calculadoras"
-  description="Cuantos podrian comprarte, a cuantos llegas y cuantos ganas."
+  description="Calcula TAM, SAM y SOM con ejemplo de vending de impresiones. Datos gratis en INEGI y conteo a mano."
 >
   <CalcPage
     lang="es"
     step={2}
     stepName="Mide tu mercado"
-    lede="Cuantos podrian comprarte, a cuantos puedes llegar y cuantos puedes ganar."
+    lede="Cuantos podrian comprarte, a cuantos llegas y cuantos ganas. Con tu vending como ejemplo."
     prevHref={`${base}es/ficha/`}
     prevLabel="Paso 1: tu ficha"
     nextHref={`${base}es/calculadoras/costo-producto/`}
     nextLabel="Paso 3: tu costo"
   >
+    <div class="rts-panel">
+      <h2>Que es cada uno, con tu vending</h2>
+      <p>Una formula para los tres: <strong>mercado = personas x hojas por persona al año x precio por hoja</strong>.</p>
+      <ul>
+        <li><strong>TAM:</strong> todos los que imprimen en tu ciudad. Para ubicarte, no para venderles a todos.</li>
+        <li><strong>SAM:</strong> los que pasan por tu cuadra: matricula de la escuela + personal y visitas del hospital.</li>
+        <li><strong>SOM:</strong> los que si te compran a ti en tu maquina. Esto se calcula de abajo hacia arriba.</li>
+      </ul>
+    </div>
+
+    <div class="rts-panel">
+      <h2>Como saco cada numero</h2>
+      <ol>
+        <li><strong>Personas:</strong> pide la matricula en la escuela y el personal en el hospital. Cuenta a la hora pico quien pasa frente a tu local. Apunta el numero.</li>
+        <li><strong>Hojas por persona:</strong> usa tus 5 a 10 platicas del paso 1. Pregunta cuantas hojas imprimen al mes. Multiplica por 12.</li>
+        <li><strong>Precio por hoja:</strong> anota cuanto pagan hoy en la papeleria y el ciber de enfrente. Ese es tu ticket.</li>
+        <li><strong>TAM en $:</strong> personas de la ciudad x hojas x precio. Mete ese $ en la calculadora de abajo.</li>
+        <li><strong>SAM en %:</strong> que parte del TAM pasa por tu cuadra. Si tu cuadra tiene 3,000 de 20,000, es 15%.</li>
+        <li><strong>SOM de abajo hacia arriba:</strong> hojas que tu maquina puede vender al dia x dias al año x precio. Compara con el % que pusiste. Si no se parecen, ajusta el %.</li>
+      </ol>
+      <p>Donde buscarlo gratis: INEGI DENUE para contar papelerias en tu zona, Google Trends para ver si "imprimir" sube o baja, y conteo a mano de competidores en tu calle.</p>
+    </div>
+
+    <div class="rts-result">
+      <h2>Ejemplo lleno: tu vending</h2>
+      <p>Numeros de ejemplo. Cambia por los tuyos.</p>
+      <div class="rts-row"><span>TAM</span><strong style="font-size:1rem">20,000 personas x 48 hojas x $1.50 = $1,440,000 al año</strong></div>
+      <div class="rts-row"><span>SAM 15%</span><strong style="font-size:1rem">3,000 de tu cuadra x 48 x $1.50 = $216,000</strong></div>
+      <div class="rts-row"><span>SOM</span><strong style="font-size:1rem">80 hojas al dia x 300 dias x $1.50 = $36,000 al año</strong></div>
+      <p style="margin-top:1rem">En la calculadora mete TAM = 1,440,000, SAM = 15, SOM = 17. El SOM de abajo hacia arriba manda: si tu maquina no da 80 hojas al dia, baja el %.</p>
+    </div>
+
     <TamSamSomCalc lang="es" currency="MXN" client:load />
+
+    <div class="rts-panel">
+      <h2>Lista para marcar listo</h2>
+      <ul>
+        <li>TAM en $ con personas, hojas y precio anotados.</li>
+        <li>SAM con % que pasa por tu cuadra.</li>
+        <li>SOM verificado de abajo hacia arriba con hojas al dia.</li>
+        <li>Competidores contados a mano en tu calle.</li>
+      </ul>
+      <p class="rts-papel"><strong>Papel que llena:</strong> estudio de mercado. El SOM alimenta el paso 5 de equilibrio.</p>
+    </div>
   </CalcPage>
 </BaseLayout>

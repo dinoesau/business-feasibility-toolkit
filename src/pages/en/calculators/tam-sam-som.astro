@@ -9,18 +9,61 @@ const base = import.meta.env.BASE_URL;
 <BaseLayout
   lang="en"
   title="Step 2: size your market — Calculators"
-  description="How many could buy, how many you reach, how many you win."
+  description="Calculate TAM, SAM and SOM with a print-vending example. Free data and a street count."
 >
   <CalcPage
     lang="en"
     step={2}
     stepName="Size your market"
-    lede="How many could buy from you, how many you can reach, how many you can win."
+    lede="How many could buy, how many you reach, how many you win. With your vending as example."
     prevHref={`${base}en/idea-sheet/`}
     prevLabel="Step 1: your sheet"
     nextHref={`${base}en/calculators/product-cost/`}
     nextLabel="Step 3: your cost"
   >
+    <div class="rts-panel">
+      <h2>What each one is, with your vending</h2>
+      <p>One formula for all three: <strong>market = people x pages per person per year x price per page</strong>.</p>
+      <ul>
+        <li><strong>TAM:</strong> everyone who prints in your city. To locate yourself, not to sell to all.</li>
+        <li><strong>SAM:</strong> those who walk by your block: school enrollment plus hospital staff and visitors.</li>
+        <li><strong>SOM:</strong> those who actually buy from your machine. This is bottom-up.</li>
+      </ul>
+    </div>
+
+    <div class="rts-panel">
+      <h2>How to get each number</h2>
+      <ol>
+        <li><strong>People:</strong> ask enrollment at the school and staff at the hospital. Count foot traffic at peak hour. Write it down.</li>
+        <li><strong>Pages per person:</strong> use your 5 to 10 talks from step 1. Ask how many pages they print a month. Times 12.</li>
+        <li><strong>Price per page:</strong> note what they pay today at the copy shop across the street. That is your ticket.</li>
+        <li><strong>TAM in $:</strong> city people x pages x price. Put that $ in the calculator below.</li>
+        <li><strong>SAM in %:</strong> which share walks by your block. If your block has 3,000 of 20,000, it is 15%.</li>
+        <li><strong>Bottom-up SOM:</strong> pages your machine can sell a day x days a year x price. Compare with the % you set. If they differ, fix the %.</li>
+      </ol>
+      <p>Free sources: business directories for rival copy shops, search trends for demand, plus your street count.</p>
+    </div>
+
+    <div class="rts-result">
+      <h2>Filled example: your vending</h2>
+      <p>Example numbers. Replace with yours.</p>
+      <div class="rts-row"><span>TAM</span><strong style="font-size:1rem">20,000 people x 48 pages x $1.50 = $1,440,000 a year</strong></div>
+      <div class="rts-row"><span>SAM 15%</span><strong style="font-size:1rem">3,000 on your block x 48 x $1.50 = $216,000</strong></div>
+      <div class="rts-row"><span>SOM</span><strong style="font-size:1rem">80 pages a day x 300 days x $1.50 = $36,000 a year</strong></div>
+      <p style="margin-top:1rem">In the calculator set TAM = 1,440,000, SAM = 15, SOM = 17. Bottom-up SOM rules: if your machine cannot do 80 pages a day, lower the %.</p>
+    </div>
+
     <TamSamSomCalc lang="en" currency="USD" client:load />
+
+    <div class="rts-panel">
+      <h2>Ready to mark done</h2>
+      <ul>
+        <li>TAM in $ with people, pages and price noted.</li>
+        <li>SAM with % that walks by your block.</li>
+        <li>SOM checked bottom-up with pages a day.</li>
+        <li>Rivals counted by hand on your street.</li>
+      </ul>
+      <p class="rts-papel"><strong>Fills:</strong> market study. SOM feeds step 5 break-even.</p>
+    </div>
   </CalcPage>
 </BaseLayout>
