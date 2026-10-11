@@ -1,0 +1,107 @@
+{
+  "meta": {
+    "nombre": "Cafeteria de barrio - Zona Metropolitana de Guadalajara",
+    "moneda": "MXN",
+    "pais": "MX",
+    "fechaInputs": "2026-10-11",
+    "version": "1.0.0",
+    "fuentePrecios": "Sondeo local cafeterias 2025-2026 + INEGI DENUE (trazable, ver README)",
+    "notaWorker2": "Si existe src/lib, este JSON es el golden input para tests. Cada valor en resultados-esperados.md deriva de aqui con formula explicita. No hay numeros magicos."
+  },
+  "mercado": {
+    "tam": {
+      "personas": 25000000,
+      "ocasionesPorPersonaAnio": 150,
+      "ticketPromedio": 60,
+      "descripcion": "Personas 18-45 urbanas que consumen cafe fuera de casa en MX"
+    },
+    "sam": {
+      "personas": 1200000,
+      "ocasionesPorPersonaAnio": 150,
+      "ticketPromedio": 60,
+      "descripcion": "Segmento ZMG alcanzable por cafeterias independientes"
+    },
+    "som": {
+      "ticketsPorDia": 180,
+      "diasOperacionAnio": 312,
+      "ticketPromedio": 85,
+      "descripcion": "Bottom-up: una sola cafeteria a capacidad realista"
+    }
+  },
+  "operacion": {
+    "precioPromedio": 85,
+    "costoVariableUnitario": 30,
+    "desgloseCostoVariable": {
+      "insumos": 22,
+      "empaque": 4,
+      "comisiones": 4
+    },
+    "costosFijosMensuales": {
+      "renta": 25000,
+      "nomina": 45000,
+      "servicios": 8000,
+      "marketing": 5000,
+      "otros": 7000
+    },
+    "diasOperacionMes": 30,
+    "nota": "Costo fijo total mensual = 90000. Ver calculo de equilibrio en resultados-esperados.md."
+  },
+  "inversion": {
+    "montoTotal": 650000,
+    "desglose": {
+      "adecuacionLocal": 350000,
+      "equipo": 200000,
+      "capitalTrabajo": 100000
+    },
+    "tasaDescuentoAnual": 0.12,
+    "notaTasa": "CETES ~9% + prima riesgo 3%. Tasa nominal MXN.",
+    "horizonteAnios": 3,
+    "valorRescateAnio3": 150000,
+    "supuestoFiscal": "Sin ISR en caso base para legibilidad didactica. Worker 2 debe agregar variante con ISR 30% como test adicional."
+  },
+  "ventasAnuales": {
+    "anio1": 1920000,
+    "anio2": 2520000,
+    "anio3": 3000000,
+    "nota": "Promedios mensuales 160k / 210k / 250k. Detalle mensual en ventasMensuales36."
+  },
+  "inflacionCostosFijos": 0.05,
+  "ventasMensuales36": [
+    130000, 136000, 142000, 148000, 154000, 160000,
+    163000, 166000, 169000, 172000, 185000, 195000,
+    195000, 198000, 201000, 204000, 207000, 210000,
+    212000, 214000, 216000, 218000, 222000, 223000,
+    235000, 238000, 240000, 243000, 245000, 248000,
+    250000, 252000, 254000, 256000, 268000, 271000
+  ],
+  "costoFijoMensual36": [
+    90000, 90000, 90000, 90000, 90000, 90000,
+    90000, 90000, 90000, 90000, 90000, 90000,
+    94500, 94500, 94500, 94500, 94500, 94500,
+    94500, 94500, 94500, 94500, 94500, 94500,
+    99225, 99225, 99225, 99225, 99225, 99225,
+    99225, 99225, 99225, 99225, 99225, 99225
+  ],
+  "menu": [
+    { "item": "Espresso", "precio": 40, "costo": 12, "nota": "Costo cafe + vaso" },
+    { "item": "Americano", "precio": 45, "costo": 13, "nota": "Costo cafe + agua + vaso" },
+    { "item": "Latte", "precio": 55, "costo": 19, "nota": "Leche 12 + cafe 5 + vaso 2" },
+    { "item": "Capuchino", "precio": 55, "costo": 19, "nota": "Igual latte" },
+    { "item": "Mocha", "precio": 65, "costo": 24, "nota": "Latte + chocolate 5" },
+    { "item": "Pan dulce", "precio": 35, "costo": 12, "nota": "Compra a panaderia 12, vende 35" },
+    { "item": "Sandwich", "precio": 75, "costo": 30, "nota": "Insumos 28 + empaque 2" },
+    { "item": "Paquete desayuno (latte + sandwich)", "precio": 99, "costo": 44, "nota": "Bundle: 19 + 30 - descuento implicito, redondeo psicologico .99" }
+  ],
+  "marketing": {
+    "gastoMensual": 5000,
+    "clientesNuevosPorMes": 150,
+    "visitasPorClientePorMes": 4,
+    "mesesPermanenciaPromedio": 14,
+    "nota": "Gasto = linea marketing de costos fijos. Permanencia 14 meses por encuesta local."
+  },
+  "escenarios": {
+    "pesimistaFactorVentas": 0.8,
+    "optimistaFactorVentas": 1.2,
+    "nota": "Factor aplica solo a ventas. Costos fijos y tasa sin cambio. CV escala proporcional."
+  }
+}

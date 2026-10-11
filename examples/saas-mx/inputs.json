@@ -1,0 +1,38 @@
+{
+  "meta": {
+    "nombre": "SaaS MX skeleton - Facturacion para pymes",
+    "moneda": "MXN",
+    "pais": "MX",
+    "fechaInputs": "2026-10-11",
+    "version": "0.1.0-skeleton",
+    "nota": "Skeleton intencional. Worker 2 + worker de lib deben completar formulas y golden values siguiendo el patron de examples/cafeteria-mx. Nada aqui es numero magico: cada campo es input declarado."
+  },
+  "mrr": {
+    "clientesIniciales": 100,
+    "arpaMensual": 499,
+    "mrrInicial": 49900,
+    "nota": "mrrInicial = 100 * 499. Verificar en test."
+  },
+  "retencion": {
+    "churnLogoMensual": 0.05,
+    "churnRevenueMensual": 0.04,
+    "expansionMensual": 0.02,
+    "nrrMensual": 0.98,
+    "nota": "nrr = 1 - churnRevenue + expansion = 1 - 0.04 + 0.02 = 0.98"
+  },
+  "unitEconomics": {
+    "margenBruto": 0.8,
+    "cac": 800,
+    "notaLTV": "LTV = ARPA * margen / churnRevenue. Con 499*0.8/0.04 = 9,980. LTV/CAC = 12.475. Payback = 800/(499*0.8) = 2.0 meses. Worker 2: fijar estos esperados tras implementar."
+  },
+  "crecimiento": {
+    "clientesNuevosPorMes": 12,
+    "horizonteMeses": 12,
+    "nota": "Modelo simple: nuevos constantes, churn geometrico. Dejar tabla 12m para resultados-esperados.md."
+  },
+  "escenarios": {
+    "pesimistaChurnRevenue": 0.06,
+    "optimistaChurnRevenue": 0.025,
+    "nota": "Recalcular LTV y MRR a 12m en cada escenario."
+  }
+}
