@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Punto de equilibrio — Propuesta A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topnav"><nav class="wrap nav">
+<a class="brand" href="index.html"><span class="spike">✳</span> Feasibility Toolkit</a>
+<div class="navlinks"><a href="index.html#calculadoras">Calculadoras</a><a class="btn" href="calculadora.html">Empezar</a></div>
+</nav></header>
+<main class="wrap">
+<p><a class="textlink" href="index.html#calculadoras">← Calculadoras</a></p>
+<h1>Punto de equilibrio</h1>
+<p class="lede">Cuantas piezas debes vender al mes para no perder. Solo 3 numeros.</p>
+<div class="calc-grid">
+<section class="panel" aria-label="Entradas">
+<h2>Tus numeros</h2>
+<label for="f-cf">Costos fijos al mes ($)<input id="f-cf" inputmode="decimal" value="60000" autocomplete="off"><span class="err" id="e-cf"></span></label>
+<label for="f-p">Precio por pieza ($)<input id="f-p" inputmode="decimal" value="70" autocomplete="off"><span class="err" id="e-p"></span></label>
+<label for="f-cv">Costo variable por pieza ($)<input id="f-cv" inputmode="decimal" value="28" autocomplete="off"><span class="err" id="e-cv"></span></label>
+</section>
+<section class="results-dark" aria-label="Resultados" aria-live="polite">
+<h2>Tu resultado</h2>
+<div class="row big"><span>Piezas al mes</span><strong id="r-q">—</strong></div>
+<div class="row"><span>Ventas al mes</span><strong id="r-v">$—</strong></div>
+<div class="row"><span>Margen por pieza</span><strong id="r-m">$—</strong></div>
+<div class="bars" id="bars" hidden>
+<div class="bar" id="b-cf"><i></i><b>Fijos</b></div>
+<div class="bar" id="b-cv"><i></i><b>Variables</b></div>
+<div class="bar" id="b-v"><i></i><b>Ventas</b></div>
+</div>
+</section>
+</div>
+<div class="actions">
+<button class="btn btn-secondary" id="btn-csv" type="button">Descargar CSV</button>
+<button class="btn btn-secondary" id="btn-print" type="button">Imprimir / PDF</button>
+</div>
+</main>
+<footer><div class="wrap foot">
+<p><span class="spike">✳</span> Business Feasibility Toolkit — propuesta A.</p>
+<p><a href="../">Ver las tres propuestas</a></p>
+</div></footer>
+<script src="app.js"></script>
+</body>
+</html>

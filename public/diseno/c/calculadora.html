@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Paso 5: tu equilibrio — Propuesta C</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topnav"><nav class="wrap nav">
+<a class="brand" href="index.html"><span class="spike">✳</span> Mi ruta</a>
+<div class="navlinks"><span class="mono" id="nav-progress">0 de 10</span></div>
+</nav></header>
+<main class="wrap">
+<div class="stepbar"><span class="pill">Paso 5 de 10</span><span class="mono-sm">Halla tu equilibrio</span></div>
+<h1>Cuantas piezas para no perder</h1>
+<p class="lede">Si este numero pide mas clientes de los que existen (tu paso 2), la idea no cierra.</p>
+<div class="calc-grid">
+<section class="panel" aria-label="Entradas">
+<h2>Tus numeros</h2>
+<label for="f-cf">Costos fijos al mes ($)<input id="f-cf" inputmode="decimal" value="60000" autocomplete="off"><span class="err" id="e-cf"></span></label>
+<label for="f-p">Precio por pieza ($)<input id="f-p" inputmode="decimal" value="70" autocomplete="off"><span class="err" id="e-p"></span></label>
+<label for="f-cv">Costo variable por pieza ($)<input id="f-cv" inputmode="decimal" value="28" autocomplete="off"><span class="err" id="e-cv"></span></label>
+</section>
+<section class="result-featured" aria-label="Resultados" aria-live="polite">
+<h2>Tu numero clave</h2>
+<div class="row big"><span>Piezas al mes</span><strong id="r-q">—</strong></div>
+<div class="row"><span>Ventas al mes</span><strong id="r-v">$—</strong></div>
+<div class="row"><span>Margen por pieza</span><strong id="r-m">$—</strong></div>
+<p style="margin-top:16px"><button class="btn" id="btn-done" type="button">Marcar paso 5 listo</button></p>
+</section>
+</div>
+<div class="pager">
+<a href="index.html">← Volver a mi ruta</a>
+<a href="../../es/calculadoras/flujo-caja/">Siguiente: paso 6 →</a>
+</div>
+<div class="actions">
+<button class="btn btn-secondary" id="btn-csv" type="button">Descargar CSV</button>
+<button class="btn btn-secondary" id="btn-print" type="button">Imprimir / PDF</button>
+</div>
+</main>
+<footer><div class="wrap foot">
+<p><span class="spike">✳</span> Business Feasibility Toolkit — propuesta C.</p>
+<p><a href="../">Ver las tres propuestas</a></p>
+</div></footer>
+<script src="app.js"></script>
+</body>
+</html>

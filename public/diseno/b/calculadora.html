@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>punto-equilibrio — Propuesta B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topnav"><nav class="wrap nav">
+<a class="brand" href="index.html"><span class="dot"></span> feasibility<span class="toolkit">/toolkit</span></a>
+<div class="navlinks"><a href="index.html#calculadoras">calculadoras</a><a class="btn" href="calculadora.html">empezar_</a></div>
+</nav></header>
+<main class="wrap">
+<section class="band" style="padding-top:48px">
+<p><a href="index.html#calculadoras" style="color:var(--primary);font-family:monospace;font-size:13px;text-decoration:none">← calculadoras/</a></p>
+<h2>$ ./punto-equilibrio</h2>
+<p style="color:var(--on-dark-soft)">Piezas al mes para no perder. Tres entradas, una salida.</p>
+<div class="term">
+<div class="term-bar"><span></span><span></span><span></span><em>input</em></div>
+<div class="in-row">
+<div><label for="f-cf">fijos_mes $</label><input id="f-cf" inputmode="decimal" value="60000" autocomplete="off"><span class="err" id="e-cf"></span></div>
+<div><label for="f-p">precio_pieza $</label><input id="f-p" inputmode="decimal" value="70" autocomplete="off"><span class="err" id="e-p"></span></div>
+<div><label for="f-cv">costo_pieza $</label><input id="f-cv" inputmode="decimal" value="28" autocomplete="off"><span class="err" id="e-cv"></span></div>
+</div>
+</div>
+<div class="out" aria-live="polite">
+<pre id="out">q* = —
+ventas = —
+margen = —</pre>
+<div class="line"><i id="fill"></i></div>
+</div>
+<div class="actions">
+<button class="btn btn-ghost" id="btn-csv" type="button">csv↓</button>
+<button class="btn btn-ghost" id="btn-print" type="button">print</button>
+</div>
+</section>
+</main>
+<footer><div class="wrap foot">
+<p>feasibility/toolkit — propuesta B.</p>
+<p><a href="../">ver_las_tres</a></p>
+</div></footer>
+<script src="app.js"></script>
+</body>
+</html>
