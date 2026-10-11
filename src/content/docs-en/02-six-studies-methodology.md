@@ -52,6 +52,22 @@ Sales table in units and value per year, same figure you will use in plan, summa
 - Operations plan: shifts, labor, critical inputs.
 - Gantt schedule: build, testing, go-live.
 
+### How to find your true cost: examples per trade
+
+Pick your method in the step 3 calculator. Pieces go per unit, time goes per hour, food and making go per recipe.
+
+**Example A. Per unit (shop or workshop).**
+Direct $150 + $15 = $165. Monthly overhead split $70. Total cost $235. At 50% markup the base is $352.50 and with VAT $408.90. If it lands above today's price: more volume, lower cost or better price.
+
+**Example B. Per hour (trades and freelance).**
+Target pay $20,000 + bills $5,000 = $25,000 across 100 billable hours = $250 an hour. Note: the hours you charge, not the 160 in the month. At 30% margin the base is $357.14.
+
+**Example C. Per recipe (food).**
+Flour, eggs and milk add $65. Shrinkage 10% = $6.50. Total $71.50 across 10 servings = $7.15 a serving. That number feeds the per-unit method as an input if you sell the packed dish.
+
+**What you keep.**
+Cost table with each input and its source (supplier and date). No zeros by forgetfulness: shrinkage and wear always carry a number. That table feeds pricing, break-even and cash flow.
+
 ## Study 3 - Organizational
 
 - Org chart with roles and responsibilities.

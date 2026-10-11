@@ -170,6 +170,104 @@ export function calcularCostoProducto(
   };
 }
 
+/** Monto fijo en dinero o porcentaje sobre una base. */
+export type ModoMonto = "fijo" | "pct";
+
+/** Una linea de costo que se escribe en $ o en % (0 a 100). */
+export interface LineaCosto {
+  readonly monto: number;
+  readonly modo: ModoMonto;
+}
+
+/** Directos donde solo la merma acepta % (sobre la suma de los otros directos). */
+export interface DirectosFlex {
+  readonly materiaPrima: number;
+  readonly empaque: number;
+  readonly manoObra: number;
+  readonly envioInsumos: number;
+  readonly merma: LineaCosto;
+}
+
+/** Todos los indirectos aceptan % (sobre el subtotal de directos ya resuelto). */
+export type IndirectosFlex = { readonly [K in keyof CostosIndirectos]: LineaCosto };
+
+function validarPct(campo: string, n: unknown): number {
+  const v = unwrap(parseNonNegative(campo, n));
+  if (v > 100) throw new Error(`${campo} debe estar entre 0 y 100 (%), recibido: ${n}`);
+  return v;
+}
+
+/** Resuelve una linea a dinero: % de la base o monto fijo. */
+export function resolverLinea(campo: string, linea: LineaCosto, base: number): Money {
+  const b = unwrap(parseNonNegative("base", base));
+  if (linea.modo !== "fijo" && linea.modo !== "pct")
+    throw new Error(`modo debe ser "fijo" o "pct", recibido: ${String(linea.modo)}`);
+  if (linea.modo === "pct") return toMoney((b * validarPct(campo, linea.monto)) / 100);
+  return toMoney(unwrap(parseNonNegative(campo, linea.monto)));
+}
+
+/** Resuelve los directos: la merma en % se calcula sobre los otros directos. */
+export function resolverDirectos(raw: DirectosFlex): { directos: CostosDirectos; baseMerma: Money } {
+  const fijos = {
+    materiaPrima: unwrap(parseNonNegative("materiaPrima", raw.materiaPrima)),
+    empaque: unwrap(parseNonNegative("empaque", raw.empaque)),
+    manoObra: unwrap(parseNonNegative("manoObra", raw.manoObra)),
+    envioInsumos: unwrap(parseNonNegative("envioInsumos", raw.envioInsumos)),
+  };
+  const baseMerma = toMoney(fijos.materiaPrima + fijos.empaque + fijos.manoObra + fijos.envioInsumos);
+  const mermas = resolverLinea("mermas", raw.merma, baseMerma);
+  return { directos: { ...fijos, mermas }, baseMerma };
+}
+
+/** Resuelve los indirectos: cada % se calcula sobre el subtotal de directos. */
+export function resolverIndirectos(raw: IndirectosFlex, baseDirectos: number): CostosIndirectos {
+  const b = unwrap(parseNonNegative("baseDirectos", baseDirectos));
+  const out: Record<string, number> = {};
+  for (const k of ["renta", "servicios", "software", "marketing", "administracion", "desgasteEquipo"] as const) {
+    out[k] = resolverLinea(k, raw[k], b);
+  }
+  return out as unknown as CostosIndirectos;
+}
+
+/** Costo por hora de servicio: sueldo meta + gastos del mes entre horas facturables. */
+export function calcularCostoHora(sueldoMensual: number, gastosFijos: number, horasFacturables: number): Money {
+  const sueldo = unwrap(parseNonNegative("sueldoMensual", sueldoMensual));
+  const gastos = unwrap(parseNonNegative("gastosFijos", gastosFijos));
+  const horas = unwrap(parseNonNegative("horasFacturables", horasFacturables));
+  if (horas <= 0) throw new Error("horasFacturables debe ser mayor que cero");
+  return toMoney((sueldo + gastos) / horas);
+}
+
+/** Un renglon de receta: cantidad usada por precio unitario. */
+export interface InsumoReceta {
+  readonly cantidad: number;
+  readonly precioUnitario: number;
+}
+
+export interface ResultadoReceta {
+  readonly subtotal: Money;
+  readonly merma: Money;
+  readonly total: Money;
+  /** Costo por pieza o porcion que rinde la receta. */
+  readonly costoPorUnidad: Money;
+}
+
+/** Costea una receta: suma insumos, aplica merma % y divide entre lo que rinde. */
+export function calcularReceta(insumos: ReadonlyArray<InsumoReceta>, mermaPct: number, unidadesRinde: number): ResultadoReceta {
+  if (insumos.length === 0) throw new Error("la receta necesita al menos un insumo");
+  let subtotal = 0;
+  for (const ins of insumos) {
+    const cant = unwrap(parseNonNegative("cantidad", ins.cantidad));
+    const precio = unwrap(parseNonNegative("precioUnitario", ins.precioUnitario));
+    subtotal += cant * precio;
+  }
+  const merma = toMoney((subtotal * validarPct("mermaPct", mermaPct)) / 100);
+  const total = toMoney(subtotal + merma);
+  const unidades = unwrap(parseNonNegative("unidadesRinde", unidadesRinde));
+  if (unidades <= 0) throw new Error("unidadesRinde debe ser mayor que cero");
+  return { subtotal: toMoney(subtotal), merma, total, costoPorUnidad: toMoney(total / unidades) };
+}
+
 /** Valida sin lanzar: util para puentes hacia la UI. */
 export function intentarCostoProducto(
   directos: CostosDirectos,

@@ -9,18 +9,66 @@ const base = import.meta.env.BASE_URL;
 <BaseLayout
   lang="en"
   title="Step 3: find your cost — Calculators"
-  description="What each unit truly costs, all included."
+  description="What your unit, hour or recipe truly costs, all included. Three methods."
 >
   <CalcPage
     lang="en"
     step={3}
     stepName="Find your cost"
-    lede="What each unit truly costs, all included, not just materials."
+    lede="What each unit, hour or recipe truly costs, all included."
     prevHref={`${base}en/calculators/tam-sam-som/`}
     prevLabel="Step 2: your market"
     nextHref={`${base}en/calculators/pricing/`}
     nextLabel="Step 4: your price"
   >
+    <div class="rts-panel">
+      <h2>What true cost is</h2>
+      <p>What each sale eats, with nothing forgotten. Pick your method at the top of the calculator:</p>
+      <ul>
+        <li><strong>Per unit:</strong> you sell pieces (shop, vending, workshop). Direct costs + your month split across units.</li>
+        <li><strong>Per hour:</strong> you sell time (trades, freelance, consulting). Pay + monthly bills across billable hours.</li>
+        <li><strong>Per recipe:</strong> you cook or make. Input list with amount and price, plus shrinkage, across the yield.</li>
+      </ul>
+      <p>One rule: if you pay it with or without sales, split it. If it moves with each sale, it is direct.</p>
+    </div>
+
+    <div class="rts-panel">
+      <h2>How to get each number</h2>
+      <ol>
+        <li><strong>Direct costs or inputs:</strong> quote with 3 suppliers. Split the pack by what it yields.</li>
+        <li><strong>Shrinkage:</strong> what gets lost or comes out wrong. It goes in %: 5% of direct costs is a starting point.</li>
+        <li><strong>Monthly overhead:</strong> rent, power, software, accounting. Note each bill and split it across your units or hours. Volume comes from your step 2 SOM.</li>
+        <li><strong>Wear:</strong> equipment price ÷ months of life ÷ monthly units. Never zero by forgetfulness.</li>
+        <li><strong>Hour:</strong> the pay you want + bills, across the hours you bill (not the 160 in the month, the ones you charge).</li>
+      </ol>
+    </div>
+
+    <div class="rts-result">
+      <h2>Example: cost per unit</h2>
+      <p>The calculator opens with this case. Replace with your numbers.</p>
+      <div class="rts-row"><span>Direct</span><strong style="font-size:1rem">$150 + $15 = $165</strong></div>
+      <div class="rts-row"><span>Overhead</span><strong style="font-size:1rem">$20 + $10 + $20 + $5 + $15 = $70</strong></div>
+      <div class="rts-row big"><span>Total cost</span><strong>$235 a unit</strong></div>
+      <p style="margin-top:1rem">At 50% markup the base is $352.50 and with VAT $408.90. If it lands above the price they pay today, you hold 3 levers (more volume, lower cost, better price) and step 4 puts price to the test.</p>
+    </div>
+
     <ProductCostCalc lang="en" currency="USD" client:load />
+
+    <div class="rts-panel">
+      <h2>Full step 3 guide</h2>
+      <p>All three methods with examples per trade, step by step:</p>
+      <p class="rts-links"><a href={`${base}en/guide/step/step-3-cost/`}>Open step 3 guide →</a></p>
+    </div>
+
+    <div class="rts-panel">
+      <h2>Ready to mark done</h2>
+      <ul>
+        <li>Cost per unit, hour or recipe done with your method.</li>
+        <li>Direct costs or inputs with 3 quotes noted.</li>
+        <li>Shrinkage and wear included, not zero by forgetfulness.</li>
+        <li>Total cost compared against the price they pay today.</li>
+      </ul>
+      <p class="rts-papel"><strong>Fills:</strong> technical and cost study. Cost feeds step 4 pricing and step 5 break-even.</p>
+    </div>
   </CalcPage>
 </BaseLayout>

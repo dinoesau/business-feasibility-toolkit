@@ -9,18 +9,66 @@ const base = import.meta.env.BASE_URL;
 <BaseLayout
   lang="es"
   title="Paso 3: saca tu costo — Calculadoras"
-  description="Cuanto cuesta cada pieza con todo incluido: IVA, terminal e ISR."
+  description="Cuanto cuesta tu pieza, tu hora o tu receta, con todo incluido. Tres metodos."
 >
   <CalcPage
     lang="es"
     step={3}
     stepName="Saca tu costo"
-    lede="Cuanto te cuesta cada pieza con todo incluido, no solo el material."
+    lede="Cuanto te cuesta cada pieza, cada hora o cada receta, con todo incluido."
     prevHref={`${base}es/calculadoras/tam-sam-som/`}
     prevLabel="Paso 2: tu mercado"
     nextHref={`${base}es/calculadoras/pricing/`}
     nextLabel="Paso 4: tu precio"
   >
+    <div class="rts-panel">
+      <h2>Que es el costo real</h2>
+      <p>Lo que se va en cada venta, sin olvidar nada. Elige tu metodo arriba en la calculadora:</p>
+      <ul>
+        <li><strong>Por unidad:</strong> vendes piezas (tienda, vending, taller). Directos + tu mes dividido entre tus piezas.</li>
+        <li><strong>Por hora:</strong> vendes tiempo (oficios, freelance, consultoria). Sueldo + gastos del mes entre horas facturables.</li>
+        <li><strong>Por receta:</strong> cocinas o fabricas. Lista de insumos con cantidad y precio, mas merma, entre lo que rinde.</li>
+      </ul>
+      <p>La regla es una: si lo pagas vendas o no, se prorratea. Si se mueve con cada venta, es directo.</p>
+    </div>
+
+    <div class="rts-panel">
+      <h2>Como saco cada numero</h2>
+      <ol>
+        <li><strong>Directos o insumos:</strong> pide precio con 3 proveedores. Divide el paquete entre lo que rinde.</li>
+        <li><strong>Mermas:</strong> lo que se pierde o sale mal. Va en %: 5% de tus directos es un punto de partida.</li>
+        <li><strong>Indirectos del mes:</strong> renta, luz, software, contador. Anota cada gasto y dividelo entre tus piezas u horas. El volumen sale de tu SOM del paso 2.</li>
+        <li><strong>Desgaste:</strong> precio del equipo ÷ meses de vida ÷ piezas al mes. Nunca en cero por olvido.</li>
+        <li><strong>Hora:</strong> sueldo que quieres ganar + gastos, entre horas que si facturas (no las 160 del mes, las que cobras).</li>
+      </ol>
+    </div>
+
+    <div class="rts-result">
+      <h2>Ejemplo: costo por unidad</h2>
+      <p>La calculadora abre con este caso. Cambia por tus numeros.</p>
+      <div class="rts-row"><span>Directos</span><strong style="font-size:1rem">$150 + $15 = $165</strong></div>
+      <div class="rts-row"><span>Indirectos</span><strong style="font-size:1rem">$20 + $10 + $20 + $5 + $15 = $70</strong></div>
+      <div class="rts-row big"><span>Costo total</span><strong>$235 por pieza</strong></div>
+      <p style="margin-top:1rem">Con 50% de markup la base es $352.50 y con IVA $408.90. Si queda arriba del precio que pagan hoy, tienes 3 palancas (mas volumen, menos costo, mejor precio) y el paso 4 pone el precio a prueba.</p>
+    </div>
+
     <ProductCostCalc lang="es" currency="MXN" client:load />
+
+    <div class="rts-panel">
+      <h2>Guia completa del paso 3</h2>
+      <p>Los tres metodos con ejemplos por giro, paso a paso:</p>
+      <p class="rts-links"><a href={`${base}es/guia/paso/paso-3-costo/`}>Abrir guia del paso 3 →</a></p>
+    </div>
+
+    <div class="rts-panel">
+      <h2>Lista para marcar listo</h2>
+      <ul>
+        <li>Costo por pieza, hora o receta calculado con tu metodo.</li>
+        <li>Directos o insumos con 3 cotizaciones anotadas.</li>
+        <li>Merma y desgaste incluidos, no en cero por olvido.</li>
+        <li>Costo total comparado contra el precio que pagan hoy.</li>
+      </ul>
+      <p class="rts-papel"><strong>Papel que llena:</strong> estudio tecnico y costos. El costo alimenta el paso 4 de precio y el paso 5 de equilibrio.</p>
+    </div>
   </CalcPage>
 </BaseLayout>

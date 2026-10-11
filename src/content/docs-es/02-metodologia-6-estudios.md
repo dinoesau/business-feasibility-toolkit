@@ -50,6 +50,22 @@ Tabla de ventas en unidades y valor por año, misma cifra que usaras en el plan,
 - Plan de operacion: turnos, mano de obra, insumos criticos.
 - Cronograma Gantt: construccion, pruebas, puesta en marcha.
 
+### Como sacar tu costo real: ejemplos por giro
+
+Elige tu metodo en la calculadora del paso 3. Si vendes piezas usa por unidad, si vendes tiempo usa por hora, si cocinas o fabricas usa por receta.
+
+**Ejemplo A. Por unidad (tienda o taller).**
+Directos $150 + $15 = $165. Indirectos del mes prorrateados $70. Costo total $235. Con 50% de markup la base es $352.50 y con IVA $408.90. Si queda arriba del precio de hoy: mas volumen, menos costo o mejor precio.
+
+**Ejemplo B. Por hora (oficios y freelance).**
+Sueldo meta $20,000 + gastos $5,000 = $25,000 entre 100 horas facturables = $250 por hora. Ojo: son las horas que cobras, no las 160 del mes. Con 30% de margen la base es $357.14.
+
+**Ejemplo C. Por receta (cocina).**
+Harina, huevo y leche suman $65. Merma 10% = $6.50. Total $71.50 entre 10 porciones = $7.15 por porcion. Ese numero entra al metodo por unidad como insumo si vendes el platillo empaquetado.
+
+**Que guardas.**
+Tabla de costo con cada insumo y su fuente (proveedor y fecha). Sin ceros por olvido: merma y desgaste siempre llevan numero. Esa tabla alimenta precio, equilibrio y flujo.
+
 ## Estudio 3 - Organizacional
 
 - Organigrama con funciones y responsabilidades.
