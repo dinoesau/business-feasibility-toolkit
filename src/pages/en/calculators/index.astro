@@ -8,6 +8,7 @@ const calcs = [
   { slug: 'cac-ltv', name: 'CAC / LTV', desc: 'Is acquisition profitable? Rule ≥ 3.' },
   { slug: 'cash-flow', name: 'Cash flow', desc: 'Month-by-month balance and runway.' },
   { slug: 'sensitivity', name: 'Sensitivity', desc: 'What if price moves ±20%?' },
+  { slug: 'product-cost', name: 'Product cost', desc: 'True cost with VAT, terminal fees and tax.' },
 ];
 ---
 <html lang="en">
@@ -20,7 +21,7 @@ const calcs = [
     <main style="max-width: 1200px; margin: 0 auto; padding: 48px 24px 96px;">
       <p><a href={`${base}es/calculadoras/`} style="color: #cc785c; font-size: 14;">Versión en español →</a></p>
       <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 48px; letter-spacing: -1px; margin: 8px 0;">Feasibility calculators</h1>
-      <p style="color: #3d3d3a; max-width: 720px; line-height: 1.55;">7 tools, max 3 inputs each, instant results. No signup, 100% in your browser.</p>
+      <p style="color: #3d3d3a; max-width: 720px; line-height: 1.55;">8 tools, instant results. No signup, 100% in your browser.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 32px;">
         {calcs.map((c) => (
           <a href={`${base}en/calculators/${c.slug}/`} style="background: #efe9de; border-radius: 12px; padding: 32px; text-decoration: none; color: #141413; display: block;">

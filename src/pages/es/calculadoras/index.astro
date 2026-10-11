@@ -8,6 +8,7 @@ const calcs = [
   { slug: 'cac-ltv', name: 'CAC / LTV', desc: '¿Tu adquisición es rentable? Regla ≥ 3.' },
   { slug: 'flujo-caja', name: 'Flujo de caja', desc: 'Saldo mes a mes y runway.' },
   { slug: 'sensibilidad', name: 'Sensibilidad', desc: 'Qué pasa si el precio varía ±20%.' },
+  { slug: 'costo-producto', name: 'Costo de producto', desc: 'Costo real con IVA, terminal e ISR.' },
 ];
 ---
 <html lang="es">
@@ -20,7 +21,7 @@ const calcs = [
     <main style="max-width: 1200px; margin: 0 auto; padding: 48px 24px 96px;">
       <p><a href={`${base}en/calculators/`} style="color: #cc785c; font-size: 14;">English version →</a></p>
       <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 48px; letter-spacing: -1px; margin: 8px 0;">Calculadoras de factibilidad</h1>
-      <p style="color: #3d3d3a; max-width: 720px; line-height: 1.55;">7 herramientas, 3 entradas máximo cada una, resultado instantáneo. Sin registro, 100% en tu navegador.</p>
+      <p style="color: #3d3d3a; max-width: 720px; line-height: 1.55;">8 herramientas, resultado instantáneo. Sin registro, 100% en tu navegador.</p>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 32px;">
         {calcs.map((c) => (
           <a href={`${base}es/calculadoras/${c.slug}/`} style="background: #efe9de; border-radius: 12px; padding: 32px; text-decoration: none; color: #141413; display: block;">
