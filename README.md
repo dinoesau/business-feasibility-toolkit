@@ -5,47 +5,107 @@ Calculadoras web gratuitas, ejemplos resueltos y plantillas de documentos, todo 
 Sitio en vivo: <https://dinoesau.github.io/business-feasibility-toolkit/>.
 *This toolkit is fully bilingual (ES/EN): every calculator, guide and template exists in both languages.*
 
-## Empieza aqui en 3 pasos
+## Guia paso a paso
 
-1. Abre las [calculadoras en espanol](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/) (o [calculators in English](https://dinoesau.github.io/business-feasibility-toolkit/en/calculators/)) y mete los numeros de tu idea.
-2. Compara tus resultados con el [ejemplo de cafeteria resuelto](examples/cafeteria-mx/) para ver como se ve un caso terminado.
-3. Descarga las [plantillas de documentos](#plantillas-de-documentos) y arma tu estudio de factibilidad y tu plan de negocios.
+Sigue los pasos en orden.
+Cada paso dice que debes investigar, donde investigarlo, que herramienta usar y que documento llena.
+Al final tienes un estudio de factibilidad completo y sabes si avanzas o no.
 
-## Tu ruta de evaluacion
+### Paso 1. Describe tu idea en una ficha
 
-Sigue este orden y no te saltas nada importante.
-Primero calcula si los numeros cierran.
-Despues aprende que debe llevar cada documento.
-Luego copia la estructura del ejemplo.
-Al final redacta tus documentos con las plantillas.
+Objetivo: poner por escrito que problema resuelves, para quien y que vendes.
+Que debes investigar: quien tiene ese problema, como lo resuelve hoy y cuanto paga por resolverlo.
+Donde investigarlo: habla con 5-10 clientes potenciales, observa a la competencia en Google Maps y redes, revisa precios en MercadoLibre o Amazon.
+Herramienta: la [seccion de validacion de mercado](https://dinoesau.github.io/business-feasibility-toolkit/es/guia/) del sitio.
+Documento que llena: ficha de idea y seccion de mercado del estudio de factibilidad.
+
+### Paso 2. Mide tu mercado (TAM / SAM / SOM)
+
+Objetivo: saber cuantas personas podrian comprarte, cuantas puedes atender y cuantas puedes ganar.
+Que debes investigar: poblacion de tu zona, ingreso de tus clientes, numero de negocios similares.
+Donde investigarlo: INEGI (DENUE para negocios por colonia, ENIGH para ingreso de hogares, Censo Economico), Google Trends para interes en el tiempo, conteo directo de competidores en tu zona.
+Herramienta: [calculadora TAM / SAM / SOM](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/tam-sam-som/).
+Documento que llena: estudio de mercado.
+Detalle de que incluir: [`docs/research/03-mercado.md`](docs/research/03-mercado.md).
+
+### Paso 3. Calcula tu costo real por unidad
+
+Objetivo: saber cuanto te cuesta cada unidad con todo incluido, no solo la materia prima.
+Que debes investigar: precio de materia prima con 3 proveedores, empaque, mano de obra, envios y mermas tipicas de tu giro.
+Donde investigarlo: cotiza en Central de Abastos o MercadoLibre, Alibaba para volumen, imprentas locales para empaque, pregunta mermas a alguien que ya opere el giro.
+Herramienta: [calculadora de costo de producto](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/costo-producto/).
+Documento que llena: estudio tecnico y seccion de costos del estudio financiero.
+
+### Paso 4. Fija tu precio
+
+Objetivo: un precio que cubra costos, deje utilidad y el mercado acepte pagar.
+Que debes investigar: precios de 5-10 competidores directos, que incluye cada precio, que valor extra das tu.
+Donde investigarlo: menus y catalogos publicados, Rappi o Uber Eats si es comida, tiendas en linea, pregunta directa a clientes cuanto pagarian.
+Herramienta: [precio por margen](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/pricing/) y [costo de producto](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/costo-producto/) (muestra markup y margen reales).
+Documento que llena: estrategia comercial del plan de negocios.
+
+### Paso 5. Prorratea tus costos fijos y halla el punto de equilibrio
+
+Objetivo: saber cuantas unidades al mes necesitas vender para no perder.
+Que debes investigar: renta de locales parecidos, luz agua internet y gas, software y suscripciones, sueldos con IMSS, contador, desgaste de equipo.
+Donde investigarlo: Inmuebles24 o Vivanuncios para rentas, recibos propios o de conocidos para servicios, OCCMundial o Computrabajo para sueldos, cotiza contador local.
+Herramienta: [punto de equilibrio](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/punto-equilibrio/).
+Documento que llena: estudio tecnico-operativo y estudio financiero.
+Compara tu punto de equilibrio con tu SOM del paso 2: si necesitas mas clientes de los que existen, la idea no cierra.
+
+### Paso 6. Proyecta flujo de caja y evalua la inversion (VPN / TIR)
+
+Objetivo: saber cuanto dinero necesitas para arrancar y si la inversion se recupera.
+Que debes investigar: inversion inicial completa (equipo, adecuaciones, permisos, capital de trabajo de 3 meses), tasa de referencia (CETES en cetesdirecto o Banxico), crecimiento mensual realista de ventas.
+Donde investigarlo: cotizaciones de equipo, presupuestos de adecuacion, [ejemplo de cafeteria](examples/cafeteria-mx/) como referencia de formato, Banxico para tasas.
+Herramienta: [flujo de caja](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/flujo-caja/) y [VPN / TIR](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/vpn-tir/).
+Documento que llena: estudio financiero.
+Detalle de que incluir: [`docs/research/02-financiero.md`](docs/research/02-financiero.md).
+
+### Paso 7. Valida que conseguir clientes sea rentable (CAC / LTV)
+
+Objetivo: confirmar que un cliente deja mas dinero del que cuesta conseguirlo (regla: LTV al menos 3 veces el CAC).
+Que debes investigar: costo de anuncios en tu giro, tasa de recompra, ticket promedio, cuento tiempo se queda un cliente.
+Donde investigarlo: Meta Ad Library para ver que anuncian competidores, Google Keyword Planner para costo por clic, tus propias pruebas con $500-1000 de pauta, encuestas de recompra.
+Herramienta: [CAC / LTV](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/cac-ltv/).
+Documento que llena: estrategia comercial y escenarios del estudio financiero.
+
+### Paso 8. Estresa los numeros (sensibilidad y escenarios)
+
+Objetivo: saber si el negocio sobrevive cuando algo sale mal.
+Que debes investigar: que pasa si sube 20% tu insumo principal, si vendes 20% menos, si bajas el precio para competir.
+Donde investigarlo: historial de precios de tus insumos, temporada baja de tu giro, promociones de competidores.
+Herramienta: [sensibilidad](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/sensibilidad/).
+Documento que llena: analisis de riesgos del estudio de factibilidad.
+
+### Paso 9. Revisa lo legal antes de gastar
+
+Objetivo: saber que permisos, impuestos y registros necesitas y cuanto cuestan.
+Que debes investigar: regimen fiscal (RESICO vs actividad empresarial en el SAT), registro de marca en el IMPI, licencia municipal y uso de suelo, NOMs de tu sector (COFEPRIS si es alimentos o salud), alta en IMSS si tendras empleados.
+Donde investigarlo: sat.gob.mx, gob.mx/impi (buscador MARCANET para ver si tu marca esta libre), presidencia municipal de tu ciudad, Diario Oficial para NOMs, un contador para una sesion de orientacion.
+Herramienta: checklist de [due-diligence societaria](src/content/checklists/due-diligence-societaria.md).
+Documento que llena: estudio legal y pacto de socios.
+Detalle: [`docs/research/06-legal-mx.md`](docs/research/06-legal-mx.md) y la [guia de marco legal](https://dinoesau.github.io/business-feasibility-toolkit/es/guia/).
+
+### Paso 10. Decide: avanza o abandona (go / no-go)
+
+Objetivo: tomar la decision con criterios escritos, no con entusiasmo.
+Que debes investigar: nada nuevo, solo junta los resultados de los pasos 1-9.
+Donde revisarlo: checklist de [go/no-go](src/content/checklists/go-no-go.md) y [prefactibilidad](src/content/checklists/prefactibilidad.md).
+Herramienta: [resumen de tu caso](examples/cafeteria-mx/resultados-esperados.md) como ejemplo de presentacion de resultados.
+Si avanzas, redacta tus documentos con las [plantillas](#plantillas-de-documentos).
 
 ## Tour del repositorio: que hay para ti en cada carpeta
 
 | Carpeta | Que es para ti |
 |---|---|
-| Sitio web (links arriba) | Las 8 calculadoras interactivas, sin registro y sin instalar nada. |
-| [`docs/research/`](docs/research/) | Mini-guias de que debe llevar cada documento: estudio de factibilidad, analisis financiero, mercado, plan de negocios, pitch y marco legal mexicano. Leelas antes de redactar. |
-| [`examples/`](examples/) | Casos resueltos de punta a punta con numeros reales. [`cafeteria-mx/`](examples/cafeteria-mx/) trae supuestos, resultados esperados y flujo de caja a 36 meses para que copies el formato. |
-| [`templates/latex/`](templates/latex/) | Plantillas profesionales de los 4 documentos (codigo fuente LaTeX). Cada una existe en ES y EN. |
-| [`public/plantillas/`](public/plantillas/) | Las mismas plantillas en ZIP listas para subir a Overleaf, mas un PDF de muestra. Si no quieres compilar nada, descarga aqui. |
-| [`src/content/`](src/content/) | Las guias paso a paso y checklists (prefactibilidad, validacion de mercado, go/no-go, due-diligence de socios) que tambien ves publicadas en el sitio. |
-| [`scripts/`](scripts/) | Utilidades internas de verificacion del sitio. No necesitas usarlas para evaluar tu idea. |
-
-## Calculadoras
-
-Todas funcionan en tu navegador, con exportacion a CSV e impresion a PDF.
-Empiezan con valores de ejemplo para que veas como se usan.
-
-| Calculadora | Para responder |
-|---|---|
-| [TAM / SAM / SOM](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/tam-sam-som/) | Que tan grande es mi mercado real. |
-| [Punto de equilibrio](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/punto-equilibrio/) | Cuantas unidades debo vender para no perder. |
-| [VPN / TIR](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/vpn-tir/) | Si la inversion crea valor en el tiempo. |
-| [Precio por margen](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/pricing/) | A que precio vender segun mi costo y margen. |
-| [Costo de producto](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/costo-producto/) | Cual es mi costo real con IVA, terminal e ISR. |
-| [CAC / LTV](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/cac-ltv/) | Si me conviene lo que pago por cada cliente. |
-| [Flujo de caja](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/flujo-caja/) | Mes a mes cuanto efectivo tengo y hasta cuando alcanza. |
-| [Sensibilidad](https://dinoesau.github.io/business-feasibility-toolkit/es/calculadoras/sensibilidad/) | Que pasa si el precio o el costo se mueven. |
+| Sitio web (links de cada paso) | Las 8 calculadoras interactivas, sin registro y sin instalar nada. |
+| [`docs/research/`](docs/research/) | Mini-guias de que debe llevar cada documento: factibilidad, financiero, mercado, plan de negocios, pitch y legal mexicano. |
+| [`examples/`](examples/) | Casos resueltos con numeros reales para copiar el formato. [`cafeteria-mx/`](examples/cafeteria-mx/) trae supuestos, resultados y flujo a 36 meses. |
+| [`templates/latex/`](templates/latex/) | Plantillas profesionales de los 4 documentos, cada una en ES y EN. |
+| [`public/plantillas/`](public/plantillas/) | Las mismas plantillas en ZIP para subir a Overleaf, mas un PDF de muestra. |
+| [`src/content/`](src/content/) | Guias y checklists publicados en el sitio: prefactibilidad, validacion de mercado, go/no-go y due-diligence. |
+| [`scripts/`](scripts/) | Utilidades internas del sitio. No las necesitas para evaluar tu idea. |
 
 ## Plantillas de documentos
 
@@ -54,8 +114,8 @@ La [guia de Overleaf](templates/latex/README-overleaf.md) explica como importar 
 
 | Documento | Cuando usarlo |
 |---|---|
-| Estudio de factibilidad | Para decidir con numeros si el negocio se puede hacer y se puede mantener (mercado, tecnico, legal, financiero y riesgos). |
-| Plan de negocios | Para planear la ejecucion a 3-5 anos cuando ya decidiste avanzar. |
+| Estudio de factibilidad | Para decidir con numeros si el negocio se puede hacer y mantener (pasos 1-9). |
+| Plan de negocios | Para planear la ejecucion a 3-5 anos cuando ya decidiste avanzar (paso 10). |
 | Resumen ejecutivo | Para presentar la idea en 2 paginas a socios o bancos. |
 | Pitch deck | Para exponer en 12 diapositivas ante inversionistas. |
 
