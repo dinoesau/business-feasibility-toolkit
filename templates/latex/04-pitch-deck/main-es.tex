@@ -1,0 +1,124 @@
+% ---------------------------------------------------------------------------
+% 04 — Pitch Deck, 12 slides (ES, beamer). Compilar desde templates/latex:
+%   latexmk -pdf 04-pitch-deck/main-es.tex
+% Estructura: Sequoia (proposito/problema/solucion/por que ahora/mercado/
+% competencia/producto/modelo/equipo/finanzas) + Kawasaki 10/20/30: 10–12
+% slides, fuente grande, una idea por slide. Autocontenido: beamer fija su
+% propia geometria, por eso NO usa ../common/preambulo (ver RESEARCH.md).
+% ---------------------------------------------------------------------------
+\documentclass[aspectratio=169,12pt]{beamer}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+% --- Identidad (ver DESIGN.md): crema + coral + tinta ---
+\definecolor{bftCoral}{HTML}{CC785C}
+\definecolor{bftInk}{HTML}{141413}
+\definecolor{bftCanvas}{HTML}{FAF9F5}
+\setbeamercolor{background canvas}{bg=bftCanvas}
+\setbeamercolor{normal text}{fg=bftInk}
+\setbeamercolor{structure}{fg=bftInk}
+\setbeamercolor{title}{fg=bftInk}
+\setbeamercolor{frametitle}{fg=bftInk}
+\setbeamercolor{block title}{bg=bftCoral,fg=white}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\title{[Nombre de la empresa]}
+\subtitle{[Propuesta de valor en una frase]}
+\author{[Equipo fundador]}
+\date{[Mes, anio]}
+
+\begin{document}
+
+% 1/12 — Titulo
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% 2/12 — Proposito
+\begin{frame}{Propósito}
+  \Large [Declaracion en una frase: que hacemos y para quien.]
+\end{frame}
+
+% 3/12 — Problema
+\begin{frame}{Problema}
+  \begin{itemize}
+    \item [Dolor 1 con cifra y fuente]
+    \item [Dolor 2: como lo resuelven hoy (hojas de calculo, proveedor legacy)]
+  \end{itemize}
+\end{frame}
+
+% 4/12 — Solucion
+\begin{frame}{Solución}
+  [Producto + caso de uso en 2 lineas.] \\[0.5em]
+  Diferenciador: [ventaja unica].
+\end{frame}
+
+% 5/12 — Por que ahora
+\begin{frame}{¿Por qué ahora?}
+  \begin{itemize}
+    \item [Tendencia 1: cambio tecnologico o regulatorio]
+    \item [Tendencia 2: ventana de mercado]
+  \end{itemize}
+\end{frame}
+
+% 6/12 — Mercado
+\begin{frame}{Mercado: TAM / SAM / SOM}
+  \begin{center}
+  \begin{tabular}{lrr}
+    \toprule
+    Nivel & Definicion & Valor (MXN) \\
+    \midrule
+    TAM & Total & [ ] \\
+    SAM & Alcanzable & [ ] \\
+    SOM & Capturable 3 anios & [ ] \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+% 7/12 — Competencia
+\begin{frame}{Competencia}
+  [Rivales clave + nuestras ventajas injustas: IP, efectos de red, costo.]
+\end{frame}
+
+% 8/12 — Producto
+\begin{frame}{Producto}
+  [Funciones clave, arquitectura en una frase, roadmap: MVP → v1 → escala.]
+\end{frame}
+
+% 9/12 — Modelo de negocio
+\begin{frame}{Modelo de negocio}
+  \begin{itemize}
+    \item Ingresos: [suscripcion \$49/usuario/mes]
+    \item Ticket / LTV: [ ] · CAC: [ ]
+    \item Distribucion: [directo / aliados]
+  \end{itemize}
+\end{frame}
+
+% 10/12 — Traccion y go-to-market
+\begin{frame}{Tracción y go-to-market}
+  [Usuarios/ARR piloto, crecimiento MoM, alianzas.] Canales: [canal 1, 2].
+\end{frame}
+
+% 11/12 — Equipo
+\begin{frame}{Equipo}
+  \begin{itemize}
+    \item [Nombre — rol, ex-(empresa), N anios]
+    \item [Nombre — rol, credencial] · Asesores: [ ]
+  \end{itemize}
+\end{frame}
+
+% 12/12 — Finanzas y solicitud
+\begin{frame}{Finanzas y solicitud}
+  \begin{itemize}
+    \item Ingresos 3 anios: [0.5 / 2 / 5] MM · Margen bruto: [X]\%
+    \item Solicitamos: **[monto] MXN** — [40\% producto · 30\% ventas · 30\% operacion]
+    \item Contacto: [email / telefono]
+  \end{itemize}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,124 @@
+% ---------------------------------------------------------------------------
+% 04 — Pitch Deck, 12 slides (EN, beamer). Build from templates/latex:
+%   latexmk -pdf 04-pitch-deck/main-en.tex
+% Structure: Sequoia (purpose/problem/solution/why now/market/competition/
+% product/model/team/financials) + Kawasaki 10/20/30: 10–12 slides, big
+% fonts, one idea per slide. Self-contained: beamer sets its own geometry,
+% so it does NOT use ../common/preambulo (see RESEARCH.md).
+% ---------------------------------------------------------------------------
+\documentclass[aspectratio=169,12pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{booktabs}
+\usepackage{graphicx}
+
+% --- Identity (see DESIGN.md): cream + coral + ink ---
+\definecolor{bftCoral}{HTML}{CC785C}
+\definecolor{bftInk}{HTML}{141413}
+\definecolor{bftCanvas}{HTML}{FAF9F5}
+\setbeamercolor{background canvas}{bg=bftCanvas}
+\setbeamercolor{normal text}{fg=bftInk}
+\setbeamercolor{structure}{fg=bftInk}
+\setbeamercolor{title}{fg=bftInk}
+\setbeamercolor{frametitle}{fg=bftInk}
+\setbeamercolor{block title}{bg=bftCoral,fg=white}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[frame number]
+
+\title{[Company name]}
+\subtitle{[One-sentence value proposition]}
+\author{[Founding team]}
+\date{[Month, year]}
+
+\begin{document}
+
+% 1/12 — Title
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% 2/12 — Purpose
+\begin{frame}{Purpose}
+  \Large [One-sentence statement: what we do and for whom.]
+\end{frame}
+
+% 3/12 — Problem
+\begin{frame}{Problem}
+  \begin{itemize}
+    \item [Pain 1 with figure and source]
+    \item [Pain 2: how they solve it today (spreadsheets, legacy vendor)]
+  \end{itemize}
+\end{frame}
+
+% 4/12 — Solution
+\begin{frame}{Solution}
+  [Product + use case in 2 lines.] \\[0.5em]
+  Differentiator: [unfair advantage].
+\end{frame}
+
+% 5/12 — Why now
+\begin{frame}{Why now?}
+  \begin{itemize}
+    \item [Trend 1: technology or regulatory shift]
+    \item [Trend 2: market window]
+  \end{itemize}
+\end{frame}
+
+% 6/12 — Market
+\begin{frame}{Market: TAM / SAM / SOM}
+  \begin{center}
+  \begin{tabular}{lrr}
+    \toprule
+    Level & Definition & Value (MXN) \\
+    \midrule
+    TAM & Total & [ ] \\
+    SAM & Reachable & [ ] \\
+    SOM & Capturable in 3 years & [ ] \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+% 7/12 — Competition
+\begin{frame}{Competition}
+  [Key rivals + our unfair advantages: IP, network effects, cost.]
+\end{frame}
+
+% 8/12 — Product
+\begin{frame}{Product}
+  [Key features, architecture in one sentence, roadmap: MVP → v1 → scale.]
+\end{frame}
+
+% 9/12 — Business model
+\begin{frame}{Business model}
+  \begin{itemize}
+    \item Revenue: [subscription \$49/user/month]
+    \item Ticket / LTV: [ ] · CAC: [ ]
+    \item Distribution: [direct / partners]
+  \end{itemize}
+\end{frame}
+
+% 10/12 — Traction and go-to-market
+\begin{frame}{Traction and go-to-market}
+  [Pilot users/ARR, MoM growth, partnerships.] Channels: [channel 1, 2].
+\end{frame}
+
+% 11/12 — Team
+\begin{frame}{Team}
+  \begin{itemize}
+    \item [Name — role, ex-(company), N years]
+    \item [Name — role, credential] · Advisors: [ ]
+  \end{itemize}
+\end{frame}
+
+% 12/12 — Financials and ask
+\begin{frame}{Financials and ask}
+  \begin{itemize}
+    \item 3-year revenue: [0.5 / 2 / 5] MM · Gross margin: [X]\%
+    \item Raising: **[amount] MXN** — [40\% product · 30\% sales · 30\% ops]
+    \item Contact: [email / phone]
+  \end{itemize}
+\end{frame}
+
+\end{document}

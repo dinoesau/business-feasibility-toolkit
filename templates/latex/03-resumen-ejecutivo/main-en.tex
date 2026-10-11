@@ -1,0 +1,83 @@
+% ---------------------------------------------------------------------------
+% 03 — Executive Summary, 2 pages (EN). Build from templates/latex:
+%   latexmk -pdf 03-resumen-ejecutivo/main-en.tex
+% Design: page 1 = value narrative; page 2 = figures, ask and close
+% (see RESEARCH.md, SBA + Harvard structure: decision, reason, evidence,
+% action). Do not add sections: the 2-page limit is intentional.
+% ---------------------------------------------------------------------------
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage{../common/preambulo}
+
+\renewcommand{\tituloProyecto}{[Company name]}
+\renewcommand{\subtituloProyecto}{Executive summary — investment ask}
+\renewcommand{\tipoDocumento}{Executive summary}
+\renewcommand{\autorProyecto}{[Founding team — contact]}
+\renewcommand{\fechaProyecto}{[Month, year]}
+\renewcommand{\versionDoc}{v0.1-draft}
+\pagestyle{empty} % no header: every line counts
+
+\begin{document}
+
+\begin{center}
+  {\large\bfseries\tituloProyecto\par}
+  \vspace{2pt}
+  {\small\subtituloProyecto{} · \fechaProyecto\par}
+  {\color{bftCoral}\rule{0.3\textwidth}{1.5pt}\par}
+\end{center}
+
+\subsection*{1. Opening}
+[Company] provides [solution] for [market]; the market grows [X]\% yearly
+and we are raising [amount] for [18-month goal].
+
+\subsection*{2. Problem and opportunity}
+[X]\% of [customers] lose [\$ / hours] to [cause] (source). Serviceable
+market (SOM): [\$] with [N] verified prospects.
+
+\subsection*{3. Solution and value proposition}
+[Product] [value verb: cuts/automates] [metric] by [X]\% versus [current
+alternative]. Differentiator: [proprietary or cost advantage].
+
+\subsection*{4. Business model}
+[Subscription \$49/user/month; implementation services]. Target gross
+margin: [X]\%. Channels: [direct / partners].
+
+\subsection*{5. Market and traction}
+Segment: [10–50-employee retail SMBs]. Traction: [10 pilot customers,
+\$150k ARR, X\% monthly growth].
+
+\subsection*{6. Team}
+[Name — role, ex-(company), N years]; [Name — role, credential].
+Advisors: [name, credential]. Open hire: [role] (plan: [month]).
+
+\subsection*{7. 12–18-month roadmap}
+Q[ ]: MVP and 100 users · Q[ ]: [N] paying customers · Q[ ]: operating
+break-even.
+
+\subsection*{8. Funding ask}
+\begin{center}
+\begin{tabular}{lr}
+  \toprule
+  Destination & \% of ask ([amount] MXN) \\
+  \midrule
+  Product development & [40] \\
+  Marketing and sales & [30] \\
+  Hiring and operations & [30] \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{9. Projections (3 years, rounded)}
+Revenue: [0.5 / 2 / 5] MM; year-3 EBITDA: [15]\%; break-even: Q[ ] of
+year [ ]. Key assumptions: [ticket, churn, CAC].
+
+\subsection*{10. Risks and mitigation}
+Slow adoption — [partnerships with 2 distributors]; competition —
+[proprietary algorithm + annual contracts]; regulatory — [counsel engaged,
+filing underway].
+
+\subsection*{11. Close}
+We request a 30-minute meeting for the full demo and term details.
+Contact: [name, email, phone].
+
+\end{document}

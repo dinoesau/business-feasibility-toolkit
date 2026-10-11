@@ -1,0 +1,28 @@
+% ---------------------------------------------------------------------------
+% portada.tex — portada compartida (article). Se incluye con ruta relativa:
+%   \input{../common/portada}
+% Requiere los metadatos definidos en el main: \tituloProyecto,
+% \subtituloProyecto, \tipoDocumento, \autorProyecto, \fechaProyecto,
+% \versionDoc (ver preambulo.sty; todos tienen valor por defecto seguro).
+% ---------------------------------------------------------------------------
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+  {\color{bftCoral}\rule{\textwidth}{2pt}\par}
+  \vspace{0.8cm}
+  {\large\textsc{\tipoDocumento}\par}
+  \vspace{0.6cm}
+  {\Huge\bfseries\tituloProyecto\par}
+  \vspace{0.5cm}
+  {\large\subtituloProyecto\par}
+  \vspace{1.2cm}
+  {\color{bftCoral}\rule{0.25\textwidth}{2pt}\par}
+  \vspace{1.2cm}
+  {\large\autorProyecto\par}
+  \vspace{0.4cm}
+  {\large\fechaProyecto\par}
+  \vspace{0.4cm}
+  {\small\textsc{\versionDoc}\par}
+  \vfill
+  {\footnotesize Business Feasibility Toolkit\par}
+\end{titlepage}

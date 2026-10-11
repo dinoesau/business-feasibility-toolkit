@@ -1,0 +1,82 @@
+% ---------------------------------------------------------------------------
+% 03 — Resumen Ejecutivo, 2 paginas (ES). Compilar desde templates/latex:
+%   latexmk -pdf 03-resumen-ejecutivo/main-es.tex
+% Disenio: pagina 1 = narrativa de valor; pagina 2 = datos, fondos y cierre
+% (ver RESEARCH.md, estructura SBA + Harvard: decision, razon, evidencia,
+% accion). No agregar secciones: el limite de 2 paginas es intencional.
+% ---------------------------------------------------------------------------
+\documentclass[11pt]{article}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{../common/preambulo}
+
+\renewcommand{\tituloProyecto}{[Nombre de la empresa]}
+\renewcommand{\subtituloProyecto}{Resumen ejecutivo — solicitud de inversion}
+\renewcommand{\tipoDocumento}{Resumen ejecutivo}
+\renewcommand{\autorProyecto}{[Equipo fundador — contacto]}
+\renewcommand{\fechaProyecto}{[Mes, anio]}
+\renewcommand{\versionDoc}{v0.1-borrador}
+\pagestyle{empty} % sin cabecera: cada linea cuenta
+
+\begin{document}
+
+\begin{center}
+  {\large\bfseries\tituloProyecto\par}
+  \vspace{2pt}
+  {\small\subtituloProyecto{} · \fechaProyecto\par}
+  {\color{bftCoral}\rule{0.3\textwidth}{1.5pt}\par}
+\end{center}
+
+\subsection*{1. Apertura}
+[Empresa] ofrece [solucion] para [mercado]; el mercado crece [X]\% anual y
+buscamos [monto] para [objetivo a 18 meses].
+
+\subsection*{2. Problema y oportunidad}
+[X]\% de [clientes] pierde [\$ / horas] por [causa] (fuente). Mercado
+direccionable (SOM): [\$] con [N] clientes potenciales verificados.
+
+\subsection*{3. Solucion y propuesta de valor}
+[Producto] [verbo de valor: reduce/automatiza] [metrica] en [X]\% frente a
+[alternativa actual]. Diferenciador: [ventaja propietaria o de costo].
+
+\subsection*{4. Modelo de negocio}
+[Suscripcion \$49/usuario/mes; servicios de implementacion]. Margen bruto
+objetivo: [X]\%. Canales: [directo / aliados].
+
+\subsection*{5. Mercado y traccion}
+Segmento: [pymes retail de 10–50 empleados]. Traccion: [10 clientes piloto,
+\$150k ARR, crecimiento mensual X\%].
+
+\subsection*{6. Equipo}
+[Nombre — rol, ex-(empresa), N anios]; [Nombre — rol, credencial].
+Asesores: [nombre, credencial]. Falta cubrir: [rol] (plan: [mes]).
+
+\subsection*{7. Roadmap 12–18 meses}
+Q[ ]: MVP y 100 usuarios · Q[ ]: [N] clientes de pago · Q[ ]: punto de
+equilibrio operativo.
+
+\subsection*{8. Financiamiento solicitado}
+\begin{center}
+\begin{tabular}{lr}
+  \toprule
+  Destino & \% del monto ([monto] MXN) \\
+  \midrule
+  Desarrollo & [40] \\
+  Marketing y ventas & [30] \\
+  Contratacion y operacion & [30] \\
+  \bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{9. Proyecciones (3 anios, cifras redondeadas)}
+Ingresos: [0.5 / 2 / 5] MM; EBITDA anio 3: [15]\%; equilibrio: Q[ ] del
+anio [ ]. Supuestos clave: [ticket, churn, CAC].
+
+\subsection*{10. Riesgos y mitigacion}
+Adopcion lenta — [alianzas con 2 distribuidores]; competencia — [algoritmo
+propietario + contratos anuales]; regulatorio — [asesor y tramite en curso].
+
+\subsection*{11. Cierre}
+Solicitamos reunion de 30 minutos para la demo completa y el detalle de
+terminos. Contacto: [nombre, email, telefono].
+
+\end{document}

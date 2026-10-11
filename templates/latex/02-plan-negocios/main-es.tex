@@ -1,0 +1,115 @@
+% ---------------------------------------------------------------------------
+% 02 — Plan de Negocios (ES). Compilar desde templates/latex:
+%   latexmk -pdf 02-plan-negocios/main-es.tex
+% Estructura: sintesis SBA + SCORE + narrativa Sequoia (ver RESEARCH.md).
+% ---------------------------------------------------------------------------
+\documentclass[12pt]{article}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{../common/preambulo}
+
+\renewcommand{\tituloProyecto}{[Nombre de la empresa]}
+\renewcommand{\subtituloProyecto}{Plan de negocios}
+\renewcommand{\tipoDocumento}{Plan de negocios}
+\renewcommand{\autorProyecto}{[Equipo fundador]}
+\renewcommand{\fechaProyecto}{[Mes, anio]}
+\renewcommand{\versionDoc}{v0.1-borrador}
+
+% --- Parametros nombrados (no repetir cifras a mano) ---
+\newcommand{\MontoSolicitado}{[1\,500\,000]}
+\newcommand{\Moneda}{MXN}
+\newcommand{\IngresoAnioTres}{[5\,000\,000]}
+
+\begin{document}
+\input{../common/portada}
+\tableofcontents
+\newpage
+
+\section{Resumen ejecutivo}
+[Mision en una frase, producto, mercado objetivo, monto solicitado de
+\$\MontoSolicitado{} \Moneda{} y titulares financieros. Se escribe al
+final aunque vaya primero.]
+
+\section{Descripcion de la empresa}
+[Razon social, figura juridica (ej. S.A.S. / S. de R.L. de C.V.), sede,
+fecha de fundacion, socios y participaciones, vision de largo plazo.]
+
+\section{Problema y oportunidad}
+[Dolor del cliente con evidencia cuantificada; por que AHORA (tendencia,
+cambio regulatorio o tecnologico que abre la ventana).]
+
+\section{Solucion: productos y servicios}
+[Propuesta de valor, caracteristicas clave, precios, margen bruto,
+propiedad intelectual y roadmap de producto.]
+
+\section{Analisis de mercado}
+\subsection{TAM, SAM y SOM}
+\begin{table}[h]
+  \centering
+  \caption{Mercado direccionable (ejemplo)}
+  \begin{tabular}{lrr}
+    \toprule
+    Nivel & Definicion & Valor anual (\Moneda{}) \\
+    \midrule
+    TAM & Mercado total & [ ] \\
+    SAM & Segmento alcanzable & [ ] \\
+    SOM & Porcion capturable a 3 anios & [ ] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Cliente objetivo y tendencias}
+[Perfil, necesidad, evidencia local.]
+
+\section{Competencia}
+[3–5 rivales, comparativa de diferenciadores y barreras de entrada.]
+
+\section{Modelo de negocio}
+[Fuentes de ingreso, precios, ticket promedio / LTV, canales de
+distribucion y economia unitaria.]
+
+\section{Estrategia de marketing y ventas}
+[Canales de adquisicion, presupuesto, supuestos de conversion, ciclo de
+venta y plan de retencion.]
+
+\section{Plan operativo}
+[Ubicacion, instalaciones, proceso productivo, proveedores, tecnologia y
+control de calidad.]
+
+\section{Organizacion y equipo}
+[Organigrama, semblanzas de fundadores y puestos clave, plan de
+contratacion anios 1–3, consejo asesor.]
+
+\section{Roadmap e hitos}
+\begin{itemize}
+  \item Q[ ] — [MVP / piloto].
+  \item Q[ ] — [Primeros N clientes de pago].
+  \item Q[ ] — [Punto de equilibrio / expansion].
+\end{itemize}
+
+\section{Solicitud de financiamiento y uso de fondos}
+\begin{table}[h]
+  \centering
+  \caption{Uso de fondos sobre \$\MontoSolicitado{} \Moneda{}}
+  \begin{tabular}{lr}
+    \toprule
+    Destino & \% \\
+    \midrule
+    Desarrollo / equipo & [40] \\
+    Marketing y ventas & [30] \\
+    Operacion y capital de trabajo & [30] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Proyecciones financieras}
+[Estado de resultados, flujo de caja y balance a 3–5 anios; detalle mensual
+del anio 1; punto de equilibrio y supuestos explicitos. Meta indicativa:
+ingresos anio 3 de \$\IngresoAnioTres{} \Moneda{}.]
+
+\section{Riesgos y mitigacion}
+[Riesgo — mitigacion, formato una linea por riesgo critico.]
+
+\appendix
+\section{Apendice: documentos de soporte}
+[Actas, contratos, cotizaciones, CV, estudios de mercado.]
+
+\end{document}

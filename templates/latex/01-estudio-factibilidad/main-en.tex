@@ -1,0 +1,202 @@
+% ---------------------------------------------------------------------------
+% 01 — Feasibility Study (EN). Build from templates/latex:
+%   latexmk -pdf 01-estudio-factibilidad/main-en.tex
+% Requires TeX Live 2024+ (pdflatex + latexmk). No absolute paths.
+% ---------------------------------------------------------------------------
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{../common/preambulo}
+
+% --- Metadata (single source of truth for the cover page) ---
+\renewcommand{\tituloProyecto}{[Project name]}
+\renewcommand{\subtituloProyecto}{Integrated feasibility study}
+\renewcommand{\tipoDocumento}{Feasibility study}
+\renewcommand{\autorProyecto}{[Sponsoring team]}
+\renewcommand{\fechaProyecto}{[Month, year]}
+\renewcommand{\versionDoc}{v0.1-draft}
+
+% --- Named financial parameters: NEVER retype figures by hand in the body
+% (magic-numbers antipattern). Change the value here and the whole document
+% stays consistent. EXAMPLE figures in MXN — replace them. ---
+\newcommand{\InversionInicial}{4\,000\,000}
+\newcommand{\TasaDescuento}{12}
+\newcommand{\VANbase}{1\,088\,553}
+\newcommand{\TIRbase}{20.95}
+\newcommand{\Payback}{3.22}
+\newcommand{\VANoptimista}{1\,851\,836}
+\newcommand{\VANpesimista}{70\,842}
+\newcommand{\TIRpesimista}{12.62}
+\newcommand{\Moneda}{MXN}
+
+\begin{document}
+\input{../common/portada}
+\tableofcontents
+\newpage
+
+\section{Executive summary and recommendation}
+[2–3 paragraphs: what the project is, how much it requires, Go / No-Go
+conclusion and the two key metrics: NPV of \$\VANbase{} \Moneda{} and IRR
+of \TIRbase{}\%.] The recommendation follows the decision matrix in
+section~\ref{sec:gongo}.
+
+\section{Project description, scope and assumptions}
+\subsection{Objective and scope}
+[What the project aims to achieve; geographic and functional scope; what is
+explicitly OUT of scope.]
+\subsection{Critical assumptions}
+\begin{itemize}
+  \item Market assumption: [e.g.\ annual demand growth].
+  \item Technology assumption: [e.g.\ equipment availability].
+  \item Regulatory assumption: [e.g.\ permits considered].
+  \item Financial assumption: [discount rate \TasaDescuento{}\%, 5-year horizon].
+\end{itemize}
+
+\section{Market study}
+\subsection{Segmentation and target market}
+[Customer profile, segments, estimated TAM/SAM/SOM.]
+\subsection{Supply and competition}
+[Direct competitors, installed capacity, barriers to entry.]
+\subsection{Projected demand}
+[Historical series, surveys, 5-year forecast.]
+\subsection{SWOT analysis}
+\begin{table}[h]
+  \centering
+  \caption{SWOT matrix (summary)}
+  \begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}}
+    \toprule
+    \textbf{Strengths} & \textbf{Weaknesses} \\
+    \midrule
+    {[S1]} & [W1] \\
+    \bottomrule
+    \textbf{Opportunities} & \textbf{Threats} \\
+    \midrule
+    {[O1]} & [T1] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Technical and operational feasibility}
+\subsection{Technology and preliminary design}
+[Options assessed, chosen technology and why; site, capacity, required
+infrastructure.]
+\subsection{Operating plan}
+[Process, maintenance, scaling, supply chain and key certified suppliers.]
+
+\section{Legal and regulatory feasibility (Mexico)}
+\begin{table}[h]
+  \centering
+  \caption{MX legal checklist (verify with counsel)}
+  \begin{tabular}{p{0.32\textwidth}p{0.32\textwidth}p{0.26\textwidth}}
+    \toprule
+    \textbf{Area} & \textbf{Filing / standard} & \textbf{Status} \\
+    \midrule
+    Incorporation & Articles of incorporation, RFC before SAT & [ ] \\
+    Operations & Municipal operating license, land use & [ ] \\
+    Labor & IMSS employer registration, LFT contracts & [ ] \\
+    Environment & EIA / LGEEPA if applicable (see sec.~\ref{sec:amb}) & [ ] \\
+    IP & Trademarks and patents before IMPI & [ ] \\
+    Personal data & Privacy notice under LFPDPPP & [ ] \\
+    Sectoral & [Sector-specific permits] & [ ] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Organizational feasibility}
+[Proposed org chart, roles, team track record, hiring gaps and plan to
+close them.]
+
+\section{Financial feasibility: NPV and IRR}
+\subsection{Initial investment and projected cash flows}
+Initial investment \(I_0 = \$\InversionInicial{}\) \Moneda{}; discount
+rate \(r = \TasaDescuento{}\%\); 5-year horizon.
+\begin{table}[h]
+  \centering
+  \caption{Projected cash flow (example, \Moneda{})}
+  \label{tab:flujos}
+  \begin{tabular}{crrrrr}
+    \toprule
+    Item & Year 1 & Year 2 & Year 3 & Year 4 & Year 5 \\
+    \midrule
+    Net cash flow & 800\,000 & 1\,200\,000 & 1\,600\,000 & 1\,800\,000 & 2\,000\,000 \\
+    Present value & 714\,286 & 956\,633 & 1\,138\,848 & 1\,143\,933 & 1\,134\,854 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Metrics}
+\begin{equation}
+  \mathrm{NPV} = \sum_{t=1}^{5}\frac{CF_t}{(1+r)^t} - I_0
+  = \$\VANbase{}\ \text{\Moneda{}}
+  \label{eq:van}
+\end{equation}
+\begin{equation}
+  \mathrm{IRR} = r^* \mid \mathrm{NPV}(r^*) = 0 = \TIRbase{}\%
+  \label{eq:tir}
+\end{equation}
+Payback period (simple): \Payback{} years.
+Decision rule: GO if \(\mathrm{NPV} > 0\) and \(\mathrm{IRR} > r\).
+\subsection{Sensitivity analysis}
+\begin{table}[h]
+  \centering
+  \caption{Scenarios (upside +15\% flows, downside --20\%)}
+  \begin{tabular}{lrr}
+    \toprule
+    Scenario & NPV (\Moneda{}) & IRR (\%) \\
+    \midrule
+    Upside & \VANoptimista{} & $> \TIRbase{}$ \\
+    Base & \VANbase{} & \TIRbase{} \\
+    Downside & \VANpesimista{} & \TIRpesimista{} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+[Even the downside keeps a positive NPV, but with a thin margin: the
+critical variable is (identify it).]
+
+\section{Environmental and social feasibility}
+\label{sec:amb}
+[Impacts (emissions, water, waste), mitigation and monitoring plan; direct /
+indirect jobs, community acceptance and public consultation. If the project
+needs an EIA, state it here and link it to the legal table.]
+
+\section{Risk analysis}
+ISO~31000 frame: identify, analyse, evaluate, treat.
+\begin{table}[h]
+  \centering
+  \caption{Risk register (excerpt)}
+  \begin{tabular}{p{0.26\textwidth}ccp{0.4\textwidth}}
+    \toprule
+    Risk & Prob. & Impact & Mitigation and owner \\
+    \midrule
+    {[Permit delays]} & High & Critical & [Dedicated manager; parallel filing] \\
+    {[Input price volatility]} & Medium & High & [Fixed-price contracts] \\
+    {[Lower-than-expected demand]} & Medium & High & [Pilot + presales] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Conclusions and Go / No-Go matrix}
+\label{sec:gongo}
+\begin{table}[h]
+  \centering
+  \caption{Weighted decision matrix (example)}
+  \begin{tabular}{lccc}
+    \toprule
+    Criterion & Weight & Score /10 & Contribution \\
+    \midrule
+    Market & 0.25 & [ ] & [ ] \\
+    Technical-operational & 0.20 & [ ] & [ ] \\
+    Legal MX & 0.10 & [ ] & [ ] \\
+    Organizational & 0.10 & [ ] & [ ] \\
+    Financial (NPV/IRR) & 0.25 & [ ] & [ ] \\
+    Environmental-social and risks & 0.10 & [ ] & [ ] \\
+    \midrule
+    \textbf{Total} & 1.00 & & \textbf{[ ]} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Rule: GO if total $\geq 7.0$ and no criterion $< 5.0$.
+\begin{bftGoBox}
+  State the final decision here with conditions (e.g.\ subject to
+  mitigating risks R1–R2 and confirming assumption S1).
+\end{bftGoBox}
+
+\end{document}

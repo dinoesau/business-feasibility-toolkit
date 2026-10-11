@@ -1,0 +1,113 @@
+% ---------------------------------------------------------------------------
+% 02 — Business Plan (EN). Build from templates/latex:
+%   latexmk -pdf 02-plan-negocios/main-en.tex
+% Structure: SBA + SCORE synthesis with Sequoia narrative (see RESEARCH.md).
+% ---------------------------------------------------------------------------
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage{../common/preambulo}
+
+\renewcommand{\tituloProyecto}{[Company name]}
+\renewcommand{\subtituloProyecto}{Business plan}
+\renewcommand{\tipoDocumento}{Business plan}
+\renewcommand{\autorProyecto}{[Founding team]}
+\renewcommand{\fechaProyecto}{[Month, year]}
+\renewcommand{\versionDoc}{v0.1-draft}
+
+% --- Named parameters (never retype figures by hand) ---
+\newcommand{\MontoSolicitado}{[1\,500\,000]}
+\newcommand{\Moneda}{MXN}
+\newcommand{\IngresoAnioTres}{[5\,000\,000]}
+
+\begin{document}
+\input{../common/portada}
+\tableofcontents
+\newpage
+
+\section{Executive summary}
+[One-sentence mission, product, target market, ask of \$\MontoSolicitado{}
+\Moneda{} and financial headlines. Written last although it comes first.]
+
+\section{Company description}
+[Legal name, entity type, address, founding date, owners and shares,
+long-term vision.]
+
+\section{Problem and opportunity}
+[Customer pain with quantified evidence; why NOW (trend, regulatory or
+technology shift opening the window).]
+
+\section{Solution: products and services}
+[Value proposition, key features, pricing, gross margin, IP and product
+roadmap.]
+
+\section{Market analysis}
+\subsection{TAM, SAM and SOM}
+\begin{table}[h]
+  \centering
+  \caption{Addressable market (example)}
+  \begin{tabular}{lrr}
+    \toprule
+    Level & Definition & Annual value (\Moneda{}) \\
+    \midrule
+    TAM & Total market & [ ] \\
+    SAM & Reachable segment & [ ] \\
+    SOM & Share capturable in 3 years & [ ] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Target customer and trends}
+[Profile, need, local evidence.]
+
+\section{Competition}
+[3–5 rivals, differentiator comparison and barriers to entry.]
+
+\section{Business model}
+[Revenue streams, pricing, average ticket / LTV, distribution channels and
+unit economics.]
+
+\section{Marketing and sales strategy}
+[Acquisition channels, budget, conversion assumptions, sales cycle and
+retention plan.]
+
+\section{Operations plan}
+[Location, facilities, production process, suppliers, technology and
+quality control.]
+
+\section{Organization and team}
+[Org chart, founder bios and key roles, years 1–3 hiring plan, advisors.]
+
+\section{Roadmap and milestones}
+\begin{itemize}
+  \item Q[ ] — [MVP / pilot].
+  \item Q[ ] — [First N paying customers].
+  \item Q[ ] — [Break-even / expansion].
+\end{itemize}
+
+\section{Funding request and use of funds}
+\begin{table}[h]
+  \centering
+  \caption{Use of funds over \$\MontoSolicitado{} \Moneda{}}
+  \begin{tabular}{lr}
+    \toprule
+    Destination & \% \\
+    \midrule
+    Product / team & [40] \\
+    Marketing and sales & [30] \\
+    Operations and working capital & [30] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Financial projections}
+[3–5 year P\&L, cash flow and balance sheet; month-by-month year 1;
+break-even and explicit assumptions. Indicative goal: year-3 revenue of
+\$\IngresoAnioTres{} \Moneda{}.]
+
+\section{Risks and mitigation}
+[Risk — mitigation, one line per critical risk.]
+
+\appendix
+\section{Appendix: supporting documents}
+[Deeds, contracts, quotes, resumes, market research.]
+
+\end{document}

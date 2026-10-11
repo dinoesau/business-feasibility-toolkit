@@ -1,0 +1,83 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preambulo}[2026/10/11 Preambulo comun del Business Feasibility Toolkit]
+
+% ---------------------------------------------------------------------------
+% preambulo.sty — dependencias declaradas (12-Factor II) y compilacion
+% reproducible (12-Factor V) para las plantillas article del toolkit.
+% El main (.tex) debe cargar babel con su idioma ANTES de este paquete:
+%   \usepackage[spanish,es-tabla]{babel}  % o \usepackage[english]{babel}
+% y referenciarlo con ruta RELATIVA (nunca absoluta):
+%   \usepackage{../common/preambulo}
+% La plantilla beamer (04-pitch-deck) NO usa este paquete: beamer fija su
+% propia geometria y tipografia; comparte solo los metadatos.
+% ---------------------------------------------------------------------------
+
+% --- Codificacion y tipografia ---
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+
+% --- Geometria (resumen ejecutivo: margenes 2.5cm) ---
+\RequirePackage[a4paper,margin=2.5cm,headheight=14pt]{geometry}
+
+% --- Idioma ya cargado por el main; solo formatos numericos ---
+\RequirePackage{siunitx}
+\sisetup{group-separator={,}, group-minimum-digits=4, output-decimal-marker={.}}
+
+% --- Tablas y matematicas ---
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{amsmath}
+
+% --- Listas compactas y citas ---
+\RequirePackage{enumitem}
+\setlist{itemsep=2pt,parsep=2pt}
+\RequirePackage{csquotes}
+
+% --- Graficos y color corporativo (ver DESIGN.md) ---
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\definecolor{bftCoral}{HTML}{CC785C}
+\definecolor{bftInk}{HTML}{141413}
+\definecolor{bftCanvas}{HTML}{FAF9F5}
+\definecolor{bftCard}{HTML}{EFE9DE}
+\definecolor{bftDark}{HTML}{181715}
+
+% --- Cajas de decision Go / No-Go (evita tablas sueltas sin contexto) ---
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\newtcolorbox{bftGoBox}{colback=green!6,colframe=green!45!black,
+  fonttitle=\bfseries,title={GO},breakable}
+\newtcolorbox{bftNoGoBox}{colback=red!6,colframe=red!55!black,
+  fonttitle=\bfseries,title={NO-GO},breakable}
+\newtcolorbox{bftNotaBox}{colback=bftCard,colframe=bftCoral,
+  fonttitle=\bfseries,title={Nota},breakable}
+
+% --- Metadatos del documento: el main los define; portada.tex los consume.
+% \providecommand + chequeo fallido rapido (parse, don't validate). ---
+\providecommand{\tituloProyecto}{[TITULO DEL PROYECTO]}
+\providecommand{\subtituloProyecto}{[Subtitulo o descripcion corta]}
+\providecommand{\tipoDocumento}{[Tipo de documento]}
+\providecommand{\autorProyecto}{[Nombre del autor / equipo]}
+\providecommand{\fechaProyecto}{\today}
+\providecommand{\versionDoc}{v0.1-borrador}
+
+% --- Cabecera y pie ---
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\textsc{\tipoDocumento}}
+\fancyhead[R]{\footnotesize\tituloProyecto}
+\fancyfoot[C]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Hipervinculos (cargar al final) ---
+\RequirePackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=bftCoral,urlcolor=bftCoral,
+  citecolor=bftCoral,pdftitle={\tituloProyecto{} — \tipoDocumento{}},
+  pdfauthor={\autorProyecto{}}}
+\RequirePackage{bookmark}
+
+% --- Profundidad del indice ---
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}

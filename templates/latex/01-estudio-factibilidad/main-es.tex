@@ -1,0 +1,204 @@
+% ---------------------------------------------------------------------------
+% 01 — Estudio de Factibilidad (ES). Compilar desde templates/latex:
+%   latexmk -pdf 01-estudio-factibilidad/main-es.tex
+% Requiere TeX Live 2024+ (pdflatex + latexmk). Sin rutas absolutas.
+% ---------------------------------------------------------------------------
+\documentclass[12pt]{article}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage{../common/preambulo}
+
+% --- Metadatos (una sola fuente de verdad para la portada) ---
+\renewcommand{\tituloProyecto}{[Nombre del proyecto]}
+\renewcommand{\subtituloProyecto}{Estudio de factibilidad integral}
+\renewcommand{\tipoDocumento}{Estudio de factibilidad}
+\renewcommand{\autorProyecto}{[Equipo promotor]}
+\renewcommand{\fechaProyecto}{[Mes, anio]}
+\renewcommand{\versionDoc}{v0.1-borrador}
+
+% --- Parametros financieros nombrados: NUNCA repita cifras a mano en el
+% texto (antipatron magic numbers). Cambie el valor aqui y todo el
+% documento queda consistente. Cifras de EJEMPLO en MXN — sustituya. ---
+\newcommand{\InversionInicial}{4\,000\,000}
+\newcommand{\TasaDescuento}{12}
+\newcommand{\VANbase}{1\,088\,553}
+\newcommand{\TIRbase}{20.95}
+\newcommand{\Payback}{3.22}
+\newcommand{\VANoptimista}{1\,851\,836}
+\newcommand{\VANpesimista}{70\,842}
+\newcommand{\TIRpesimista}{12.62}
+\newcommand{\Moneda}{MXN}
+
+\begin{document}
+\input{../common/portada}
+\tableofcontents
+\newpage
+
+\section{Resumen ejecutivo y recomendacion}
+[2–3 parrafos: que proyecto, cuanto requiere, conclusion Go / No-Go y los
+dos indicadores clave: VAN de \$\VANbase{} \Moneda{} y TIR de \TIRbase{}\%.]
+La recomendacion se fundamenta en la matriz de decision de la
+seccion~\ref{sec:gongo}.
+
+\section{Descripcion del proyecto, alcance y supuestos}
+\subsection{Objetivo y alcance}
+[Que se pretende lograr; alcance geografico y funcional; que queda
+explícitamente FUERA del estudio.]
+\subsection{Supuestos criticos}
+\begin{itemize}
+  \item Supuesto de mercado: [ej. crecimiento anual de la demanda].
+  \item Supuesto tecnologico: [ej. disponibilidad de equipos].
+  \item Supuesto regulatorio: [ej. permisos considerados].
+  \item Supuesto financiero: [tasa de descuento \TasaDescuento{}\%, horizonte 5 anios].
+\end{itemize}
+
+\section{Estudio de mercado}
+\subsection{Segmentacion y mercado objetivo}
+[Perfil de cliente, segmentos, TAM/SAM/SOM estimados.]
+\subsection{Oferta y competencia}
+[Competidores directos, capacidad instalada, barreras de entrada.]
+\subsection{Demanda proyectada}
+[Series historicas, encuestas, pronostico a 5 anios.]
+\subsection{Analisis FODA}
+\begin{table}[h]
+  \centering
+  \caption{Matriz FODA (resumen)}
+  \begin{tabular}{p{0.45\textwidth}p{0.45\textwidth}}
+    \toprule
+    \textbf{Fortalezas} & \textbf{Debilidades} \\
+    \midrule
+    {[F1]} & [D1] \\
+    \bottomrule
+    \textbf{Oportunidades} & \textbf{Amenazas} \\
+    \midrule
+    {[O1]} & [A1] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Factibilidad tecnico-operativa}
+\subsection{Tecnologia y disenio preliminar}
+[Alternativas evaluadas, tecnologia elegida y por que; sitio, capacidad,
+infraestructura requerida.]
+\subsection{Plan operativo}
+[Proceso, mantenimiento, escalamiento, cadena de suministro y proveedores
+clave con certificaciones.]
+
+\section{Factibilidad legal y regulatoria (Mexico)}
+\begin{table}[h]
+  \centering
+  \caption{Mapa de obligaciones legales MX (verificar con asesor)}
+  \begin{tabular}{p{0.32\textwidth}p{0.32\textwidth}p{0.26\textwidth}}
+    \toprule
+    \textbf{Ambito} & \textbf{Tramite / norma} & \textbf{Estado} \\
+    \midrule
+    Constitucion & Acta constitutiva, RFC ante el SAT & [ ] \\
+    Operacion & Licencia municipal de funcionamiento, uso de suelo & [ ] \\
+    Laboral & Registro patronal IMSS, contratos LFT & [ ] \\
+    Ambiental & MIA / LGEEPA si aplica (ver sec.~\ref{sec:amb}) & [ ] \\
+    Propiedad industrial & Marcas y patentes ante el IMPI & [ ] \\
+    Datos personales & Aviso de privacidad LFPDPPP & [ ] \\
+    Sectorial & [Permisos especificos del sector] & [ ] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Factibilidad organizacional}
+[Organigrama propuesto, roles, experiencia del equipo, brechas de
+contratacion y plan de cierre de brechas.]
+
+\section{Factibilidad financiera: VAN y TIR}
+\subsection{Inversion inicial y flujos proyectados}
+Inversion inicial \(I_0 = \$\InversionInicial{}\) \Moneda{}; tasa de
+descuento \(r = \TasaDescuento{}\%\); horizonte 5 anios.
+\begin{table}[h]
+  \centering
+  \caption{Flujo de caja proyectado (ejemplo, \Moneda{})}
+  \label{tab:flujos}
+  \begin{tabular}{crrrrr}
+    \toprule
+    Concepto & Anio 1 & Anio 2 & Anio 3 & Anio 4 & Anio 5 \\
+    \midrule
+    Flujo neto & 800\,000 & 1\,200\,000 & 1\,600\,000 & 1\,800\,000 & 2\,000\,000 \\
+    Valor presente & 714\,286 & 956\,633 & 1\,138\,848 & 1\,143\,933 & 1\,134\,854 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+\subsection{Indicadores}
+\begin{equation}
+  \mathrm{VAN} = \sum_{t=1}^{5}\frac{CF_t}{(1+r)^t} - I_0
+  = \$\VANbase{}\ \text{\Moneda{}}
+  \label{eq:van}
+\end{equation}
+\begin{equation}
+  \mathrm{TIR} = r^* \mid \mathrm{VAN}(r^*) = 0 = \TIRbase{}\%
+  \label{eq:tir}
+\end{equation}
+Periodo de recuperacion (payback simple): \Payback{} anios.
+Regla de decision: GO si \(\mathrm{VAN} > 0\) y \(\mathrm{TIR} > r\).
+\subsection{Analisis de sensibilidad}
+\begin{table}[h]
+  \centering
+  \caption{Escenarios (flujos optimista +15\%, pesimista --20\%)}
+  \begin{tabular}{lrr}
+    \toprule
+    Escenario & VAN (\Moneda{}) & TIR (\%) \\
+    \midrule
+    Optimista & \VANoptimista{} & $> \TIRbase{}$ \\
+    Base & \VANbase{} & \TIRbase{} \\
+    Pesimista & \VANpesimista{} & \TIRpesimista{} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+[Incluso el escenario pesimista mantiene VAN positivo, pero con margen
+estrecho: la variable critica es (identificarla).]
+
+\section{Factibilidad ambiental y social}
+\label{sec:amb}
+[Impactos (emisiones, agua, residuos), plan de mitigacion y monitoreo;
+empleo directo/indirecto, aceptacion comunitaria y consulta publica.
+Si el proyecto requiere MIA, indicarlo aqui y vincularlo con la tabla
+legal.]
+
+\section{Analisis de riesgos}
+Marco ISO~31000: identificar, analizar, evaluar y tratar.
+\begin{table}[h]
+  \centering
+  \caption{Registro de riesgos (extracto)}
+  \begin{tabular}{p{0.26\textwidth}ccp{0.4\textwidth}}
+    \toprule
+    Riesgo & Prob. & Impacto & Mitigacion y responsable \\
+    \midrule
+    {[Retraso de permisos]} & Alta & Critico & [Gestor dedicado; tramite en paralelo] \\
+    {[Volatilidad de insumos]} & Media & Alto & [Contratos a precio fijo] \\
+    {[Demanda menor a la prevista]} & Media & Alto & [Piloto + contratos preventa] \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Conclusiones y matriz Go / No-Go}
+\label{sec:gongo}
+\begin{table}[h]
+  \centering
+  \caption{Matriz de decision ponderada (ejemplo)}
+  \begin{tabular}{lccc}
+    \toprule
+    Criterio & Peso & Puntaje /10 & Aporte \\
+    \midrule
+    Mercado & 0.25 & [ ] & [ ] \\
+    Tecnico-operativo & 0.20 & [ ] & [ ] \\
+    Legal MX & 0.10 & [ ] & [ ] \\
+    Organizacional & 0.10 & [ ] & [ ] \\
+    Financiero (VAN/TIR) & 0.25 & [ ] & [ ] \\
+    Ambiental-social y riesgos & 0.10 & [ ] & [ ] \\
+    \midrule
+    \textbf{Total} & 1.00 & & \textbf{[ ]} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Regla: GO si total $\geq 7.0$ y ningun criterio $< 5.0$.
+\begin{bftGoBox}
+  Declarar aqui la decision final con condiciones (ej. sujeta a mitigar
+  los riesgos R1 y R2 y a confirmar el supuesto S1).
+\end{bftGoBox}
+
+\end{document}
