@@ -1,9 +1,26 @@
 ---
-import PricingCalc from '../../../components/react/PricingCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import PricingCalc from "../../../components/react/PricingCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="es">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Pricing — Calculadoras</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="es"
+  title="Paso 4: pon tu precio — Calculadoras"
+  description="Un precio que pague tus costos, deje ganancia y la gente pague."
+>
+  <CalcPage
+    lang="es"
+    step={4}
+    stepName="Pon tu precio"
+    lede="Un precio que pague tus costos, te deje ganancia y la gente si pague."
+    prevHref={`${base}es/calculadoras/costo-producto/`}
+    prevLabel="Paso 3: tu costo"
+    nextHref={`${base}es/calculadoras/punto-equilibrio/`}
+    nextLabel="Paso 5: tu equilibrio"
+  >
     <PricingCalc lang="es" currency="MXN" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>

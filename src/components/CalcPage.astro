@@ -1,0 +1,35 @@
+---
+// Pagina de calculadora con diseno C: barra de paso, isla, boton listo y pager.
+interface Props {
+  lang: "es" | "en";
+  step: number;
+  stepName: string;
+  lede: string;
+  prevHref: string;
+  prevLabel: string;
+  nextHref: string;
+  nextLabel: string;
+}
+const { lang, step, stepName, lede, prevHref, prevLabel, nextHref, nextLabel } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const indexHref = `${base}${lang === "es" ? "es/calculadoras/" : "en/calculators/"}`;
+const doneLabel = lang === "es" ? `Marcar paso ${step} listo` : `Mark step ${step} done`;
+const backLabel = lang === "es" ? "Volver a mi ruta" : "Back to my route";
+---
+
+<div class="rts-stepbar">
+  <span class="rts-pill">{lang === "es" ? `Paso ${step} de 10` : `Step ${step} of 10`}</span>
+  <span class="rts-pct">{stepName}</span>
+</div>
+<p class="rts-lede">{lede}</p>
+
+<slot />
+
+<p style="margin-top: 16px">
+  <button class="rts-btn" id="btn-done" data-step={step} type="button">{doneLabel}</button>
+</p>
+<div class="rts-pager">
+  <a href={prevHref}>← {prevLabel}</a>
+  <a href={indexHref}>{backLabel}</a>
+  <a href={nextHref}>{nextLabel} →</a>
+</div>

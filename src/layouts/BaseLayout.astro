@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/route.css";
 
 interface Props {
   title: string;
@@ -24,13 +25,21 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500&family=JetBrains+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <script src={`${base}route.js`} defer></script>
     <title>{title}</title>
   </head>
   <body>
     <header class="topnav">
       <nav class="wrap" aria-label="Main">
-        <a class="brand" href={`${base}${lang}/`}>Business Feasibility Toolkit</a>
+        <a class="brand" href={`${base}${lang}/`}><span style="color: var(--primary)">✳</span> {lang === "es" ? "Mi ruta" : "My route"}</a>
         <div class="lang-switch">
+          <span id="nav-progress" style="font-size: 0.875rem; color: var(--muted)">0 / 10</span>
           <a href={`${base}es/`} aria-current={lang === "es" ? "true" : undefined}>ES</a>
           <a href={`${base}en/`} aria-current={lang === "en" ? "true" : undefined}>EN</a>
           <a href={`${base}${other}/`} hreflang={other}>
@@ -44,7 +53,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     </main>
     <footer>
       <div class="wrap">
-        <p>Business Feasibility Toolkit - static ES/EN site.</p>
+        <p><span style="color: var(--primary)">✳</span> Business Feasibility Toolkit - {lang === "es" ? "gratis, sin cuentas, en tu navegador." : "free, no accounts, in your browser."}</p>
       </div>
     </footer>
   </body>

@@ -1,9 +1,26 @@
 ---
-import CashflowCalc from '../../../components/react/CashflowCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import CashflowCalc from "../../../components/react/CashflowCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="en">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Cash flow — Calculators</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="en"
+  title="Step 6: your cash — Calculators"
+  description="Your money month by month and how long it lasts."
+>
+  <CalcPage
+    lang="en"
+    step={6}
+    stepName="Your cash"
+    lede="Your money month by month and how long it lasts. No surprises."
+    prevHref={`${base}en/calculators/break-even/`}
+    prevLabel="Step 5: break-even"
+    nextHref={`${base}en/calculators/npv-irr/`}
+    nextLabel="Step 6: NPV and IRR"
+  >
     <CashflowCalc lang="en" currency="USD" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>

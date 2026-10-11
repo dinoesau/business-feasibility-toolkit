@@ -1,9 +1,26 @@
 ---
-import CashflowCalc from '../../../components/react/CashflowCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import CashflowCalc from "../../../components/react/CashflowCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="es">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Flujo de caja — Calculadoras</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="es"
+  title="Paso 6: proyecta tu dinero — Calculadoras"
+  description="Tu dinero mes a mes y hasta cuando alcanza."
+>
+  <CalcPage
+    lang="es"
+    step={6}
+    stepName="Proyecta tu dinero"
+    lede="Tu dinero mes a mes y hasta cuando alcanza. Sin sorpresas."
+    prevHref={`${base}es/calculadoras/punto-equilibrio/`}
+    prevLabel="Paso 5: tu equilibrio"
+    nextHref={`${base}es/calculadoras/vpn-tir/`}
+    nextLabel="Paso 6: VPN y TIR"
+  >
     <CashflowCalc lang="es" currency="MXN" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>

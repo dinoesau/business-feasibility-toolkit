@@ -1,9 +1,26 @@
 ---
-import ProductCostCalc from '../../../components/react/ProductCostCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import ProductCostCalc from "../../../components/react/ProductCostCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="en">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Product cost — Calculators</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="en"
+  title="Step 3: find your cost — Calculators"
+  description="What each unit truly costs, all included."
+>
+  <CalcPage
+    lang="en"
+    step={3}
+    stepName="Find your cost"
+    lede="What each unit truly costs, all included, not just materials."
+    prevHref={`${base}en/calculators/tam-sam-som/`}
+    prevLabel="Step 2: your market"
+    nextHref={`${base}en/calculators/pricing/`}
+    nextLabel="Step 4: your price"
+  >
     <ProductCostCalc lang="en" currency="USD" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>

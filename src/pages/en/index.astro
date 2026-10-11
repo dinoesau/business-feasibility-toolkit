@@ -6,24 +6,38 @@ const base = import.meta.env.BASE_URL;
 
 <BaseLayout
   lang="en"
-  title="Business Feasibility Toolkit - Test your business idea"
-  description="Free web calculators to assess your business feasibility: break-even, NPV, IRR and more."
+  title="Your idea in 10 steps — Business Feasibility Toolkit"
+  description="Follow 10 steps and learn if your idea is worth it. Free calculators, no accounts."
 >
-  <h1>Test your business idea before you invest</h1>
-  <p>
-    Free bilingual web calculators to validate your idea: break-even, cash
-    flow, NPV, IRR and more.
-  </p>
-  <p>
-    <a class="btn" href={`${base}en/calculators/`}>Get started</a>
-    <a href={`${base}es/`} lang="es">Cambiar a español</a>
-  </p>
-
-  <section class="card" aria-label="Calculators">
-    <h2>Calculators</h2>
-    <p>
-      <a href={`${base}en/calculators/`}>Browse the 7 calculators</a> - no signup,
-      100% in your browser.
+  <section class="rts-hero">
+    <p class="rts-kicker"><span class="rts-badge-coral">Free</span> In English y en español</p>
+    <h1>Your idea, in 10 steps</h1>
+    <p class="rts-lede">
+      Each step tells you what to find, where to find it, and which tool to use.
+      Check steps off: your progress stays in this browser.
     </p>
+    <div class="rts-progress"><i id="bar"></i></div>
+    <p class="rts-pct" id="pct">0% done</p>
   </section>
+
+  <section style="padding-bottom: 6rem">
+    <ol class="rts-steps" id="steps">
+      <li data-step="1"><div class="rts-step-card"><p class="rts-step-n">Step 1</p><h3>Write your idea</h3><p>What problem you solve, for whom, what you sell. Talk to 5 to 10 possible customers.</p><p class="rts-links"><a href={`${base}en/guide/`}>Guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="2"><div class="rts-step-card"><p class="rts-step-n">Step 2</p><h3>Size your market</h3><p>How many could buy. Free data and a headcount of rivals.</p><p class="rts-links"><a href={`${base}en/calculators/tam-sam-som/`}>Calculator →</a> <a href={`${base}en/guide/`}>Guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="3"><div class="rts-step-card"><p class="rts-step-n">Step 3</p><h3>Find your cost</h3><p>What each unit truly costs. Get 3 supplier quotes.</p><p class="rts-links"><a href={`${base}en/calculators/product-cost/`}>Calculator →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="4"><div class="rts-step-card"><p class="rts-step-n">Step 4</p><h3>Set your price</h3><p>Covers costs, leaves profit, people pay it. Check 5 to 10 rivals.</p><p class="rts-links"><a href={`${base}en/calculators/pricing/`}>Calculator →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="5"><div class="rts-step-card"><p class="rts-step-n">Step 5</p><h3>Break-even</h3><p>Units a month to stop losing. If it needs more buyers than exist, it fails.</p><p class="rts-links"><a href={`${base}en/calculators/break-even/`}>Do it now →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="6"><div class="rts-step-card"><p class="rts-step-n">Step 6</p><h3>Your cash</h3><p>What you need to start and whether it pays back.</p><p class="rts-links"><a href={`${base}en/calculators/cash-flow/`}>Cash flow →</a> <a href={`${base}en/calculators/npv-irr/`}>NPV/IRR →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="7"><div class="rts-step-card"><p class="rts-step-n">Step 7</p><h3>Each customer</h3><p>Each one should bring at least 3 times what they cost.</p><p class="rts-links"><a href={`${base}en/calculators/cac-ltv/`}>Calculator →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="8"><div class="rts-step-card"><p class="rts-step-n">Step 8</p><h3>Move the numbers</h3><p>Costs up 20% or fewer sales. Make the plan survive it.</p><p class="rts-links"><a href={`${base}en/calculators/sensitivity/`}>Calculator →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="9"><div class="rts-step-card"><p class="rts-step-n">Step 9</p><h3>Legal check</h3><p>Taxes, trademark, permits. One session with an accountant.</p><p class="rts-links"><a href={`${base}en/guide/`}>Guide →</a></p><button type="button">Mark done</button></div></li>
+      <li data-step="10"><div class="rts-step-card"><p class="rts-step-n">Step 10</p><h3>Decide: go or no</h3><p>With written numbers, not excitement. If go, write your papers.</p><p class="rts-links"><a href={`${base}en/templates/`}>Templates →</a></p><button type="button">Mark done</button></div></li>
+    </ol>
+  </section>
+
+  <div class="rts-cta">
+    <h2>When the 10 are done, write your papers</h2>
+    <p>Study, plan, summary and pitch. In English y en español, Overleaf-ready.</p>
+    <p><a class="rts-btn rts-btn-secondary" href={`${base}en/templates/`}>See templates</a></p>
+  </div>
 </BaseLayout>

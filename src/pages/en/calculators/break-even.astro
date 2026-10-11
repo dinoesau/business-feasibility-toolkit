@@ -1,9 +1,26 @@
 ---
-import BreakEvenCalc from '../../../components/react/BreakEvenCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import BreakEvenCalc from "../../../components/react/BreakEvenCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="en">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Break-even — Calculators</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="en"
+  title="Step 5: break-even — Calculators"
+  description="How many units a month you must sell to stop losing."
+>
+  <CalcPage
+    lang="en"
+    step={5}
+    stepName="Break-even"
+    lede="How many units you must sell a month to stop losing. Just 3 numbers."
+    prevHref={`${base}en/calculators/pricing/`}
+    prevLabel="Step 4: your price"
+    nextHref={`${base}en/calculators/cash-flow/`}
+    nextLabel="Step 6: your cash"
+  >
     <BreakEvenCalc lang="en" currency="USD" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>

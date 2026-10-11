@@ -1,36 +1,38 @@
 ---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
 const base = import.meta.env.BASE_URL;
 const calcs = [
-  { slug: 'tam-sam-som', name: 'TAM / SAM / SOM', desc: 'Dimensiona tu mercado total, alcanzable y obtenible.' },
-  { slug: 'punto-equilibrio', name: 'Punto de equilibrio', desc: 'Unidades para no perder ni ganar.' },
-  { slug: 'vpn-tir', name: 'VPN / TIR', desc: '¿La inversión crea valor?' },
-  { slug: 'pricing', name: 'Precio por margen', desc: 'Del costo al precio con tu margen.' },
-  { slug: 'cac-ltv', name: 'CAC / LTV', desc: '¿Tu adquisición es rentable? Regla ≥ 3.' },
-  { slug: 'flujo-caja', name: 'Flujo de caja', desc: 'Saldo mes a mes y runway.' },
-  { slug: 'sensibilidad', name: 'Sensibilidad', desc: 'Qué pasa si el precio varía ±20%.' },
-  { slug: 'costo-producto', name: 'Costo de producto', desc: 'Costo real con IVA, terminal e ISR.' },
+  { slug: "tam-sam-som", paso: "Paso 2", name: "TAM / SAM / SOM", desc: "Cuantos podrian comprarte." },
+  { slug: "costo-producto", paso: "Paso 3", name: "Costo de producto", desc: "Tu costo real con IVA e ISR." },
+  { slug: "pricing", paso: "Paso 4", name: "Precio por margen", desc: "A que precio vender." },
+  { slug: "punto-equilibrio", paso: "Paso 5", name: "Punto de equilibrio", desc: "Piezas para no perder." },
+  { slug: "flujo-caja", paso: "Paso 6", name: "Flujo de caja", desc: "Tu dinero mes a mes." },
+  { slug: "vpn-tir", paso: "Paso 6", name: "VPN / TIR", desc: "Si la inversion se recupera." },
+  { slug: "cac-ltv", paso: "Paso 7", name: "CAC / LTV", desc: "Si cada cliente deja dinero." },
+  { slug: "sensibilidad", paso: "Paso 8", name: "Sensibilidad", desc: "Si algo sale mal." },
 ];
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Calculadoras — Business Feasibility Toolkit</title>
-  </head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; color: #141413; margin: 0;">
-    <main style="max-width: 1200px; margin: 0 auto; padding: 48px 24px 96px;">
-      <p><a href={`${base}en/calculators/`} style="color: #cc785c; font-size: 14;">English version →</a></p>
-      <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 48px; letter-spacing: -1px; margin: 8px 0;">Calculadoras de factibilidad</h1>
-      <p style="color: #3d3d3a; max-width: 720px; line-height: 1.55;">8 herramientas, resultado instantáneo. Sin registro, 100% en tu navegador.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 32px;">
-        {calcs.map((c) => (
-          <a href={`${base}es/calculadoras/${c.slug}/`} style="background: #efe9de; border-radius: 12px; padding: 32px; text-decoration: none; color: #141413; display: block;">
-            <h2 style="font-size: 18px; font-weight: 500; margin: 0 0 8px;">{c.name}</h2>
-            <p style="color: #3d3d3a; font-size: 16px; line-height: 1.55; margin: 0 0 12px;">{c.desc}</p>
-            <span style="color: #cc785c; font-size: 14px; font-weight: 500;">Calcular →</span>
-          </a>
-        ))}
-      </div>
-    </main>
-  </body>
-</html>
+
+<BaseLayout
+  lang="es"
+  title="Calculadoras — Business Feasibility Toolkit"
+  description="8 calculadoras gratis para revisar tu idea. Sin cuentas, en tu navegador."
+>
+  <section class="rts-hero">
+    <h1>Ocho calculadoras, una por pregunta</h1>
+    <p class="rts-lede">Gratis y sin cuentas. Todo se calcula en tu navegador.</p>
+  </section>
+  <section style="padding-bottom: 6rem">
+    <div class="rts-grid3">
+      {calcs.map((c) => (
+        <a class="rts-card" href={`${base}es/calculadoras/${c.slug}/`}>
+          <span class="rts-badge">{c.paso}</span>
+          <h3>{c.name}</h3>
+          <p>{c.desc}</p>
+          <span class="rts-go">Calcular →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

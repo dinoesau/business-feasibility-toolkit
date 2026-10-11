@@ -1,9 +1,26 @@
 ---
-import ProductCostCalc from '../../../components/react/ProductCostCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import ProductCostCalc from "../../../components/react/ProductCostCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="es">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Costo de producto — Calculadoras</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="es"
+  title="Paso 3: saca tu costo — Calculadoras"
+  description="Cuanto cuesta cada pieza con todo incluido: IVA, terminal e ISR."
+>
+  <CalcPage
+    lang="es"
+    step={3}
+    stepName="Saca tu costo"
+    lede="Cuanto te cuesta cada pieza con todo incluido, no solo el material."
+    prevHref={`${base}es/calculadoras/tam-sam-som/`}
+    prevLabel="Paso 2: tu mercado"
+    nextHref={`${base}es/calculadoras/pricing/`}
+    nextLabel="Paso 4: tu precio"
+  >
     <ProductCostCalc lang="es" currency="MXN" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>

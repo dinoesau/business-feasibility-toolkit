@@ -1,36 +1,38 @@
 ---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
 const base = import.meta.env.BASE_URL;
 const calcs = [
-  { slug: 'tam-sam-som', name: 'TAM / SAM / SOM', desc: 'Size your total, serviceable, obtainable market.' },
-  { slug: 'break-even', name: 'Break-even', desc: 'Units to stop losing money.' },
-  { slug: 'npv-irr', name: 'NPV / IRR', desc: 'Does the investment create value?' },
-  { slug: 'pricing', name: 'Margin pricing', desc: 'From cost to price with your margin.' },
-  { slug: 'cac-ltv', name: 'CAC / LTV', desc: 'Is acquisition profitable? Rule ≥ 3.' },
-  { slug: 'cash-flow', name: 'Cash flow', desc: 'Month-by-month balance and runway.' },
-  { slug: 'sensitivity', name: 'Sensitivity', desc: 'What if price moves ±20%?' },
-  { slug: 'product-cost', name: 'Product cost', desc: 'True cost with VAT, terminal fees and tax.' },
+  { slug: "tam-sam-som", paso: "Step 2", name: "TAM / SAM / SOM", desc: "How big your true market is." },
+  { slug: "product-cost", paso: "Step 3", name: "Product cost", desc: "Your true cost, all included." },
+  { slug: "pricing", paso: "Step 4", name: "Margin pricing", desc: "What price to charge." },
+  { slug: "break-even", paso: "Step 5", name: "Break-even", desc: "Units to stop losing." },
+  { slug: "cash-flow", paso: "Step 6", name: "Cash flow", desc: "Your money month by month." },
+  { slug: "npv-irr", paso: "Step 6", name: "NPV / IRR", desc: "Whether it pays back." },
+  { slug: "cac-ltv", paso: "Step 7", name: "CAC / LTV", desc: "Whether each customer pays." },
+  { slug: "sensitivity", paso: "Step 8", name: "Sensitivity", desc: "If something goes wrong." },
 ];
 ---
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Calculators — Business Feasibility Toolkit</title>
-  </head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; color: #141413; margin: 0;">
-    <main style="max-width: 1200px; margin: 0 auto; padding: 48px 24px 96px;">
-      <p><a href={`${base}es/calculadoras/`} style="color: #cc785c; font-size: 14;">Versión en español →</a></p>
-      <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 400; font-size: 48px; letter-spacing: -1px; margin: 8px 0;">Feasibility calculators</h1>
-      <p style="color: #3d3d3a; max-width: 720px; line-height: 1.55;">8 tools, instant results. No signup, 100% in your browser.</p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 32px;">
-        {calcs.map((c) => (
-          <a href={`${base}en/calculators/${c.slug}/`} style="background: #efe9de; border-radius: 12px; padding: 32px; text-decoration: none; color: #141413; display: block;">
-            <h2 style="font-size: 18px; font-weight: 500; margin: 0 0 8px;">{c.name}</h2>
-            <p style="color: #3d3d3a; font-size: 16px; line-height: 1.55; margin: 0 0 12px;">{c.desc}</p>
-            <span style="color: #cc785c; font-size: 14px; font-weight: 500;">Calculate →</span>
-          </a>
-        ))}
-      </div>
-    </main>
-  </body>
-</html>
+
+<BaseLayout
+  lang="en"
+  title="Calculators — Business Feasibility Toolkit"
+  description="8 free calculators to test your idea. No accounts, in your browser."
+>
+  <section class="rts-hero">
+    <h1>Eight calculators, one per question</h1>
+    <p class="rts-lede">Free, no accounts. Everything runs in your browser.</p>
+  </section>
+  <section style="padding-bottom: 6rem">
+    <div class="rts-grid3">
+      {calcs.map((c) => (
+        <a class="rts-card" href={`${base}en/calculators/${c.slug}/`}>
+          <span class="rts-badge">{c.paso}</span>
+          <h3>{c.name}</h3>
+          <p>{c.desc}</p>
+          <span class="rts-go">Calculate →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

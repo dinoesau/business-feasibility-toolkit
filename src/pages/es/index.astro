@@ -6,24 +6,38 @@ const base = import.meta.env.BASE_URL;
 
 <BaseLayout
   lang="es"
-  title="Business Feasibility Toolkit - Evalua tu idea de negocio"
-  description="Calculadoras web gratuitas para evaluar la factibilidad de tu negocio: punto de equilibrio, VAN, TIR y mas."
+  title="Tu idea en 10 pasos — Business Feasibility Toolkit"
+  description="Sigue 10 pasos y sabras si tu idea vale la pena. Calculadoras gratis, sin cuentas."
 >
-  <h1>Evalua la factibilidad de tu negocio</h1>
-  <p>
-    Calculadoras web gratuitas y bilingues para validar tu idea antes de
-    invertir: punto de equilibrio, flujo de caja, VAN, TIR y mas.
-  </p>
-  <p>
-    <a class="btn" href={`${base}es/calculadoras/`}>Empezar ahora</a>
-    <a href={`${base}en/`} lang="en">Switch to English</a>
-  </p>
-
-  <section class="card" aria-label="Calculadoras">
-    <h2>Calculadoras</h2>
-    <p>
-      <a href={`${base}es/calculadoras/`}>Ver las 7 calculadoras</a> - sin registro,
-      100% en tu navegador.
+  <section class="rts-hero">
+    <p class="rts-kicker"><span class="rts-badge-coral">Gratis</span> En espanol e ingles</p>
+    <h1>Tu idea, en 10 pasos</h1>
+    <p class="rts-lede">
+      Cada paso te dice que buscar, donde buscarlo y con que herramienta.
+      Marca los pasos listos: tu avance se guarda en este navegador.
     </p>
+    <div class="rts-progress"><i id="bar"></i></div>
+    <p class="rts-pct" id="pct">0% completo</p>
   </section>
+
+  <section style="padding-bottom: 6rem">
+    <ol class="rts-steps" id="steps">
+      <li data-step="1"><div class="rts-step-card"><p class="rts-step-n">Paso 1</p><h3>Escribe tu idea</h3><p>Que problema resuelves, para quien y que vendes. Habla con 5 a 10 posibles clientes.</p><p class="rts-links"><a href={`${base}es/guia/`}>Guia →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="2"><div class="rts-step-card"><p class="rts-step-n">Paso 2</p><h3>Mide tu mercado</h3><p>Cuantos podrian comprarte. Datos gratis en INEGI y Google Trends.</p><p class="rts-links"><a href={`${base}es/calculadoras/tam-sam-som/`}>Calculadora →</a> <a href={`${base}es/guia/`}>Guia →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="3"><div class="rts-step-card"><p class="rts-step-n">Paso 3</p><h3>Saca tu costo</h3><p>Cuanto cuesta cada pieza con todo. Cotiza con 3 proveedores.</p><p class="rts-links"><a href={`${base}es/calculadoras/costo-producto/`}>Calculadora →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="4"><div class="rts-step-card"><p class="rts-step-n">Paso 4</p><h3>Pon tu precio</h3><p>Que pague costos, deje ganancia y la gente pague. Mira 5 a 10 competidores.</p><p class="rts-links"><a href={`${base}es/calculadoras/pricing/`}>Calculadora →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="5"><div class="rts-step-card"><p class="rts-step-n">Paso 5</p><h3>Halla tu equilibrio</h3><p>Cuantas piezas al mes para no perder. Si pide mas clientes de los que existen, no cierra.</p><p class="rts-links"><a href={`${base}es/calculadoras/punto-equilibrio/`}>Hacerlo ahora →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="6"><div class="rts-step-card"><p class="rts-step-n">Paso 6</p><h3>Proyecta tu dinero</h3><p>Cuanto necesitas para arrancar y si se recupera. Tasa base: CETES.</p><p class="rts-links"><a href={`${base}es/calculadoras/flujo-caja/`}>Flujo →</a> <a href={`${base}es/calculadoras/vpn-tir/`}>VPN/TIR →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="7"><div class="rts-step-card"><p class="rts-step-n">Paso 7</p><h3>Revisa cada cliente</h3><p>Cada cliente debe dejar al menos 3 veces lo que costo traerlo.</p><p class="rts-links"><a href={`${base}es/calculadoras/cac-ltv/`}>Calculadora →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="8"><div class="rts-step-card"><p class="rts-step-n">Paso 8</p><h3>Mueve los numeros</h3><p>Y si el insumo sube 20% o vendes menos. Que el plan aguante.</p><p class="rts-links"><a href={`${base}es/calculadoras/sensibilidad/`}>Calculadora →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="9"><div class="rts-step-card"><p class="rts-step-n">Paso 9</p><h3>Revisa lo legal</h3><p>Impuestos (SAT), marca (IMPI), permiso municipal. Una sesion con un contador.</p><p class="rts-links"><a href={`${base}es/guia/`}>Guia →</a></p><button type="button">Marcar listo</button></div></li>
+      <li data-step="10"><div class="rts-step-card"><p class="rts-step-n">Paso 10</p><h3>Decide: sigues o no</h3><p>Con numeros escritos, no con emocion. Si sigues, escribe tus papeles.</p><p class="rts-links"><a href={`${base}es/plantillas/`}>Plantillas →</a></p><button type="button">Marcar listo</button></div></li>
+    </ol>
+  </section>
+
+  <div class="rts-cta">
+    <h2>Cuando termines los 10, armas tus papeles</h2>
+    <p>Estudio, plan, resumen y pitch. En espanol e ingles, listos para Overleaf.</p>
+    <p><a class="rts-btn rts-btn-secondary" href={`${base}es/plantillas/`}>Ver plantillas</a></p>
+  </div>
 </BaseLayout>

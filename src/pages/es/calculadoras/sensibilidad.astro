@@ -1,9 +1,26 @@
 ---
-import SensitivityCalc from '../../../components/react/SensitivityCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import SensitivityCalc from "../../../components/react/SensitivityCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="es">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Sensibilidad — Calculadoras</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="es"
+  title="Paso 8: mueve los numeros — Calculadoras"
+  description="Que pasa si tu insumo sube, vendes menos o bajas el precio."
+>
+  <CalcPage
+    lang="es"
+    step={8}
+    stepName="Mueve los numeros"
+    lede="Que pasa si algo sale mal. Que tu plan aguante."
+    prevHref={`${base}es/calculadoras/cac-ltv/`}
+    prevLabel="Paso 7: cada cliente"
+    nextHref={`${base}es/plantillas/`}
+    nextLabel="Paso 10: plantillas"
+  >
     <SensitivityCalc lang="es" currency="MXN" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>

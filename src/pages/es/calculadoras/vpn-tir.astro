@@ -1,9 +1,26 @@
 ---
-import NpvIrrCalc from '../../../components/react/NpvIrrCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import NpvIrrCalc from "../../../components/react/NpvIrrCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="es">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>VPN / TIR — Calculadoras</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="es"
+  title="Paso 6: VPN y TIR — Calculadoras"
+  description="Si tu inversion se recupera y cuanto rinde al ano."
+>
+  <CalcPage
+    lang="es"
+    step={6}
+    stepName="Proyecta tu dinero"
+    lede="Si tu inversion se recupera y cuanto rinde al ano."
+    prevHref={`${base}es/calculadoras/flujo-caja/`}
+    prevLabel="Paso 6: tu flujo"
+    nextHref={`${base}es/calculadoras/cac-ltv/`}
+    nextLabel="Paso 7: cada cliente"
+  >
     <NpvIrrCalc lang="es" currency="MXN" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>

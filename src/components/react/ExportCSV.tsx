@@ -37,7 +37,7 @@ export function ExportCSV({ lang, filename, headers, rows }: ExportCSVProps) {
     <button
       type="button"
       onClick={() => downloadCsv(filename, headers, rows)}
-      style={btnPrimary}
+      className="rts-btn"
       aria-label={label}
     >
       {label}
@@ -48,32 +48,8 @@ export function ExportCSV({ lang, filename, headers, rows }: ExportCSVProps) {
 export function PrintButton({ lang }: { lang: Lang }) {
   const label = lang === 'es' ? 'Imprimir' : 'Print';
   return (
-    <button type="button" onClick={() => window.print()} style={btnSecondary} aria-label={label}>
+    <button type="button" onClick={() => window.print()} className="rts-btn rts-btn-secondary" aria-label={label}>
       {label}
     </button>
   );
 }
-
-const btnPrimary: React.CSSProperties = {
-  backgroundColor: '#cc785c',
-  color: '#ffffff',
-  border: 'none',
-  borderRadius: 8,
-  padding: '12px 20px',
-  minHeight: 40,
-  fontSize: 14,
-  fontWeight: 500,
-  cursor: 'pointer',
-};
-
-const btnSecondary: React.CSSProperties = {
-  backgroundColor: '#faf9f5',
-  color: '#141413',
-  border: '1px solid #e6dfd8',
-  borderRadius: 8,
-  padding: '12px 20px',
-  minHeight: 40,
-  fontSize: 14,
-  fontWeight: 500,
-  cursor: 'pointer',
-};

@@ -1,9 +1,26 @@
 ---
-import TamSamSomCalc from '../../../components/react/TamSamSomCalc';
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CalcPage from "../../../components/CalcPage.astro";
+import TamSamSomCalc from "../../../components/react/TamSamSomCalc";
+
+const base = import.meta.env.BASE_URL;
 ---
-<html lang="en">
-  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>TAM / SAM / SOM — Calculators</title></head>
-  <body style="font-family: Inter, sans-serif; background: #faf9f5; margin: 0;">
+
+<BaseLayout
+  lang="en"
+  title="Step 2: size your market — Calculators"
+  description="How many could buy, how many you reach, how many you win."
+>
+  <CalcPage
+    lang="en"
+    step={2}
+    stepName="Size your market"
+    lede="How many could buy from you, how many you can reach, how many you can win."
+    prevHref={`${base}en/calculators/`}
+    prevLabel="Calculators"
+    nextHref={`${base}en/calculators/product-cost/`}
+    nextLabel="Step 3: your cost"
+  >
     <TamSamSomCalc lang="en" currency="USD" client:load />
-  </body>
-</html>
+  </CalcPage>
+</BaseLayout>
