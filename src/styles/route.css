@@ -93,6 +93,13 @@ li.rts-done .rts-step-card button { background: var(--success); border-color: va
 .rts-card h3 { font-family: Inter, sans-serif; font-size: 1.125rem; font-weight: 500; margin: 0.75rem 0 0.375rem; }
 .rts-card p { color: var(--body); margin: 0 0 0.75rem; }
 .rts-go { color: var(--primary); font-size: 0.875rem; font-weight: 500; }
+.rts-section { padding: 0 0 4rem; }
+.rts-section-h { font-size: 1.75rem; margin: 0 0 0.5rem; }
+.rts-sub { color: var(--body); max-width: 70ch; margin: 0 0 1.5rem; }
+.rts-papel { font-size: 0.8125rem; color: var(--muted); margin: 0 0 0.625rem; }
+.rts-papel strong { font-weight: 500; color: var(--body); }
+.rts-exit { background: var(--canvas); border: 1px solid var(--hairline); border-left: 3px solid var(--primary); border-radius: 0.5rem; padding: 0.75rem 1rem; font-size: 0.875rem; color: var(--body); margin: 0 0 0.625rem; }
+.rts-hero-actions { display: flex; gap: 0.75rem; margin-top: 1.5rem; flex-wrap: wrap; }
 
 @media (max-width: 768px) {
   .rts-steps, .rts-grid, .rts-grid3, .rts-mono-grid { grid-template-columns: 1fr; }
