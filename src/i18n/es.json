@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "locale": "es",
+    "legalNote": "Validez legal solo Mexico. Esto no es asesoria legal."
+  },
+  "nav": {
+    "home": "Inicio",
+    "guide": "Guia",
+    "feasibility": "Factibilidad",
+    "businessPlan": "Plan de negocios",
+    "calculators": "Calculadoras",
+    "checklists": "Checklists",
+    "legalMX": "Marco legal MX",
+    "glossary": "Glosario",
+    "language": "Idioma"
+  },
+  "actions": {
+    "start": "Empezar",
+    "download": "Descargar",
+    "print": "Imprimir",
+    "calculate": "Calcular",
+    "reset": "Limpiar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "save": "Guardar",
+    "goToGuide": "Ir a la guia"
+  },
+  "guide": {
+    "step1": "Ficha de idea",
+    "step2": "Prefactibilidad",
+    "step3": "6 estudios",
+    "step4": "Go / No-Go",
+    "step5": "Plan y pitch",
+    "readTime": "Tiempo de lectura"
+  },
+  "calc": {
+    "van": "VAN",
+    "vanDesc": "Valor Actual Neto",
+    "tir": "TIR",
+    "tirDesc": "Tasa Interna de Retorno",
+    "breakeven": "Punto de equilibrio",
+    "breakevenDesc": "Unidades o ingresos donde utilidad = 0",
+    "tamSamSom": "TAM / SAM / SOM",
+    "tamSamSomDesc": "Mercado total, servible y obtenible",
+    "investment": "Inversion inicial",
+    "discountRate": "Tasa de descuento (%)",
+    "cashFlows": "Flujos de caja (separados por coma)",
+    "fixedCosts": "Costos fijos",
+    "variableCostPerUnit": "Costo variable por unidad",
+    "pricePerUnit": "Precio por unidad",
+    "result": "Resultado",
+    "resultPositive": "Viable (VAN > 0)",
+    "resultNegative": "No viable (VAN < 0)"
+  },
+  "checklist": {
+    "done": "Completado",
+    "pending": "Pendiente",
+    "notApplicable": "No aplica",
+    "progress": "Progreso"
+  },
+  "legal": {
+    "disclaimer": "Esto no es asesoria legal. Verifica con un notario, contador o abogado.",
+    "mxOnly": "Validez legal solo Mexico."
+  }
+}

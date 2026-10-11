@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+// Astro emits 404.html from this page. GitHub Pages serves it for any
+// unknown path under the project subpath, so every link MUST use `base`
+// instead of "/" or users strand on a dead page.
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  lang="es"
+  title="Pagina no encontrada - Business Feasibility Toolkit"
+  description="La pagina que buscas no existe. Vuelve al inicio en espanol o ingles."
+>
+  <h1>404 - Pagina no encontrada</h1>
+  <p lang="en">Page not found.</p>
+  <p>
+    <a class="btn" href={`${base}es/`} lang="es">Volver al inicio</a>
+    <a href={`${base}en/`} lang="en">Back to home</a>
+  </p>
+</BaseLayout>

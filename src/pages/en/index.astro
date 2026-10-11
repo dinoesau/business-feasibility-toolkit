@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  lang="en"
+  title="Business Feasibility Toolkit - Test your business idea"
+  description="Free web calculators to assess your business feasibility: break-even, NPV, IRR and more."
+>
+  <h1>Test your business idea before you invest</h1>
+  <p>
+    Free bilingual web calculators to validate your idea: break-even, cash
+    flow, NPV, IRR and more.
+  </p>
+  <p>
+    <a class="btn" href={`${base}en/`}>Get started</a>
+    <a href={`${base}es/`} lang="es">Cambiar a español</a>
+  </p>
+
+  <section class="card" aria-label="Calculators">
+    <h2>Calculators</h2>
+    <p>Coming soon: interactive React islands.</p>
+    <!-- placeholder: calculator worker will mount the React islands here (break-even, NPV/IRR, etc.) -->
+  </section>
+</BaseLayout>

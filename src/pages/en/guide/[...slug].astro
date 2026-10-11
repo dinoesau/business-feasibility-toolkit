@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Doc01 from "../../../content/docs-en/01-concepts-viability-vs-feasibility.md";
+import Doc02 from "../../../content/docs-en/02-six-studies-methodology.md";
+import Doc03 from "../../../content/docs-en/03-quickstart-guide.md";
+import Doc04 from "../../../content/docs-en/04-glossary.md";
+import Doc05 from "../../../content/docs-en/05-legal-framework-MX.md";
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "concepts-viability-vs-feasibility" } },
+    { params: { slug: "six-studies-methodology" } },
+    { params: { slug: "quickstart-guide" } },
+    { params: { slug: "glossary" } },
+    { params: { slug: "legal-framework-mx" } },
+  ];
+}
+
+const docs: Record<string, { title: string; description: string; es: string; Content: any }> = {
+  "concepts-viability-vs-feasibility": {
+    title: "Concepts: viability vs. feasibility",
+    description: "Difference between viability and feasibility and when to use each toolkit document.",
+    es: "conceptos-viabilidad-vs-factibilidad",
+    Content: Doc01,
+  },
+  "six-studies-methodology": {
+    title: "Six-studies methodology",
+    description: "Operating guide for the six feasibility studies.",
+    es: "metodologia-6-estudios",
+    Content: Doc02,
+  },
+  "quickstart-guide": {
+    title: "Quickstart guide",
+    description: "Five-step path to use the toolkit and map of all contents.",
+    es: "guia-uso-rapido",
+    Content: Doc03,
+  },
+  glossary: {
+    title: "Glossary",
+    description: "Key toolkit terms: market, finance, MX legal, and methodology.",
+    es: "glosario",
+    Content: Doc04,
+  },
+  "legal-framework-mx": {
+    title: "Legal framework MX",
+    description: "Legal path to create and operate a company in Mexico. Not legal advice.",
+    es: "marco-legal-mx",
+    Content: Doc05,
+  },
+};
+
+const { slug } = Astro.params;
+const doc = docs[slug ?? ""];
+if (!doc) throw new Error(`EN doc not found: ${slug}`);
+const { Content } = doc;
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={`${doc.title} — Business Feasibility Toolkit`} description={doc.description} lang="en">
+  <p><a href={`${base}en/guide/`}>← Guide</a> · <a href={`${base}es/guia/${doc.es}/`}>Versión en español →</a></p>
+  <article class="doc">
+    <Content />
+  </article>
+  <p class="legal-note">Legal validity: Mexico only. This is not legal advice.</p>
+</BaseLayout>

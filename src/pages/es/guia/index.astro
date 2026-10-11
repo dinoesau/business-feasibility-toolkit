@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+const docs = [
+  { slug: "conceptos-viabilidad-vs-factibilidad", name: "01 · Viabilidad vs. factibilidad", desc: "Definiciones, los 6 tipos y cuando usar cada documento." },
+  { slug: "metodologia-6-estudios", name: "02 · Metodologia de los 6 estudios", desc: "Mercado, tecnico, organizacional, legal, financiero y ambiental." },
+  { slug: "guia-uso-rapido", name: "03 · Guia de uso rapido", desc: "Ruta en 5 pasos y mapa de contenidos." },
+  { slug: "glosario", name: "04 · Glosario", desc: "Terminos de mercado, finanzas, legal MX y metodologia." },
+  { slug: "marco-legal-mx", name: "05 · Marco legal MX", desc: "SAS, RFC, IMSS, licencias, NOMs, IMPI, REPSE y pacto de socios." },
+];
+---
+
+<BaseLayout title="Guia — Business Feasibility Toolkit" description="Indice de la guia en español: conceptos, metodologia, uso rapido, glosario y marco legal MX." lang="es">
+  <p><a href={`${base}en/guide/`}>English version →</a></p>
+  <h1>Guia</h1>
+  <ul>
+    {docs.map((d) => (
+      <li><a href={`${base}es/guia/${d.slug}/`}><strong>{d.name}</strong></a> — {d.desc}</li>
+    ))}
+  </ul>
+  <p class="legal-note">Validez legal solo Mexico. Esto no es asesoria legal.</p>
+</BaseLayout>

@@ -1,0 +1,65 @@
+{
+  "meta": {
+    "locale": "en",
+    "legalNote": "Legal validity: Mexico only. This is not legal advice."
+  },
+  "nav": {
+    "home": "Home",
+    "guide": "Guide",
+    "feasibility": "Feasibility",
+    "businessPlan": "Business plan",
+    "calculators": "Calculators",
+    "checklists": "Checklists",
+    "legalMX": "MX legal framework",
+    "glossary": "Glossary",
+    "language": "Language"
+  },
+  "actions": {
+    "start": "Start",
+    "download": "Download",
+    "print": "Print",
+    "calculate": "Calculate",
+    "reset": "Reset",
+    "back": "Back",
+    "next": "Next",
+    "save": "Save",
+    "goToGuide": "Go to guide"
+  },
+  "guide": {
+    "step1": "Idea sheet",
+    "step2": "Pre-feasibility",
+    "step3": "6 studies",
+    "step4": "Go / No-Go",
+    "step5": "Plan & pitch",
+    "readTime": "Read time"
+  },
+  "calc": {
+    "van": "NPV",
+    "vanDesc": "Net Present Value",
+    "tir": "IRR",
+    "tirDesc": "Internal Rate of Return",
+    "breakeven": "Breakeven",
+    "breakevenDesc": "Units or revenue where profit = 0",
+    "tamSamSom": "TAM / SAM / SOM",
+    "tamSamSomDesc": "Total, serviceable, obtainable market",
+    "investment": "Initial investment",
+    "discountRate": "Discount rate (%)",
+    "cashFlows": "Cash flows (comma separated)",
+    "fixedCosts": "Fixed costs",
+    "variableCostPerUnit": "Variable cost per unit",
+    "pricePerUnit": "Price per unit",
+    "result": "Result",
+    "resultPositive": "Viable (NPV > 0)",
+    "resultNegative": "Not viable (NPV < 0)"
+  },
+  "checklist": {
+    "done": "Done",
+    "pending": "Pending",
+    "notApplicable": "N/A",
+    "progress": "Progress"
+  },
+  "legal": {
+    "disclaimer": "This is not legal advice. Verify with a notary, accountant, or lawyer.",
+    "mxOnly": "Legal validity: Mexico only."
+  }
+}

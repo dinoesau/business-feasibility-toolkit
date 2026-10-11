@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import Doc01 from "../../../content/docs-es/01-conceptos-viabilidad-vs-factibilidad.md";
+import Doc02 from "../../../content/docs-es/02-metodologia-6-estudios.md";
+import Doc03 from "../../../content/docs-es/03-guia-uso-rapido.md";
+import Doc04 from "../../../content/docs-es/04-glosario.md";
+import Doc05 from "../../../content/docs-es/05-marco-legal-MX.md";
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "conceptos-viabilidad-vs-factibilidad" } },
+    { params: { slug: "metodologia-6-estudios" } },
+    { params: { slug: "guia-uso-rapido" } },
+    { params: { slug: "glosario" } },
+    { params: { slug: "marco-legal-mx" } },
+  ];
+}
+
+const docs: Record<string, { title: string; description: string; en: string; Content: any }> = {
+  "conceptos-viabilidad-vs-factibilidad": {
+    title: "Conceptos: viabilidad vs. factibilidad",
+    description: "Diferencia entre viabilidad y factibilidad, tipos de viabilidad y como usar cada documento.",
+    en: "concepts-viability-vs-feasibility",
+    Content: Doc01,
+  },
+  "metodologia-6-estudios": {
+    title: "Metodologia de los 6 estudios",
+    description: "Guia operativa de los 6 estudios de factibilidad: mercado, tecnico, organizacional, legal, financiero y ambiental.",
+    en: "six-studies-methodology",
+    Content: Doc02,
+  },
+  "guia-uso-rapido": {
+    title: "Guia de uso rapido",
+    description: "Ruta de 5 pasos para usar el toolkit y mapa de todos los contenidos.",
+    en: "quickstart-guide",
+    Content: Doc03,
+  },
+  glosario: {
+    title: "Glosario",
+    description: "Terminos clave del toolkit: mercado, finanzas, legal MX y metodologia.",
+    en: "glossary",
+    Content: Doc04,
+  },
+  "marco-legal-mx": {
+    title: "Marco legal MX",
+    description: "Ruta legal para crear y operar una empresa en Mexico. No es asesoria legal.",
+    en: "legal-framework-mx",
+    Content: Doc05,
+  },
+};
+
+const { slug } = Astro.params;
+const doc = docs[slug ?? ""];
+if (!doc) throw new Error(`Doc ES no encontrado: ${slug}`);
+const { Content } = doc;
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={`${doc.title} — Business Feasibility Toolkit`} description={doc.description} lang="es">
+  <p><a href={`${base}es/guia/`}>← Guia</a> · <a href={`${base}en/guide/${doc.en}/`}>English version →</a></p>
+  <article class="doc">
+    <Content />
+  </article>
+  <p class="legal-note">Validez legal solo Mexico. Esto no es asesoria legal.</p>
+</BaseLayout>

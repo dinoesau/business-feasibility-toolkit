@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  lang="es"
+  title="Business Feasibility Toolkit - Evalua tu idea de negocio"
+  description="Calculadoras web gratuitas para evaluar la factibilidad de tu negocio: punto de equilibrio, VAN, TIR y mas."
+>
+  <h1>Evalua la factibilidad de tu negocio</h1>
+  <p>
+    Calculadoras web gratuitas y bilingues para validar tu idea antes de
+    invertir: punto de equilibrio, flujo de caja, VAN, TIR y mas.
+  </p>
+  <p>
+    <a class="btn" href={`${base}es/`}>Empezar ahora</a>
+    <a href={`${base}en/`} lang="en">Switch to English</a>
+  </p>
+
+  <section class="card" aria-label="Calculadoras">
+    <h2>Calculadoras</h2>
+    <p>Proximamente: islands interactivas de React.</p>
+    <!-- placeholder: worker de calculadoras montara aqui las React islands (punto de equilibrio, VAN/TIR, etc.) -->
+  </section>
+</BaseLayout>
