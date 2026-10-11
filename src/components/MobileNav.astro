@@ -1,0 +1,181 @@
+---
+/**
+ * HU6 - MobileNav: menu colapsado visible solo bajo 768px.
+ * El layout lo monta como `<MobileNav lang={lang} base={base} seccion={seccion} />`.
+ * Autocontenido: boton + panel + `<style>` con scope + `<script>` minimo.
+ * Cero URLs hardcodeadas: todo sale de `base` + `lang` (12-Factor III config).
+ */
+
+type Lang = "es" | "en";
+type Seccion = "inicio" | "calculadoras" | "guia" | "plantillas" | null;
+
+interface Props {
+  lang: Lang;
+  base: string;
+  seccion: Seccion;
+}
+
+const { lang, base, seccion } = Astro.props as Props;
+
+// Normaliza `base` (import.meta.env.BASE_URL termina en "/", pero no se asume).
+const root = base.endsWith("/") ? base : `${base}/`;
+
+interface NavLink {
+  id: Exclude<Seccion, null>;
+  href: string;
+  label: string;
+}
+
+// Unica tabla de links (bloodhound: cero duplicacion de URLs).
+// Mismas 4 URLs y labels que el nav desktop.
+const slug: Record<Exclude<Seccion, null>, string> = {
+  inicio: "",
+  calculadoras: lang === "es" ? "calculadoras/" : "calculators/",
+  guia: lang === "es" ? "guia/" : "guide/",
+  plantillas: lang === "es" ? "plantillas/" : "templates/",
+};
+
+const label: Record<Exclude<Seccion, null>, string> =
+  lang === "es"
+    ? { inicio: "Inicio", calculadoras: "Calculadoras", guia: "Guía", plantillas: "Plantillas" }
+    : { inicio: "Home", calculadoras: "Calculators", guia: "Guide", plantillas: "Templates" };
+
+const LINKS: NavLink[] = (Object.keys(slug) as Array<Exclude<Seccion, null>>).map((id) => ({
+  id,
+  href: `${root}${lang}/${slug[id]}`,
+  label: label[id],
+}));
+
+const menuLabel = lang === "es" ? "Abrir menú" : "Open menu";
+const navLabel = lang === "es" ? "Navegación móvil" : "Mobile navigation";
+---
+
+<nav class="mobilenav" aria-label={navLabel}>
+  <button
+    type="button"
+    class="mobilenav-btn"
+    aria-expanded="false"
+    aria-controls="mobilenav-panel"
+  >
+    <span aria-hidden="true">☰</span>
+    <span class="mobilenav-sr">{menuLabel}</span>
+  </button>
+  <div id="mobilenav-panel" class="mobilenav-panel" hidden>
+    <ul>
+      {LINKS.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            aria-current={seccion === link.id ? "page" : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  for (const nav of document.querySelectorAll(".mobilenav")) {
+    const btn = nav.querySelector(".mobilenav-btn");
+    const panel = nav.querySelector(".mobilenav-panel");
+    if (!(btn instanceof HTMLButtonElement) || !(panel instanceof HTMLElement)) continue;
+
+    const setOpen = (open: boolean) => {
+      btn.setAttribute("aria-expanded", String(open));
+      if (open) panel.removeAttribute("hidden");
+      else panel.setAttribute("hidden", "");
+    };
+
+    btn.addEventListener("click", () => {
+      setOpen(btn.getAttribute("aria-expanded") !== "true");
+    });
+
+    panel.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLAnchorElement) setOpen(false);
+    });
+
+    nav.addEventListener("keydown", (event) => {
+      if ((event as KeyboardEvent).key === "Escape") {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+  }
+</script>
+
+<style>
+  .mobilenav {
+    display: none;
+  }
+
+  .mobilenav-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .mobilenav-btn {
+    min-width: 40px;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    line-height: 1;
+    color: var(--ink);
+    background: var(--canvas);
+    border: 1px solid var(--ink);
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+
+  .mobilenav-btn:focus-visible,
+  .mobilenav-panel a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+
+  .mobilenav-panel {
+    background: var(--canvas);
+    border: 1px solid var(--ink);
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .mobilenav-panel[hidden] {
+    display: none;
+  }
+
+  .mobilenav-panel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .mobilenav-panel a {
+    display: block;
+    padding: 0.75rem 1rem;
+    color: var(--ink);
+    text-decoration: none;
+    border-radius: 0.375rem;
+  }
+
+  .mobilenav-panel a[aria-current="page"] {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
+  @media (max-width: 767px) {
+    .mobilenav {
+      display: block;
+    }
+  }
+</style>

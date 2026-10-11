@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
 import "../styles/route.css";
+import MobileNav from "../components/MobileNav.astro";
+import { seccionActiva } from "../lib/nav.js";
 
 interface Props {
   title: string;
@@ -14,6 +16,7 @@ interface Props {
 const base = import.meta.env.BASE_URL;
 const { title, description, lang } = Astro.props;
 const other = lang === "es" ? "en" : "es";
+const seccion = seccionActiva(Astro.url.pathname, base, lang);
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
@@ -38,6 +41,12 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
     <header class="topnav">
       <nav class="wrap" aria-label="Main">
         <a class="brand" href={`${base}${lang}/`}><span style="color: var(--primary)">✳</span> {lang === "es" ? "Mi ruta" : "My route"}</a>
+        <div class="nav-links">
+          <a href={`${base}${lang}/`} aria-current={seccion === "inicio" ? "page" : undefined}>{lang === "es" ? "Inicio" : "Home"}</a>
+          <a href={lang === "es" ? `${base}es/calculadoras/` : `${base}en/calculators/`} aria-current={seccion === "calculadoras" ? "page" : undefined}>{lang === "es" ? "Calculadoras" : "Calculators"}</a>
+          <a href={lang === "es" ? `${base}es/guia/` : `${base}en/guide/`} aria-current={seccion === "guia" ? "page" : undefined}>{lang === "es" ? "Guía" : "Guide"}</a>
+          <a href={lang === "es" ? `${base}es/plantillas/` : `${base}en/templates/`} aria-current={seccion === "plantillas" ? "page" : undefined}>{lang === "es" ? "Plantillas" : "Templates"}</a>
+        </div>
         <div class="lang-switch">
           <span id="nav-progress" style="font-size: 0.875rem; color: var(--muted)">0 / 10</span>
           <a href={`${base}es/`} aria-current={lang === "es" ? "true" : undefined}>ES</a>
@@ -46,6 +55,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).toString();
             {other === "es" ? "Español" : "English"}
           </a>
         </div>
+        <MobileNav lang={lang} base={base} seccion={seccion} />
       </nav>
     </header>
     <main class="wrap">

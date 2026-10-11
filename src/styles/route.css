@@ -111,3 +111,11 @@ li.rts-done .rts-step-card button { background: var(--success); border-color: va
   .rts-result h2, .rts-row strong { color: #000; }
   .rts-row span { color: #333; }
 }
+/* NAV-DESKTOP */
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a[aria-current="page"] { color: var(--primary); }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
