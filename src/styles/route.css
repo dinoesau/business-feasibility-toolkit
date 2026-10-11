@@ -119,3 +119,71 @@ li.rts-done .rts-step-card button { background: var(--success); border-color: va
 @media (max-width: 768px) {
   .nav-links { display: none; }
 }
+
+/* HOME v3 final (epicas 1-3): hero dividido + stack, pasos accionables, calcs subordinadas. */
+.home-hero-split { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; padding: 4.5rem 0 3.5rem; min-width: 0; }
+@media (max-width: 960px) { .home-hero-split { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 960px) { .home-hero-split { grid-template-columns: 1fr; } }
+.home-hero-split h1 { font-size: clamp(2.5rem, 5vw, 3.875rem); }
+.home-note { font-size: 0.8125rem; color: var(--muted); margin-top: 1rem; }
+.doc-stack { position: relative; min-height: 26.25rem; max-width: 100%; min-width: 0; }
+.sheet { position: absolute; background: #fff; border: 1px solid var(--hairline); border-radius: 4px; box-shadow: 0 1px 3px rgba(20,20,19,.08); padding: 1.375rem; width: min(18.75rem, 70vw); }
+.sheet h3 { font-size: 1.375rem; margin: 0.5rem 0 0.375rem; }
+.sheet p { font-size: 0.84375rem; color: var(--muted); margin: 0; }
+.sheet .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 0.6875rem; color: var(--muted); display: flex; justify-content: space-between; border-bottom: 1px solid var(--hairline); padding-bottom: 0.5rem; }
+.sheet .lines { margin-top: 0.75rem; display: grid; gap: 0.375rem; }
+.sheet .lines i { display: block; height: 6px; background: #f5f0e8; border-radius: 9999px; }
+.s1 { left: 0; top: 1.875rem; transform: rotate(-6deg); z-index: 1; }
+.s2 { left: 7.5rem; top: 0; transform: rotate(2deg); z-index: 2; }
+.s3 { left: 14.375rem; top: 2.75rem; transform: rotate(6deg); z-index: 3; border-top: 4px solid var(--primary); }
+.s4 { left: 5rem; top: 10.625rem; transform: rotate(-2deg); z-index: 4; background: var(--dark); color: var(--on-dark); border-color: var(--dark); }
+.s4 h3 { color: var(--on-dark); }
+.s4 p, .s4 .mono { color: var(--on-dark-soft); border-color: #2e2c28; }
+.s4 .lines i { background: #2e2c28; }
+@media (max-width: 520px) { .doc-stack { min-height: 28rem; } .sheet { width: min(16rem, 78vw); } .s2 { left: 2.5rem; } .s3 { left: 4.5rem; } .s4 { left: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .sheet { transform: none; } }
+
+/* Pasos como filas accionables (epica 3). Reusa #steps + data-step para route.js.
+   Fila de 2 columnas: numero + contenido. Todas las acciones van en una
+   sola fila izquierda dentro del contenido, nunca en columna derecha. */
+html, body { max-width: 100%; overflow-x: clip; }
+.steps-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--hairline); }
+.steps-rows li { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 0 1.25rem; padding: 1.5rem 0; border-bottom: 1px solid var(--hairline); align-items: start; }
+.steps-rows .n { font-family: "JetBrains Mono", monospace; font-size: 0.8125rem; color: var(--muted); padding-top: 0.375rem; }
+.steps-rows h3 { font-size: 1.375rem; margin: 0; max-width: 100%; }
+.steps-rows .desc { margin: 0.375rem 0; max-width: 38em; }
+.steps-rows .side { grid-column: 2; display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 0.625rem 0.875rem; margin-top: 0.875rem; }
+.steps-rows .links { display: flex; align-items: center; gap: 0.875rem; font-size: 0.875rem; flex-wrap: wrap; }
+.steps-rows .links a { color: var(--primary); font-weight: 500; text-decoration: none; line-height: 40px; }
+.steps-rows .links a.cta { background: var(--primary); color: var(--on-primary); border-radius: 8px; padding: 0 16px; min-height: 40px; line-height: 40px; display: inline-block; }
+.steps-rows .links a.cta:active { background: var(--primary-active); }
+.exit-flag { display: inline-block; vertical-align: middle; margin-left: 0.625rem; background: #faf3e3; border: 1px solid #e8cf9a; color: #7a5a12; font-family: Inter, sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0; border-radius: 9999px; padding: 0.25rem 0.75rem; }
+li.rts-done .steps-rows-inner, .steps-rows li.rts-done { background: transparent; }
+.steps-rows li.rts-done h3 { text-decoration: none; }
+.steps-rows button {
+  margin: 0; background: transparent; border: 1px solid var(--hairline);
+  border-radius: 0.5rem; min-height: 40px; padding: 0.5rem 1rem;
+  font-size: 0.875rem; font-weight: 500; cursor: pointer; color: var(--ink);
+}
+.steps-rows li.rts-done button { background: var(--success); border-color: var(--success); color: #fff; }
+@media (max-width: 720px) { .steps-rows li { grid-template-columns: 1fr; } .steps-rows .n { padding-top: 0; } .steps-rows .side { grid-column: 1; } }
+
+/* Calculadoras subordinadas a pasos (epica 2). */
+.calc-tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-top: 1.25rem; }
+@media (max-width: 960px) { .calc-tiles { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .calc-tiles { grid-template-columns: 1fr; } }
+.calc-tiles a { border: 1px solid var(--hairline); border-radius: 12px; padding: 1.25rem; background: var(--canvas); text-decoration: none; color: inherit; display: block; }
+.calc-tiles a:hover { border-color: var(--primary); }
+.calc-tiles .abbr { font-family: "JetBrains Mono", monospace; font-size: 0.75rem; color: var(--primary); border: 1px solid var(--hairline); display: inline-block; border-radius: 6px; padding: 2px 8px; margin-bottom: 0.625rem; }
+.calc-tiles h3 { font-size: 1.125rem; font-family: Inter, sans-serif; font-weight: 500; letter-spacing: 0; margin: 0; }
+.calc-tiles p { font-size: 0.84375rem; color: var(--muted); margin: 0.5rem 0; }
+.calc-tiles .paso { font-size: 0.8125rem; color: var(--primary); font-weight: 500; }
+
+/* Banda dark final con mini ejemplo. */
+.band-dark { background: var(--dark); border-radius: 16px; padding: 3.5rem; color: var(--on-dark); margin-top: 2rem; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: center; }
+@media (max-width: 860px) { .band-dark { grid-template-columns: 1fr; padding: 2rem; } }
+.band-dark h2 { color: var(--on-dark); font-size: clamp(1.75rem, 3.4vw, 2.5rem); margin: 0 0 0.5rem; }
+.band-dark p { color: var(--on-dark-soft); }
+.band-dark .btn-light { background: var(--canvas); color: var(--ink); display: inline-block; border-radius: 8px; padding: 12px 20px; font-size: 14px; font-weight: 500; text-decoration: none; min-height: 44px; }
+.mini { background: var(--dark-elev); border-radius: 12px; padding: 1.375rem; font-family: "JetBrains Mono", monospace; font-size: 0.8125rem; color: var(--on-dark); }
+.mini b { color: #5db8a6; font-weight: 400; }

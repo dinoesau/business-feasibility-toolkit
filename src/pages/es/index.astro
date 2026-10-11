@@ -24,52 +24,75 @@ const GUIAS_PASO = [
   title="De tu idea a un plan de negocios en 10 pasos — Business Feasibility Toolkit"
   description="Revisa si tu idea vale la pena antes de gastar. 10 pasos con calculadoras gratis. Sales con cifras para tu estudio, plan y pitch."
 >
-  <section class="rts-hero">
-    <p class="rts-kicker"><span class="rts-badge-coral">Gratis</span> En espanol e ingles</p>
-    <h1>De tu idea a un plan de negocios, en 10 pasos</h1>
-    <p class="rts-lede">
-      La mayoria pierde dinero por gastar antes de medir.
-      Aqui revisas si tu idea vale la pena antes de gastar en ella.
-      Cada paso te dice que buscar, donde buscarlo y con que calculadora gratis hacerlo.
-      Al final decides con numeros y armas tu estudio, tu plan y tu pitch.
-    </p>
-    <div class="rts-hero-actions">
-      <a class="rts-btn" href="#pasos">Empezar por el paso 1</a>
-      <a class="rts-btn rts-btn-secondary" href={`${base}es/plantillas/`}>Ver que vas a armar</a>
+  <section class="home-hero-split">
+    <div>
+      <p class="rts-kicker"><span class="rts-badge-coral">Gratis</span> En espanol e ingles · Sin cuentas</p>
+      <h1>De tu idea a un plan de negocios, en 10 pasos</h1>
+      <p class="rts-lede">
+        Revisa si tu idea vale la pena antes de gastar.
+        Son 10 pasos en orden con 8 calculadoras gratis.
+        Cada paso llena una parte de tu estudio, tu plan, tu resumen y tu pitch.
+      </p>
+      <div class="rts-hero-actions">
+        <a class="rts-btn" href="#pasos">Empezar por el paso 1</a>
+        <a class="rts-btn rts-btn-secondary" href="#documentos">Ver que vas a armar</a>
+      </div>
+      <p class="home-note">Ejemplo incluido: cafeteria con numeros reales para copiar el formato.</p>
+      <div class="rts-progress"><i id="bar"></i></div>
+      <p class="rts-pct" id="pct">0% completo</p>
     </div>
-    <div class="rts-progress"><i id="bar"></i></div>
-    <p class="rts-pct" id="pct">0% completo</p>
+    <div class="doc-stack" aria-label="Los cuatro documentos que armas al final">
+      <div class="sheet s1"><span class="mono"><span>DOC 01</span><span>ES · EN</span></span><h3>Estudio de factibilidad</h3><p>Pasos 1 a 9. Si se puede hacer y mantener.</p><div class="lines"><i style="width:90%"></i><i style="width:70%"></i><i style="width:80%"></i></div></div>
+      <div class="sheet s2"><span class="mono"><span>DOC 02</span><span>ES · EN</span></span><h3>Plan de negocios</h3><p>Paso 10. Que haras en 3 a 5 anos.</p><div class="lines"><i style="width:80%"></i><i style="width:85%"></i><i style="width:60%"></i></div></div>
+      <div class="sheet s3"><span class="mono"><span>DOC 03</span><span>2 pags</span></span><h3>Resumen ejecutivo</h3><p>Para socios y bancos. Dos paginas.</p><div class="lines"><i style="width:95%"></i><i style="width:65%"></i></div></div>
+      <div class="sheet s4"><span class="mono"><span>DOC 04</span><span>12 lam.</span></span><h3>Pitch deck</h3><p>12 laminas para inversionistas.</p><div class="lines"><i style="width:75%"></i><i style="width:85%"></i><i style="width:55%"></i></div></div>
+    </div>
   </section>
 
   <section class="rts-section">
     <h2 class="rts-section-h">Como funciona: de corazonada a decision</h2>
     <p class="rts-sub">No es un curso. Es una ruta para pasar tu idea por numeros y salir con documentos.</p>
     <div class="rts-grid3">
-      <div class="rts-card"><span class="rts-badge">1 · Idea</span><h3>Empiezas con una idea</h3><p>La escribes en una ficha: problema, cliente, que vendes. Hablas con 5 a 10 posibles clientes.</p><span class="rts-go">Paso 1 →</span></div>
-      <div class="rts-card"><span class="rts-badge">2 · Numeros</span><h3>La pasas por numeros</h3><p>Mercado, costo, precio, equilibrio y flujo. Si pide mas clientes de los que existen, paras y ahorras.</p><span class="rts-go">Pasos 2 a 8 →</span></div>
-      <div class="rts-card"><span class="rts-badge">3 · Documentos</span><h3>Decides y armas papeles</h3><p>Con numeros escritos, no con emocion. Si sigues, llenas estudio, plan, resumen y pitch.</p><span class="rts-go">Pasos 9 y 10 →</span></div>
+      <div class="rts-card"><span class="rts-badge">1 · Idea</span><h3>Empiezas con una idea</h3><p>La escribes en una ficha: problema, cliente, que vendes. Hablas con 5 a 10 posibles clientes.</p><span class="rts-go">Paso 1</span></div>
+      <div class="rts-card"><span class="rts-badge">2 · Numeros</span><h3>La pasas por numeros</h3><p>Mercado, costo, precio, equilibrio y flujo. Si pide mas clientes de los que existen, paras y ahorras.</p><span class="rts-go">Pasos 2 a 8</span></div>
+      <div class="rts-card"><span class="rts-badge">3 · Documentos</span><h3>Decides y armas documentos</h3><p>Con numeros escritos, no con emocion. Si sigues, llenas estudio, plan, resumen y pitch.</p><span class="rts-go">Pasos 9 y 10</span></div>
     </div>
   </section>
 
   <section class="rts-section" id="pasos">
     <h2 class="rts-section-h">Los 10 pasos, en orden</h2>
-    <p class="rts-sub">Hazlos en orden. Cada uno llena una parte de tus documentos. Hay dos puntos donde puedes parar y ahorrar si los numeros no cierran.</p>
-    <ol class="rts-steps" id="steps">
-      <li data-step="1"><div class="rts-step-card"><p class="rts-step-n">Paso 1</p><h3>Escribe tu idea</h3><p>Conviertela en ficha de 5 lineas. Te mostramos ejemplo de vending y que preguntar.</p><p class="rts-papel"><strong>Papel que llena:</strong> ficha de idea.</p><p class="rts-links"><a href={`${base}es/ficha/`}>Llenar mi ficha →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[0]}/`}>Guia paso 1 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="2"><div class="rts-step-card"><p class="rts-step-n">Paso 2</p><h3>Mide tu mercado</h3><p>Calcula TAM, SAM y SOM con ejemplo de vending. Datos gratis en INEGI.</p><p class="rts-papel"><strong>Papel que llena:</strong> estudio de mercado.</p><p class="rts-links"><a href={`${base}es/calculadoras/tam-sam-som/`}>Calculadora →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[1]}/`}>Guia paso 2 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="3"><div class="rts-step-card"><p class="rts-step-n">Paso 3</p><h3>Saca tu costo</h3><p>Por pieza, por hora o por receta. Elige tu metodo y saca tu numero.</p><p class="rts-papel"><strong>Papel que llena:</strong> estudio tecnico y costos.</p><p class="rts-links"><a href={`${base}es/calculadoras/costo-producto/`}>Calculadora →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[2]}/`}>Guia paso 3 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="4"><div class="rts-step-card"><p class="rts-step-n">Paso 4</p><h3>Pon tu precio</h3><p>Que pague costos, deje ganancia y la gente pague. Mira 5 a 10 competidores.</p><p class="rts-papel"><strong>Papel que llena:</strong> plan de ventas.</p><p class="rts-links"><a href={`${base}es/calculadoras/pricing/`}>Calculadora →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[3]}/`}>Guia paso 4 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="5"><div class="rts-step-card"><p class="rts-step-n">Paso 5 · Salida temprana</p><h3>Halla tu equilibrio</h3><p>Cuantas piezas al mes para no perder.</p><p class="rts-exit">Compara con tu mercado del paso 2. Si necesitas mas clientes de los que existen, la idea no cierra. Para aqui.</p><p class="rts-papel"><strong>Papel que llena:</strong> operaciones y financiero.</p><p class="rts-links"><a href={`${base}es/calculadoras/punto-equilibrio/`}>Hacerlo ahora →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[4]}/`}>Guia paso 5 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="6"><div class="rts-step-card"><p class="rts-step-n">Paso 6</p><h3>Proyecta tu dinero</h3><p>Cuanto necesitas para arrancar y si se recupera. Tasa base: CETES.</p><p class="rts-papel"><strong>Papel que llena:</strong> estudio financiero.</p><p class="rts-links"><a href={`${base}es/calculadoras/flujo-caja/`}>Flujo →</a> <a href={`${base}es/calculadoras/vpn-tir/`}>VPN/TIR →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[5]}/`}>Guia paso 6 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="7"><div class="rts-step-card"><p class="rts-step-n">Paso 7</p><h3>Revisa cada cliente</h3><p>Cada cliente debe dejar al menos 3 veces lo que costo traerlo.</p><p class="rts-papel"><strong>Papel que llena:</strong> ventas y escenarios.</p><p class="rts-links"><a href={`${base}es/calculadoras/cac-ltv/`}>Calculadora →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[6]}/`}>Guia paso 7 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="8"><div class="rts-step-card"><p class="rts-step-n">Paso 8 · Salida temprana</p><h3>Mueve los numeros</h3><p>Y si el insumo sube 20% o vendes menos.</p><p class="rts-exit">Si el plan no aguanta un 20% malo, no sigas. Ajusta o para aqui.</p><p class="rts-papel"><strong>Papel que llena:</strong> riesgos del estudio.</p><p class="rts-links"><a href={`${base}es/calculadoras/sensibilidad/`}>Calculadora →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[7]}/`}>Guia paso 8 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="9"><div class="rts-step-card"><p class="rts-step-n">Paso 9</p><h3>Revisa lo legal</h3><p>Impuestos (SAT), marca (IMPI), permiso municipal. Una sesion con un contador.</p><p class="rts-papel"><strong>Papel que llena:</strong> estudio legal y socios.</p><p class="rts-links"><a href={`${base}es/guia/paso/${GUIAS_PASO[8]}/`}>Guia paso 9 →</a></p><button type="button">Marcar listo</button></div></li>
-      <li data-step="10"><div class="rts-step-card"><p class="rts-step-n">Paso 10</p><h3>Decide: sigues o no</h3><p>Con numeros escritos, no con emocion. Si sigues, escribe tus papeles.</p><p class="rts-papel"><strong>Papel que llena:</strong> decision Go / No-Go.</p><p class="rts-links"><a href={`${base}es/plantillas/`}>Plantillas →</a> <a href={`${base}es/guia/paso/${GUIAS_PASO[9]}/`}>Guia paso 10 →</a></p><button type="button">Marcar listo</button></div></li>
+    <p class="rts-sub">Hazlos en orden. Cada paso se empieza con un boton y llena una parte de tus documentos. Hay dos puntos donde puedes parar y ahorrar si los numeros no cierran.</p>
+    <ol class="steps-rows" id="steps">
+      <li data-step="1"><span class="n">Paso 1</span><div><h3>Escribe tu idea</h3><p class="desc">Conviertela en ficha de 5 lineas. Te mostramos ejemplo de vending y que preguntar.</p><p class="rts-papel"><strong>Llena:</strong> ficha de idea.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/ficha/`}>Llenar mi ficha</a><a href={`${base}es/guia/paso/${GUIAS_PASO[0]}/`}>Guia paso 1</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="2"><span class="n">Paso 2</span><div><h3>Mide tu mercado</h3><p class="desc">Calcula TAM, SAM y SOM con ejemplo de vending. Datos gratis en INEGI.</p><p class="rts-papel"><strong>Llena:</strong> estudio de mercado.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/calculadoras/tam-sam-som/`}>Calcular mi mercado</a><a href={`${base}es/guia/paso/${GUIAS_PASO[1]}/`}>Guia paso 2</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="3"><span class="n">Paso 3</span><div><h3>Saca tu costo</h3><p class="desc">Por pieza, por hora o por receta. Elige tu metodo y saca tu numero.</p><p class="rts-papel"><strong>Llena:</strong> estudio tecnico y costos.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/calculadoras/costo-producto/`}>Calcular mi costo</a><a href={`${base}es/guia/paso/${GUIAS_PASO[2]}/`}>Guia paso 3</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="4"><span class="n">Paso 4</span><div><h3>Pon tu precio</h3><p class="desc">Que pague costos, deje ganancia y la gente pague. Mira 5 a 10 competidores.</p><p class="rts-papel"><strong>Llena:</strong> plan de ventas.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/calculadoras/pricing/`}>Poner mi precio</a><a href={`${base}es/guia/paso/${GUIAS_PASO[3]}/`}>Guia paso 4</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="5"><span class="n">Paso 5</span><div><h3>Halla tu equilibrio <span class="exit-flag">Salida temprana 1 de 2</span></h3><p class="desc">Cuantas piezas al mes para no perder.</p><p class="rts-exit">Compara con tu mercado del paso 2. Si necesitas mas clientes de los que existen, la idea no cierra. Para aqui.</p><p class="rts-papel"><strong>Llena:</strong> operaciones y financiero.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/calculadoras/punto-equilibrio/`}>Hallarlo ahora</a><a href={`${base}es/guia/paso/${GUIAS_PASO[4]}/`}>Guia paso 5</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="6"><span class="n">Paso 6</span><div><h3>Proyecta tu dinero</h3><p class="desc">Cuanto necesitas para arrancar y si se recupera. Tasa base: CETES.</p><p class="rts-papel"><strong>Llena:</strong> estudio financiero.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/calculadoras/flujo-caja/`}>Proyectar mi flujo</a><a href={`${base}es/calculadoras/vpn-tir/`}>VPN/TIR</a><a href={`${base}es/guia/paso/${GUIAS_PASO[5]}/`}>Guia paso 6</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="7"><span class="n">Paso 7</span><div><h3>Revisa cada cliente</h3><p class="desc">Cada cliente debe dejar al menos 3 veces lo que costo traerlo.</p><p class="rts-papel"><strong>Llena:</strong> ventas y escenarios.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/calculadoras/cac-ltv/`}>Revisar mis clientes</a><a href={`${base}es/guia/paso/${GUIAS_PASO[6]}/`}>Guia paso 7</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="8"><span class="n">Paso 8</span><div><h3>Mueve los numeros <span class="exit-flag">Salida temprana 2 de 2</span></h3><p class="desc">Y si el insumo sube 20% o vendes menos.</p><p class="rts-exit">Si el plan no aguanta un 20% malo, no sigas. Ajusta o para aqui.</p><p class="rts-papel"><strong>Llena:</strong> riesgos del estudio.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/calculadoras/sensibilidad/`}>Probar mi riesgo</a><a href={`${base}es/guia/paso/${GUIAS_PASO[7]}/`}>Guia paso 8</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="9"><span class="n">Paso 9</span><div><h3>Revisa lo legal</h3><p class="desc">Impuestos (SAT), marca (IMPI), permiso municipal. Una sesion con un contador.</p><p class="rts-papel"><strong>Llena:</strong> estudio legal y socios.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/guia/paso/${GUIAS_PASO[8]}/`}>Revisar lo legal</a></div><button type="button">Marcar listo</button></div></li>
+      <li data-step="10"><span class="n">Paso 10</span><div><h3>Decide: sigues o no</h3><p class="desc">Con numeros escritos, no con emocion. Si sigues, escribes tus documentos.</p><p class="rts-papel"><strong>Llena:</strong> decision Go / No-Go.</p></div><div class="side"><div class="links"><a class="cta" href={`${base}es/plantillas/`}>Ver plantillas</a><a href={`${base}es/guia/paso/${GUIAS_PASO[9]}/`}>Guia paso 10</a></div><button type="button">Marcar listo</button></div></li>
     </ol>
   </section>
 
-  <section class="rts-section">
-    <h2 class="rts-section-h">Que armas al final</h2>
+  <section class="rts-section" id="calculadoras">
+    <h2 class="rts-section-h">Herramientas que usaras dentro de los pasos</h2>
+    <p class="rts-sub">Cada una responde una pregunta. Usala dentro de su paso, en orden.</p>
+    <div class="calc-tiles">
+      <a href={`${base}es/calculadoras/tam-sam-som/`}><span class="abbr">TAM</span><h3>Mercado</h3><p>A cuantos puedes llegar y a cuantos ganar?</p><span class="paso">Paso 2</span></a>
+      <a href={`${base}es/calculadoras/costo-producto/`}><span class="abbr">COSTO</span><h3>Costo real</h3><p>Cuanto cuesta cada pieza con todo incluido?</p><span class="paso">Paso 3</span></a>
+      <a href={`${base}es/calculadoras/pricing/`}><span class="abbr">PVP</span><h3>Precio</h3><p>Que precio paga costos y deja ganancia?</p><span class="paso">Paso 4</span></a>
+      <a href={`${base}es/calculadoras/punto-equilibrio/`}><span class="abbr">PE</span><h3>Equilibrio</h3><p>Cuantas piezas al mes para no perder?</p><span class="paso">Paso 5</span></a>
+      <a href={`${base}es/calculadoras/flujo-caja/`}><span class="abbr">FLUJO</span><h3>Flujo de caja</h3><p>Cuanto necesitas para arrancar?</p><span class="paso">Paso 6</span></a>
+      <a href={`${base}es/calculadoras/vpn-tir/`}><span class="abbr">VPN</span><h3>VPN / TIR</h3><p>Se recupera lo invertido?</p><span class="paso">Paso 6</span></a>
+      <a href={`${base}es/calculadoras/cac-ltv/`}><span class="abbr">CAC</span><h3>CAC / LTV</h3><p>Cada cliente deja mas de lo que costo?</p><span class="paso">Paso 7</span></a>
+      <a href={`${base}es/calculadoras/sensibilidad/`}><span class="abbr">±20%</span><h3>Sensibilidad</h3><p>Aguanta si algo sale mal?</p><span class="paso">Paso 8</span></a>
+    </div>
+  </section>
+
+  <section class="rts-section" id="documentos">
+    <h2 class="rts-section-h">Que vas a armar al final</h2>
     <p class="rts-sub">Sales con documentos, no solo con ideas. Cada plantilla esta en espanol e ingles, lista para Overleaf.</p>
     <div class="rts-grid3">
       <div class="rts-card"><span class="rts-badge">Pasos 1 a 9</span><h3>Estudio de factibilidad</h3><p>Para decidir con numeros si se puede hacer y mantener.</p></div>
@@ -78,9 +101,12 @@ const GUIAS_PASO = [
     </div>
   </section>
 
-  <div class="rts-cta">
-    <h2>Decide con numeros, no con emocion</h2>
-    <p>Empieza por el paso 1. Si los numeros no cierran en el paso 5, paras y ahorras. Si cierran, terminas con estudio, plan, resumen y pitch.</p>
-    <p><a class="rts-btn rts-btn-secondary" href={`${base}es/plantillas/`}>Ver plantillas</a> <a class="rts-btn rts-btn-secondary" href="#pasos">Empezar ahora</a></p>
+  <div class="band-dark">
+    <div>
+      <h2>Decide con numeros, no con emocion</h2>
+      <p>Empieza por el paso 1. Si los numeros no cierran en el paso 5, paras y ahorras. Si cierran, terminas con estudio, plan, resumen y pitch.</p>
+      <p><a class="btn-light" href="#pasos">Empezar ahora</a></p>
+    </div>
+    <div class="mini">precio 45 − costo 18 = <b>margen 27</b><br />fijos 28,000 / 27 = <b>1,037 tazas/mes</b><br />mercado 600 → <b>no cierra: para</b></div>
   </div>
 </BaseLayout>
