@@ -20,6 +20,30 @@ Final document structure: executive summary, introduction (objective, scope, met
 - MX sources: INEGI, BANXICO, Data Mexico, own surveys.
 - Output: the sales table that feeds the financial study. Format: narrative + tables + charts.
 
+### How to calculate TAM, SAM and SOM with your vending (full example)
+
+Single formula: `market = people x pages per person per year x price per page`.
+
+**Step A. People.**
+TAM: people in your city who print. Check the INEGI DENUE directory for copy shops by area: filter by your municipality and print activity, note the count. That tells you how many rivals fight for the TAM.
+SAM: your school enrollment plus hospital staff and visitors. Ask the front desk and count foot traffic at peak hour in front of your spot.
+SOM: nobody gives it to you. You build it bottom-up in step D.
+
+**Step B. Pages per person.**
+Use your 5 to 10 talks from step 1. Ask how many pages they print a month, times 12. If they say 4 a month, that is 48 a year. If search trends for "print" fall in your state over the last 12 months, use the low number, not the optimistic one.
+
+**Step C. Price per page.**
+Note what they pay today at the corner copy shop and the cyber across the street. That is your ticket. Count rivals on your street by hand: name, price per page, hours. If they close at 8pm and you run 24h, that is your measurable edge.
+
+**Step D. Example with numbers (replace with yours).**
+TAM = 20,000 people x 48 pages x $1.50 = $1,440,000 a year.
+SAM = 3,000 on your block x 48 x $1.50 = $216,000 (15% of TAM).
+Bottom-up SOM = 80 pages a day x 300 days x $1.50 = $36,000 a year.
+In the step 2 calculator set TAM = 1,440,000, SAM = 15, SOM = 17. Bottom-up SOM rules: if your machine cannot do 80 pages a day, lower the % until they match.
+
+**Step E. What you keep for finance.**
+Sales table in units and value per year, same figure you will use in plan, summary and deck. If SOM cannot reach step 5 break-even, you stop there.
+
 ## Study 2 - Technical
 
 - Production process as flowchart, technologies, installed capacity.

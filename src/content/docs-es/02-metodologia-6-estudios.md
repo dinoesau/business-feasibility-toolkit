@@ -18,6 +18,30 @@ Estructura del documento final: resumen ejecutivo, introduccion (objetivo, alcan
 - Fuentes MX: INEGI, BANXICO, Data Mexico, encuestas propias.
 - Salida: tabla de ventas que alimenta el estudio financiero. Formato: narrativa + tablas + graficos.
 
+### Como calcular TAM, SAM y SOM con tu vending (ejemplo completo)
+
+Formula unica: `mercado = personas x hojas por persona al año x precio por hoja`.
+
+**Paso A. Personas.**
+TAM: habitantes de tu ciudad que imprimen. Busca en INEGI DENUE cuantas papelerias y cibers hay por colonia: entra a DENUE, filtra por tu municipio y actividad de impresion y fotocopiado, anota el numero. Eso te dice cuantos competidores pelean el TAM.
+SAM: matricula de tu escuela mas personal y visitas del hospital. Pide el dato en direccion y cuenta a la hora pico quien pasa frente a tu local.
+SOM: nadie te lo da. Lo calculas tu de abajo hacia arriba en el paso D.
+
+**Paso B. Hojas por persona.**
+Usa tus 5 a 10 platicas del paso 1. Pregunta cuantas hojas imprimen al mes y multiplica por 12. Si te dicen 4 al mes, son 48 al año. Si Google Trends muestra que "imprimir" baja en tu estado en los ultimos 12 meses, usa el numero bajo, no el optimista.
+
+**Paso C. Precio por hoja.**
+Anota cuanto pagan hoy en la papeleria de la esquina y el ciber de enfrente. Ese es tu ticket. Cuenta a mano los rivales en tu calle: nombre, precio por hoja y horario. Si cierran a las 8pm y tu abres 24h, esa es tu ventaja medible.
+
+**Paso D. Ejemplo con numeros (cambia por los tuyos).**
+TAM = 20,000 personas x 48 hojas x $1.50 = $1,440,000 al año.
+SAM = 3,000 de tu cuadra x 48 x $1.50 = $216,000 (15% del TAM).
+SOM de abajo hacia arriba = 80 hojas al dia x 300 dias x $1.50 = $36,000 al año.
+En la calculadora del paso 2 mete TAM = 1,440,000, SAM = 15, SOM = 17. El SOM de abajo hacia arriba manda: si tu maquina no da 80 hojas al dia, baja el % hasta que coincidan.
+
+**Paso E. Que guardas para el financiero.**
+Tabla de ventas en unidades y valor por año, misma cifra que usaras en el plan, el resumen y el deck. Si el SOM no alcanza el equilibrio del paso 5, paras ahi.
+
 ## Estudio 2 - Tecnico
 
 - Proceso productivo en diagrama de flujo, tecnologias, capacidad instalada.
